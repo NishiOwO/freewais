@@ -28,7 +28,6 @@ extern char yytext[];
 #ifdef YYBISON
 int yydebug;
 #else /* not YYBISON */
-extern int yydebug;
 #endif /* not YYBISON */
 extern fields_struct** index_fields;
 extern nidx_table* Ntable;   /* defined in field_index.c */
