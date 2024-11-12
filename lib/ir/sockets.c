@@ -272,7 +272,13 @@ fd_connect_to_server (hname, port, fd)
 {
   char            hostnamebuf[80];
   long            rc, i;
+#ifdef __linux__
+  struct addrinfo ints;
+  struct addrinfo* result;
+  struct addrinfo* rp;
+#else
   struct hostent *host;
+#endif
   struct sockaddr_in name;
   /* Some systems define sin_addr as union, some dont. So lets assume we
      know what we are doing an copy a long. */
@@ -285,6 +291,24 @@ fd_connect_to_server (hname, port, fd)
     name.sin_family = AF_INET;
     (void) strcpy (hostnamebuf, hname);
   } else {
+#ifdef __linux__
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_flags = 0;
+    hints.ai_protocol = 1;
+    hints.ai_canonname = NULL;
+    hints.ai_addr = NULL;
+    hints.ai_next = NULL;
+    if(getaddrinfo(NULL, hname, &hints, &result) != 0){
+      return FALSE;
+    }
+    for(rp = result; rp != NULL; rp = rp->ai_next){
+      name.sin_family = rp->ai_family;
+      memcpy(name.sin_addr, rp->ai_addr, rp->ai_addrlen);
+    }
+    (void) strcpy (hostnamebuf, hname);
+#else
     host = gethostbyname (hname);
 
     if (NULL == host) {
@@ -296,6 +320,7 @@ fd_connect_to_server (hname, port, fd)
 	   (caddr_t) & name.sin_addr, host->h_length);
 #endif
     (void) strcpy (hostnamebuf, host->h_name);
+#endif
   }
   hname = hostnamebuf;
 
