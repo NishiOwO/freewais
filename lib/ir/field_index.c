@@ -126,7 +126,10 @@ match (line, begin_pos, end_pos, regexp_pos)
 #define UNGETC(c) (regexp--)
 #define RETURN(pointer) return(0);	/* return 0 on sucess */
 #define ERROR(val) return((char *) val);	/* return error code on failure */
+
+#ifndef __linux__
 #include <regexp.h>
+#endif
 
 char          **expbuf_set = NULL;
 
