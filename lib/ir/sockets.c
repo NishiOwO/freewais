@@ -297,18 +297,17 @@ fd_connect_to_server (hname, port, fd)
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_flags = 0;
     hints.ai_protocol = 1;
-    hints.ai_canonname = NULL;
-    hints.ai_addr = NULL;
-    hints.ai_next = NULL;
     if(getaddrinfo(NULL, hname, &hints, &result) != 0){
       return FALSE;
     }
     for(rp = result; rp != NULL; rp = rp->ai_next){
-      name.sin_family = rp->ai_family;
-      memcpy(rp->ai_addr, &name, rp->ai_addrlen);
-      break;
+      *fd = socket (AF_INET, SOCK_STREAM, 0);
+      ((struct sockaddr_in*)rp->ai_addr)->sin_port = htons(port);
+      if(connect (*fd, rp->ai_addr, rp->ai_addrlen) != -1) break;
+      close(*fd);
     }
-    (void) strcpy (hostnamebuf, hname);
+    freeaddrinfo(result);
+    return FALSE;
 #else
     host = gethostbyname (hname);
 
@@ -323,6 +322,7 @@ fd_connect_to_server (hname, port, fd)
     (void) strcpy (hostnamebuf, host->h_name);
 #endif
   }
+#ifndef __linux__
   hname = hostnamebuf;
 
   name.sin_port = (unsigned short int) htons (port);
@@ -340,6 +340,7 @@ fd_connect_to_server (hname, port, fd)
     }
   }
   return FALSE;
+#endif
 }
 
 /* This is the prefered C function for initiating client requests */
