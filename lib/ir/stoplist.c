@@ -26,6 +26,8 @@ static char *PRCSid = "$Id: stoplist.c 1.4.1.5.1.3 Mon, 05 May 1997 11:54:27 +02
 #include "stoplist.h"
 #include "cdialect.h"
 
+boolean use_both_stoplist;
+
 #ifdef AUTO_STOPWORDS /* tung, 2/95 */
 /*boolean use_both_stoplist = true;*/
 static char stoplist_filename[MAX_FILENAME_LEN+5];

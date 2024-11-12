@@ -19,7 +19,6 @@
 #include <ctype.h>
 #define maybe_downcase(A) (A)
 
-#define YYSTYPE yystype
 #define strcatXC(A,B)  strcatCC((A),(B)),free(A)
 #define strcatCX(A,B)  strcatCC((A),(B)),free(B)
 #define strcatXX(A,B)  strcatCC((A),(B)),free(A),free(B)

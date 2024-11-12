@@ -136,6 +136,8 @@ char          **expbuf_set = NULL;
    return 0 if success,
    return -1 if error. */
 
+static int     circf;
+static long loc1, loc2;
 static int     *circf_set = NULL;
 static int      number_of_expbuf = 0;
 
@@ -194,9 +196,9 @@ sgrep (s, expbuf, lcircf, begin_pos, end_pos)
   circf = lcircf;
   if (step (s, expbuf)) {	/* match */
     if (begin_pos != NULL)
-      *begin_pos = loc1 - s;
+      *begin_pos = loc1 - (long)s;
     if (end_pos != NULL)
-      *end_pos = loc2 - s;
+      *end_pos = loc2 - (long)s;
     return (loc1);
   }
   return (NULL);

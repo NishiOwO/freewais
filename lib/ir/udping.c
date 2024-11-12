@@ -36,7 +36,9 @@
 
 extern uid_t getuid();
 extern int socket();
+#ifndef __NetBSD__
 extern int sendto();
+#endif
 extern int close();
 
 static int iamhere(progname)

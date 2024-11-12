@@ -314,10 +314,14 @@ srcfiles(e)
 
 #ifdef HAS_SYS_ERRLIST
 #ifdef EXTERN_SYS_ERRLIST
+#ifndef __NetBSD__
 extern char *sys_errlist[];
 #endif
+#endif
 extern int      errno;
+#ifndef __NetBSD__
 extern int      sys_nerr;
+#endif
 #endif
 
 Pid_t pgrp;
