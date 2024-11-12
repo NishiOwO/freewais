@@ -36,7 +36,7 @@
 
 extern uid_t getuid();
 extern int socket();
-#ifndef __NetBSD__
+#if !defined(__NetBSD__) && !defined(__linux__)
 extern int sendto();
 #endif
 extern int close();
