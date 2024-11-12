@@ -294,7 +294,7 @@ fd_connect_to_server (hname, port, fd)
 #ifdef __linux__
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_INET;
-    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_socktype = SOCK_DGRAM;
     hints.ai_flags = 0;
     hints.ai_protocol = 0;
     if(getaddrinfo(NULL, hname, &hints, &result) != 0){
