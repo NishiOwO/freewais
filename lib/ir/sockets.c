@@ -307,7 +307,7 @@ fd_connect_to_server (hname, port, fd)
       close(*fd);
     }
     freeaddrinfo(result);
-    return FALSE;
+    return rp == NULL ? FALSE : TRUE;
 #else
     host = gethostbyname (hname);
 
