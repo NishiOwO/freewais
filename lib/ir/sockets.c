@@ -306,6 +306,7 @@ fd_connect_to_server (hname, port, fd)
     for(rp = result; rp != NULL; rp = rp->ai_next){
       name.sin_family = rp->ai_family;
       memcpy(&name.sin_addr, rp->ai_addr, rp->ai_addrlen);
+      break;
     }
     (void) strcpy (hostnamebuf, hname);
 #else
