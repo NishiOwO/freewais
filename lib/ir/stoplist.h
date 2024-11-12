@@ -20,7 +20,7 @@
 
 #ifdef AUTO_STOPWORDS /* tung, 2/95 */
 #define STOP ".stop"
-boolean use_both_stoplist;
+extern boolean use_both_stoplist;
 
 void add_auto_stopword _AP((char* stopword));
 void init_stop_list _AP((char* database_file));
