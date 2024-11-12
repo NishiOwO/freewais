@@ -292,17 +292,18 @@ fd_connect_to_server (hname, port, fd)
     (void) strcpy (hostnamebuf, hname);
   } else {
 #ifdef __linux__
+    char str[80];
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_INET;
     hints.ai_socktype = SOCK_DGRAM;
     hints.ai_flags = 0;
     hints.ai_protocol = 0;
-    if(getaddrinfo(NULL, hname, &hints, &result) != 0){
+    sprintf(str, "%ld", port);
+    if(getaddrinfo(hname, str, &hints, &result) != 0){
       return FALSE;
     }
     for(rp = result; rp != NULL; rp = rp->ai_next){
       *fd = socket (AF_INET, SOCK_STREAM, 0);
-      ((struct sockaddr_in*)rp->ai_addr)->sin_port = htons(port);
       if(connect (*fd, rp->ai_addr, rp->ai_addrlen) != -1) break;
       close(*fd);
     }
