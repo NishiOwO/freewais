@@ -1,33 +1,72 @@
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
-/*  A Bison parser, made from field_y.y with Bison version GNU Bison version 1.24
-  */
+/* Bison implementation for Yacc-like parsers in C
 
-#define YYBISON 1  /* Identify Bison output.  */
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Inc.
 
-#define	WORD	258
-#define	REGEXP	259
-#define	FIELD	260
-#define	END	261
-#define	LAYOUT	262
-#define	STEMMING	263
-#define	ISOUNDEX	264
-#define	IPHONIX	265
-#define	NUMERIC	266
-#define	ITEXT	267
-#define	LOCAL	268
-#define	GLOBAL	269
-#define	BOTH	270
-#define	INT	271
-#define	IGNORE	272
-#define	RECORD_END	273
-#define	HEADLINE	274
-#define	DATE	275
-#define	DAY	276
-#define	MONTH	277
-#define	YEAR	278
-#define	STRING	279
-#define	DESCRIPTION	280
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
 
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
+
+/* As a special exception, you may create a larger work that contains
+   part or all of the Bison parser skeleton and distribute that work
+   under terms of your choice, so long as that work isn't itself a
+   parser generator using the skeleton or a modified version thereof
+   as a parser skeleton.  Alternatively, if you modify or redistribute
+   the parser skeleton itself, you may (at your option) remove this
+   special exception, which will cause the skeleton and the resulting
+   Bison output files to be licensed under the GNU General Public
+   License without this special exception.
+
+   This special exception was added by the Free Software Foundation in
+   version 2.2 of Bison.  */
+
+/* C LALR(1) parser skeleton written by Richard Stallman, by
+   simplifying the original so-called "semantic" parser.  */
+
+/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
+   especially those whose name start with YY_ or field_.  They are
+   private implementation details that can be changed or removed.  */
+
+/* All symbols defined below should begin with field or YY, to avoid
+   infringing on user name space.  This should be done even for local
+   variables, as they might otherwise be expanded by user macros.
+   There are some unavoidable exceptions within include files to
+   define necessary library symbols; they are noted "INFRINGES ON
+   USER NAME SPACE" below.  */
+
+/* Identify Bison output, and Bison version.  */
+#define YYBISON 30802
+
+/* Bison version string.  */
+#define YYBISON_VERSION "3.8.2"
+
+/* Skeleton name.  */
+#define YYSKELETON_NAME "yacc.c"
+
+/* Pure parsers.  */
+#define YYPURE 0
+
+/* Push parsers.  */
+#define YYPUSH 0
+
+/* Pull parsers.  */
+#define YYPULL 1
+
+
+
+
+/* First part of user prologue.  */
 
 #include "cutil.h"
 #include <stdio.h>
@@ -37,7 +76,6 @@
 #include "field.h"
 
 #define MAX_REGEXP 100
-#define YYSTYPE fieldstype
 extern FILE* fieldin;
 extern int fieldlineno;
 extern char fieldtext[];
@@ -115,743 +153,1245 @@ static void put_tags_in_gdb _AP((long field_id,
 				 boolean *both,
 				 long *number_of_index_fields));
 
-typedef union {
+
+# ifndef YY_CAST
+#  ifdef __cplusplus
+#   define YY_CAST(Type, Val) static_cast<Type> (Val)
+#   define YY_REINTERPRET_CAST(Type, Val) reinterpret_cast<Type> (Val)
+#  else
+#   define YY_CAST(Type, Val) ((Type) (Val))
+#   define YY_REINTERPRET_CAST(Type, Val) ((Type) (Val))
+#  endif
+# endif
+# ifndef YY_NULLPTR
+#  if defined __cplusplus
+#   if 201103L <= __cplusplus
+#    define YY_NULLPTR nullptr
+#   else
+#    define YY_NULLPTR 0
+#   endif
+#  else
+#   define YY_NULLPTR ((void*)0)
+#  endif
+# endif
+
+/* Use api.header.include to #include this header
+   instead of duplicating it here.  */
+#ifndef YY_YY_Y_TAB_H_INCLUDED
+# define YY_YY_Y_TAB_H_INCLUDED
+/* Debug traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 0
+#endif
+#if YYDEBUG
+extern int fielddebug;
+#endif
+
+/* Token kinds.  */
+#ifndef YYTOKENTYPE
+# define YYTOKENTYPE
+  enum fieldtokentype
+  {
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    WORD = 258,                    /* WORD  */
+    REGEXP = 259,                  /* REGEXP  */
+    FIELD = 260,                   /* FIELD  */
+    END = 261,                     /* END  */
+    LAYOUT = 262,                  /* LAYOUT  */
+    STEMMING = 263,                /* STEMMING  */
+    ISOUNDEX = 264,                /* ISOUNDEX  */
+    IPHONIX = 265,                 /* IPHONIX  */
+    NUMERIC = 266,                 /* NUMERIC  */
+    ITEXT = 267,                   /* ITEXT  */
+    LOCAL = 268,                   /* LOCAL  */
+    GLOBAL = 269,                  /* GLOBAL  */
+    BOTH = 270,                    /* BOTH  */
+    INT = 271,                     /* INT  */
+    IGNORE = 272,                  /* IGNORE  */
+    RECORD_END = 273,              /* RECORD_END  */
+    HEADLINE = 274,                /* HEADLINE  */
+    DATE = 275,                    /* DATE  */
+    DAY = 276,                     /* DAY  */
+    MONTH = 277,                   /* MONTH  */
+    YEAR = 278,                    /* YEAR  */
+    STRING = 279,                  /* STRING  */
+    DESCRIPTION = 280              /* DESCRIPTION  */
+  };
+  typedef enum fieldtokentype fieldtoken_kind_t;
+#endif
+/* Token kinds.  */
+#define YYEMPTY -2
+#define YYEOF 0
+#define YYerror 256
+#define YYUNDEF 257
+#define WORD 258
+#define REGEXP 259
+#define FIELD 260
+#define END 261
+#define LAYOUT 262
+#define STEMMING 263
+#define ISOUNDEX 264
+#define IPHONIX 265
+#define NUMERIC 266
+#define ITEXT 267
+#define LOCAL 268
+#define GLOBAL 269
+#define BOTH 270
+#define INT 271
+#define IGNORE 272
+#define RECORD_END 273
+#define HEADLINE 274
+#define DATE 275
+#define DAY 276
+#define MONTH 277
+#define YEAR 278
+#define STRING 279
+#define DESCRIPTION 280
+
+/* Value type.  */
+#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
+union YYSTYPE
+{
+
    int  ival;
    char *sval;
    char cval;
    DateDescription date;
-   } YYSTYPE;
+   
 
-#ifndef YYLTYPE
-typedef
-  struct fieldltype
-    {
-      int timestamp;
-      int first_line;
-      int first_column;
-      int last_line;
-      int last_column;
-      char *text;
-   }
-  fieldltype;
 
-#define YYLTYPE fieldltype
-#endif
-
-#include <stdio.h>
-
-#ifndef __cplusplus
-#ifndef __STDC__
-#define const
-#endif
+};
+typedef union YYSTYPE YYSTYPE;
+# define YYSTYPE_IS_TRIVIAL 1
+# define YYSTYPE_IS_DECLARED 1
 #endif
 
 
+extern YYSTYPE fieldlval;
 
-#define	YYFINAL		75
-#define	YYFLAG		-32768
-#define	YYNTBASE	26
 
-#define YYTRANSLATE(x) ((unsigned)(x) <= 280 ? fieldtranslate[x] : 50)
+int fieldparse (void);
 
-static const char fieldtranslate[] = {     0,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     1,     2,     3,     4,     5,
-     6,     7,     8,     9,    10,    11,    12,    13,    14,    15,
-    16,    17,    18,    19,    20,    21,    22,    23,    24,    25
+
+#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
+/* Symbol kind.  */
+enum fieldsymbol_kind_t
+{
+  YYSYMBOL_YYEMPTY = -2,
+  YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
+  YYSYMBOL_YYerror = 1,                    /* error  */
+  YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
+  YYSYMBOL_WORD = 3,                       /* WORD  */
+  YYSYMBOL_REGEXP = 4,                     /* REGEXP  */
+  YYSYMBOL_FIELD = 5,                      /* FIELD  */
+  YYSYMBOL_END = 6,                        /* END  */
+  YYSYMBOL_LAYOUT = 7,                     /* LAYOUT  */
+  YYSYMBOL_STEMMING = 8,                   /* STEMMING  */
+  YYSYMBOL_ISOUNDEX = 9,                   /* ISOUNDEX  */
+  YYSYMBOL_IPHONIX = 10,                   /* IPHONIX  */
+  YYSYMBOL_NUMERIC = 11,                   /* NUMERIC  */
+  YYSYMBOL_ITEXT = 12,                     /* ITEXT  */
+  YYSYMBOL_LOCAL = 13,                     /* LOCAL  */
+  YYSYMBOL_GLOBAL = 14,                    /* GLOBAL  */
+  YYSYMBOL_BOTH = 15,                      /* BOTH  */
+  YYSYMBOL_INT = 16,                       /* INT  */
+  YYSYMBOL_IGNORE = 17,                    /* IGNORE  */
+  YYSYMBOL_RECORD_END = 18,                /* RECORD_END  */
+  YYSYMBOL_HEADLINE = 19,                  /* HEADLINE  */
+  YYSYMBOL_DATE = 20,                      /* DATE  */
+  YYSYMBOL_DAY = 21,                       /* DAY  */
+  YYSYMBOL_MONTH = 22,                     /* MONTH  */
+  YYSYMBOL_YEAR = 23,                      /* YEAR  */
+  YYSYMBOL_STRING = 24,                    /* STRING  */
+  YYSYMBOL_DESCRIPTION = 25,               /* DESCRIPTION  */
+  YYSYMBOL_YYACCEPT = 26,                  /* $accept  */
+  YYSYMBOL_docspec = 27,                   /* docspec  */
+  YYSYMBOL_parseformat = 28,               /* parseformat  */
+  YYSYMBOL_format = 29,                    /* format  */
+  YYSYMBOL_record = 30,                    /* record  */
+  YYSYMBOL_layout = 31,                    /* layout  */
+  YYSYMBOL_end = 32,                       /* end  */
+  YYSYMBOL_layoutspecs = 33,               /* layoutspecs  */
+  YYSYMBOL_layoutspec = 34,                /* layoutspec  */
+  YYSYMBOL_speclist = 35,                  /* speclist  */
+  YYSYMBOL_spec = 36,                      /* spec  */
+  YYSYMBOL_37_1 = 37,                      /* $@1  */
+  YYSYMBOL_38_2 = 38,                      /* $@2  */
+  YYSYMBOL_options = 39,                   /* options  */
+  YYSYMBOL_option = 40,                    /* option  */
+  YYSYMBOL_regexp = 41,                    /* regexp  */
+  YYSYMBOL_indexspecs = 42,                /* indexspecs  */
+  YYSYMBOL_indexspec = 43,                 /* indexspec  */
+  YYSYMBOL_indextype = 44,                 /* indextype  */
+  YYSYMBOL_dicts = 45,                     /* dicts  */
+  YYSYMBOL_date_spec = 46,                 /* date_spec  */
+  YYSYMBOL_date = 47,                      /* date  */
+  YYSYMBOL_monthspec = 48,                 /* monthspec  */
+  YYSYMBOL_descr = 49,                     /* descr  */
+  YYSYMBOL_fieldlist = 50                  /* fieldlist  */
 };
+typedef enum fieldsymbol_kind_t fieldsymbol_kind_t;
 
-#if YYDEBUG != 0
-static const short fieldprhs[] = {     0,
-     0,     2,     4,     7,    11,    14,    15,    19,    20,    22,
-    24,    27,    32,    38,    40,    43,    44,    45,    56,    57,
-    60,    64,    67,    69,    73,    78,    79,    81,    82,    85,
-    88,    90,    92,    94,    96,    98,   100,   105,   107,   110,
-   112,   113,   115,   116,   118,   119
-};
 
-static const short fieldrhs[] = {    27,
-     0,    28,     0,    29,    30,     0,    29,    30,    34,     0,
-    18,     4,     0,     0,     7,    32,    31,     0,     0,     6,
-     0,    33,     0,    33,    32,     0,    20,     4,    45,    40,
-     0,    19,     4,     4,    16,    40,     0,    35,     0,    35,
-    34,     0,     0,     0,     5,     4,    40,    36,    49,    37,
-    38,    41,     6,     4,     0,     0,    39,    38,     0,    11,
-    40,    16,     0,    20,    45,     0,     8,     0,    19,    40,
-    16,     0,    20,     4,    45,    40,     0,     0,     4,     0,
-     0,    42,    41,     0,    43,    44,     0,    12,     0,     9,
-     0,    10,     0,    14,     0,    13,     0,    15,     0,     4,
-    46,    46,    46,     0,    21,     0,    22,    47,     0,    23,
-     0,     0,    24,     0,     0,    25,     0,     0,     3,    48,
-    49,     0
-};
 
+
+#ifdef short
+# undef short
 #endif
 
-#if YYDEBUG != 0
-static const short fieldrline[] = { 0,
-   115,   115,   117,   119,   121,   130,   131,   136,   137,   140,
-   141,   144,   158,   178,   179,   181,   192,   202,   273,   274,
-   280,   302,   311,   324,   344,   366,   367,   369,   370,   376,
-   396,   397,   398,   400,   411,   422,   438,   452,   453,   454,
-   457,   458,   461,   462,   465,   466
-};
+/* On compilers that do not define __PTRDIFF_MAX__ etc., make sure
+   <limits.h> and (if available) <stdint.h> are included
+   so that the code can choose integer types of a good width.  */
 
-static const char * const fieldtname[] = {   "$","error","$undefined.","WORD","REGEXP",
-"FIELD","END","LAYOUT","STEMMING","ISOUNDEX","IPHONIX","NUMERIC","ITEXT","LOCAL",
-"GLOBAL","BOTH","INT","IGNORE","RECORD_END","HEADLINE","DATE","DAY","MONTH",
-"YEAR","STRING","DESCRIPTION","docspec","parseformat","format","record","layout",
-"end","layoutspecs","layoutspec","speclist","spec","@1","@2","options","option",
-"regexp","indexspecs","indexspec","indextype","dicts","date_spec","date","monthspec",
-"descr","fieldlist",""
-};
+#ifndef __PTRDIFF_MAX__
+# include <limits.h> /* INFRINGES ON USER NAME SPACE */
+# if defined __STDC_VERSION__ && 199901 <= __STDC_VERSION__
+#  include <stdint.h> /* INFRINGES ON USER NAME SPACE */
+#  define YY_STDINT_H
+# endif
 #endif
 
-static const short fieldr1[] = {     0,
-    26,    26,    27,    28,    29,    30,    30,    31,    31,    32,
-    32,    33,    33,    34,    34,    36,    37,    35,    38,    38,
-    39,    39,    39,    39,    39,    40,    40,    41,    41,    42,
-    43,    43,    43,    44,    44,    44,    45,    46,    46,    46,
-    47,    47,    48,    48,    49,    49
-};
+/* Narrow types that promote to a signed type and that can represent a
+   signed or unsigned integer of at least N bits.  In tables they can
+   save space and decrease cache pressure.  Promoting to a signed type
+   helps avoid bugs in integer arithmetic.  */
 
-static const short fieldr2[] = {     0,
-     1,     1,     2,     3,     2,     0,     3,     0,     1,     1,
-     2,     4,     5,     1,     2,     0,     0,    10,     0,     2,
-     3,     2,     1,     3,     4,     0,     1,     0,     2,     2,
-     1,     1,     1,     1,     1,     1,     4,     1,     2,     1,
-     0,     1,     0,     1,     0,     3
-};
+#ifdef __INT_LEAST8_MAX__
+typedef __INT_LEAST8_TYPE__ fieldtype_int8;
+#elif defined YY_STDINT_H
+typedef int_least8_t fieldtype_int8;
+#else
+typedef signed char fieldtype_int8;
+#endif
 
-static const short fielddefact[] = {     0,
-     0,     1,     2,     6,     5,     0,     3,     0,     0,     8,
-    10,     0,     4,    14,     0,     0,     9,     7,    11,    26,
-    15,     0,     0,    26,    27,    16,    26,    38,    41,    40,
-     0,    12,    45,    13,    42,    39,     0,    43,    17,    37,
-    44,    45,    19,    46,    23,    26,    26,     0,    28,    19,
-     0,     0,     0,    22,    32,    33,    31,     0,    28,     0,
-    20,    21,    24,    26,     0,    29,    35,    34,    36,    30,
-    25,    18,     0,     0,     0
-};
+#ifdef __INT_LEAST16_MAX__
+typedef __INT_LEAST16_TYPE__ fieldtype_int16;
+#elif defined YY_STDINT_H
+typedef int_least16_t fieldtype_int16;
+#else
+typedef short fieldtype_int16;
+#endif
 
-static const short fielddefgoto[] = {    73,
-     2,     3,     4,     7,    18,    10,    11,    13,    14,    33,
-    43,    49,    50,    26,    58,    59,    60,    70,    24,    31,
-    36,    42,    39
-};
-
-static const short fieldpact[] = {     3,
-     8,-32768,-32768,    19,-32768,     9,    25,    27,    28,    29,
-     9,    30,-32768,    25,    32,    33,-32768,-32768,-32768,    34,
--32768,    17,   -14,    34,-32768,-32768,    34,-32768,    18,-32768,
-   -14,-32768,    36,-32768,-32768,-32768,   -14,    16,-32768,-32768,
--32768,    36,    -6,-32768,-32768,    34,    34,    39,    15,    -6,
-    31,    35,    -3,-32768,-32768,-32768,-32768,    38,    15,     2,
--32768,-32768,-32768,    34,    41,-32768,-32768,-32768,-32768,-32768,
--32768,-32768,    46,    48,-32768
-};
-
-static const short fieldpgoto[] = {-32768,
--32768,-32768,-32768,-32768,-32768,    42,-32768,    40,-32768,-32768,
--32768,    -1,-32768,   -24,    -9,-32768,-32768,-32768,   -42,   -27,
--32768,-32768,    10
-};
-
-
-#define	YYLAST		54
-
-
-static const short fieldtable[] = {    32,
-    23,    45,    34,    37,    46,    54,    28,    29,    30,    40,
-    64,     5,    47,    48,    67,    68,    69,    28,    29,    30,
-     1,    51,    52,    55,    56,     6,    57,     8,     9,    12,
-    15,    16,    27,    20,    17,    22,    23,    25,    38,    71,
-    41,    35,    53,    65,    72,    74,    62,    75,    61,    66,
-    63,    44,    19,    21
-};
-
-static const short fieldcheck[] = {    24,
-     4,     8,    27,    31,    11,    48,    21,    22,    23,    37,
-    53,     4,    19,    20,    13,    14,    15,    21,    22,    23,
-    18,    46,    47,     9,    10,     7,    12,    19,    20,     5,
-     4,     4,    16,     4,     6,     4,     4,     4,     3,    64,
-    25,    24,     4,     6,     4,     0,    16,     0,    50,    59,
-    16,    42,    11,    14
-};
-/* -*-C-*-  Note some compilers choke on comments on `#line' lines.  */
-
-
-/* Skeleton output parser for bison,
-   Copyright (C) 1984, 1989, 1990 Free Software Foundation, Inc.
-
-   This program is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2, or (at your option)
-   any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  */
-
-/* As a special exception, when this file is copied by Bison into a
-   Bison output file, you may use that output file without restriction.
-   This special exception was added by the Free Software Foundation
-   in version 1.24 of Bison.  */
-
-#ifndef alloca
-#ifdef __GNUC__
-#define alloca __builtin_alloca
-#else /* not GNU C.  */
-#if (!defined (__STDC__) && defined (sparc)) || defined (__sparc__) || defined (__sparc) || defined (__sgi)
-#include <alloca.h>
-#else /* not sparc */
-#if defined (MSDOS) && !defined (__TURBOC__)
-#include <malloc.h>
-#else /* not MSDOS, or __TURBOC__ */
-#if defined(_AIX)
-#include <malloc.h>
- #pragma alloca
-#else /* not MSDOS, __TURBOC__, or _AIX */
+/* Work around bug in HP-UX 11.23, which defines these macros
+   incorrectly for preprocessor constants.  This workaround can likely
+   be removed in 2023, as HPE has promised support for HP-UX 11.23
+   (aka HP-UX 11i v2) only through the end of 2022; see Table 2 of
+   <https://h20195.www2.hpe.com/V2/getpdf.aspx/4AA4-7673ENW.pdf>.  */
 #ifdef __hpux
-#ifdef __cplusplus
-extern "C" {
-void *alloca (unsigned int);
+# undef UINT_LEAST8_MAX
+# undef UINT_LEAST16_MAX
+# define UINT_LEAST8_MAX 255
+# define UINT_LEAST16_MAX 65535
+#endif
+
+#if defined __UINT_LEAST8_MAX__ && __UINT_LEAST8_MAX__ <= __INT_MAX__
+typedef __UINT_LEAST8_TYPE__ fieldtype_uint8;
+#elif (!defined __UINT_LEAST8_MAX__ && defined YY_STDINT_H \
+       && UINT_LEAST8_MAX <= INT_MAX)
+typedef uint_least8_t fieldtype_uint8;
+#elif !defined __UINT_LEAST8_MAX__ && UCHAR_MAX <= INT_MAX
+typedef unsigned char fieldtype_uint8;
+#else
+typedef short fieldtype_uint8;
+#endif
+
+#if defined __UINT_LEAST16_MAX__ && __UINT_LEAST16_MAX__ <= __INT_MAX__
+typedef __UINT_LEAST16_TYPE__ fieldtype_uint16;
+#elif (!defined __UINT_LEAST16_MAX__ && defined YY_STDINT_H \
+       && UINT_LEAST16_MAX <= INT_MAX)
+typedef uint_least16_t fieldtype_uint16;
+#elif !defined __UINT_LEAST16_MAX__ && USHRT_MAX <= INT_MAX
+typedef unsigned short fieldtype_uint16;
+#else
+typedef int fieldtype_uint16;
+#endif
+
+#ifndef YYPTRDIFF_T
+# if defined __PTRDIFF_TYPE__ && defined __PTRDIFF_MAX__
+#  define YYPTRDIFF_T __PTRDIFF_TYPE__
+#  define YYPTRDIFF_MAXIMUM __PTRDIFF_MAX__
+# elif defined PTRDIFF_MAX
+#  ifndef ptrdiff_t
+#   include <stddef.h> /* INFRINGES ON USER NAME SPACE */
+#  endif
+#  define YYPTRDIFF_T ptrdiff_t
+#  define YYPTRDIFF_MAXIMUM PTRDIFF_MAX
+# else
+#  define YYPTRDIFF_T long
+#  define YYPTRDIFF_MAXIMUM LONG_MAX
+# endif
+#endif
+
+#ifndef YYSIZE_T
+# ifdef __SIZE_TYPE__
+#  define YYSIZE_T __SIZE_TYPE__
+# elif defined size_t
+#  define YYSIZE_T size_t
+# elif defined __STDC_VERSION__ && 199901 <= __STDC_VERSION__
+#  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
+#  define YYSIZE_T size_t
+# else
+#  define YYSIZE_T unsigned
+# endif
+#endif
+
+#define YYSIZE_MAXIMUM                                  \
+  YY_CAST (YYPTRDIFF_T,                                 \
+           (YYPTRDIFF_MAXIMUM < YY_CAST (YYSIZE_T, -1)  \
+            ? YYPTRDIFF_MAXIMUM                         \
+            : YY_CAST (YYSIZE_T, -1)))
+
+#define YYSIZEOF(X) YY_CAST (YYPTRDIFF_T, sizeof (X))
+
+
+/* Stored state numbers (used for stacks). */
+typedef fieldtype_int8 field_state_t;
+
+/* State numbers in computations.  */
+typedef int field_state_fast_t;
+
+#ifndef YY_
+# if defined YYENABLE_NLS && YYENABLE_NLS
+#  if ENABLE_NLS
+#   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
+#   define YY_(Msgid) dgettext ("bison-runtime", Msgid)
+#  endif
+# endif
+# ifndef YY_
+#  define YY_(Msgid) Msgid
+# endif
+#endif
+
+
+#ifndef YY_ATTRIBUTE_PURE
+# if defined __GNUC__ && 2 < __GNUC__ + (96 <= __GNUC_MINOR__)
+#  define YY_ATTRIBUTE_PURE __attribute__ ((__pure__))
+# else
+#  define YY_ATTRIBUTE_PURE
+# endif
+#endif
+
+#ifndef YY_ATTRIBUTE_UNUSED
+# if defined __GNUC__ && 2 < __GNUC__ + (7 <= __GNUC_MINOR__)
+#  define YY_ATTRIBUTE_UNUSED __attribute__ ((__unused__))
+# else
+#  define YY_ATTRIBUTE_UNUSED
+# endif
+#endif
+
+/* Suppress unused-variable warnings by "using" E.  */
+#if ! defined lint || defined __GNUC__
+# define YY_USE(E) ((void) (E))
+#else
+# define YY_USE(E) /* empty */
+#endif
+
+/* Suppress an incorrect diagnostic about fieldlval being uninitialized.  */
+#if defined __GNUC__ && ! defined __ICC && 406 <= __GNUC__ * 100 + __GNUC_MINOR__
+# if __GNUC__ * 100 + __GNUC_MINOR__ < 407
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
+    _Pragma ("GCC diagnostic push")                                     \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")
+# else
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
+    _Pragma ("GCC diagnostic push")                                     \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")              \
+    _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
+# endif
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END      \
+    _Pragma ("GCC diagnostic pop")
+#else
+# define YY_INITIAL_VALUE(Value) Value
+#endif
+#ifndef YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END
+#endif
+#ifndef YY_INITIAL_VALUE
+# define YY_INITIAL_VALUE(Value) /* Nothing. */
+#endif
+
+#if defined __cplusplus && defined __GNUC__ && ! defined __ICC && 6 <= __GNUC__
+# define YY_IGNORE_USELESS_CAST_BEGIN                          \
+    _Pragma ("GCC diagnostic push")                            \
+    _Pragma ("GCC diagnostic ignored \"-Wuseless-cast\"")
+# define YY_IGNORE_USELESS_CAST_END            \
+    _Pragma ("GCC diagnostic pop")
+#endif
+#ifndef YY_IGNORE_USELESS_CAST_BEGIN
+# define YY_IGNORE_USELESS_CAST_BEGIN
+# define YY_IGNORE_USELESS_CAST_END
+#endif
+
+
+#define YY_ASSERT(E) ((void) (0 && (E)))
+
+#if !defined fieldoverflow
+
+/* The parser invokes alloca or malloc; define the necessary symbols.  */
+
+# ifdef YYSTACK_USE_ALLOCA
+#  if YYSTACK_USE_ALLOCA
+#   ifdef __GNUC__
+#    define YYSTACK_ALLOC __builtin_alloca
+#   elif defined __BUILTIN_VA_ARG_INCR
+#    include <alloca.h> /* INFRINGES ON USER NAME SPACE */
+#   elif defined _AIX
+#    define YYSTACK_ALLOC __alloca
+#   elif defined _MSC_VER
+#    include <malloc.h> /* INFRINGES ON USER NAME SPACE */
+#    define alloca _alloca
+#   else
+#    define YYSTACK_ALLOC alloca
+#    if ! defined _ALLOCA_H && ! defined EXIT_SUCCESS
+#     include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
+      /* Use EXIT_SUCCESS as a witness for stdlib.h.  */
+#     ifndef EXIT_SUCCESS
+#      define EXIT_SUCCESS 0
+#     endif
+#    endif
+#   endif
+#  endif
+# endif
+
+# ifdef YYSTACK_ALLOC
+   /* Pacify GCC's 'empty if-body' warning.  */
+#  define YYSTACK_FREE(Ptr) do { /* empty */; } while (0)
+#  ifndef YYSTACK_ALLOC_MAXIMUM
+    /* The OS might guarantee only one guard page at the bottom of the stack,
+       and a page size can be as small as 4096 bytes.  So we cannot safely
+       invoke alloca (N) if N exceeds 4096.  Use a slightly smaller number
+       to allow for a few compiler-allocated temporary stack slots.  */
+#   define YYSTACK_ALLOC_MAXIMUM 4032 /* reasonable circa 2006 */
+#  endif
+# else
+#  define YYSTACK_ALLOC YYMALLOC
+#  define YYSTACK_FREE YYFREE
+#  ifndef YYSTACK_ALLOC_MAXIMUM
+#   define YYSTACK_ALLOC_MAXIMUM YYSIZE_MAXIMUM
+#  endif
+#  if (defined __cplusplus && ! defined EXIT_SUCCESS \
+       && ! ((defined YYMALLOC || defined malloc) \
+             && (defined YYFREE || defined free)))
+#   include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
+#   ifndef EXIT_SUCCESS
+#    define EXIT_SUCCESS 0
+#   endif
+#  endif
+#  ifndef YYMALLOC
+#   define YYMALLOC malloc
+#   if ! defined malloc && ! defined EXIT_SUCCESS
+void *malloc (YYSIZE_T); /* INFRINGES ON USER NAME SPACE */
+#   endif
+#  endif
+#  ifndef YYFREE
+#   define YYFREE free
+#   if ! defined free && ! defined EXIT_SUCCESS
+void free (void *); /* INFRINGES ON USER NAME SPACE */
+#   endif
+#  endif
+# endif
+#endif /* !defined fieldoverflow */
+
+#if (! defined fieldoverflow \
+     && (! defined __cplusplus \
+         || (defined YYSTYPE_IS_TRIVIAL && YYSTYPE_IS_TRIVIAL)))
+
+/* A type that is properly aligned for any stack member.  */
+union fieldalloc
+{
+  field_state_t fieldss_alloc;
+  YYSTYPE fieldvs_alloc;
 };
-#else /* not __cplusplus */
-void *alloca ();
-#endif /* not __cplusplus */
-#endif /* __hpux */
-#endif /* not _AIX */
-#endif /* not MSDOS, or __TURBOC__ */
-#endif /* not sparc.  */
-#endif /* not GNU C.  */
-#endif /* alloca not defined.  */
 
-/* This is the parser code that is written into each bison parser
-  when the %semantic_parser declaration is not specified in the grammar.
-  It was written by Richard Stallman by simplifying the hairy parser
-  used when %semantic_parser is specified.  */
+/* The size of the maximum gap between one aligned stack and the next.  */
+# define YYSTACK_GAP_MAXIMUM (YYSIZEOF (union fieldalloc) - 1)
 
-/* Note: there must be only one dollar sign in this file.
-   It is replaced by the list of actions, each action
-   as one case of the switch.  */
+/* The size of an array large to enough to hold all stacks, each with
+   N elements.  */
+# define YYSTACK_BYTES(N) \
+     ((N) * (YYSIZEOF (field_state_t) + YYSIZEOF (YYSTYPE)) \
+      + YYSTACK_GAP_MAXIMUM)
 
-#define fielderrok		(fielderrstatus = 0)
-#define fieldclearin	(fieldchar = YYEMPTY)
-#define YYEMPTY		-2
-#define YYEOF		0
-#define YYACCEPT	return(0)
-#define YYABORT 	return(1)
-#define YYERROR		goto fielderrlab1
-/* Like YYERROR except do call fielderror.
-   This remains here temporarily to ease the
-   transition to the new meaning of YYERROR, for GCC.
-   Once GCC version 2 has supplanted version 1, this can go.  */
-#define YYFAIL		goto fielderrlab
+# define YYCOPY_NEEDED 1
+
+/* Relocate STACK from its old location to the new one.  The
+   local variables YYSIZE and YYSTACKSIZE give the old and new number of
+   elements in the stack, and YYPTR gives the new location of the
+   stack.  Advance YYPTR to a properly aligned location for the next
+   stack.  */
+# define YYSTACK_RELOCATE(Stack_alloc, Stack)                           \
+    do                                                                  \
+      {                                                                 \
+        YYPTRDIFF_T fieldnewbytes;                                         \
+        YYCOPY (&fieldptr->Stack_alloc, Stack, fieldsize);                    \
+        Stack = &fieldptr->Stack_alloc;                                    \
+        fieldnewbytes = fieldstacksize * YYSIZEOF (*Stack) + YYSTACK_GAP_MAXIMUM; \
+        fieldptr += fieldnewbytes / YYSIZEOF (*fieldptr);                        \
+      }                                                                 \
+    while (0)
+
+#endif
+
+#if defined YYCOPY_NEEDED && YYCOPY_NEEDED
+/* Copy COUNT objects from SRC to DST.  The source and destination do
+   not overlap.  */
+# ifndef YYCOPY
+#  if defined __GNUC__ && 1 < __GNUC__
+#   define YYCOPY(Dst, Src, Count) \
+      __builtin_memcpy (Dst, Src, YY_CAST (YYSIZE_T, (Count)) * sizeof (*(Src)))
+#  else
+#   define YYCOPY(Dst, Src, Count)              \
+      do                                        \
+        {                                       \
+          YYPTRDIFF_T fieldi;                      \
+          for (fieldi = 0; fieldi < (Count); fieldi++)   \
+            (Dst)[fieldi] = (Src)[fieldi];            \
+        }                                       \
+      while (0)
+#  endif
+# endif
+#endif /* !YYCOPY_NEEDED */
+
+/* YYFINAL -- State number of the termination state.  */
+#define YYFINAL  7
+/* YYLAST -- Last index in YYTABLE.  */
+#define YYLAST   56
+
+/* YYNTOKENS -- Number of terminals.  */
+#define YYNTOKENS  26
+/* YYNNTS -- Number of nonterminals.  */
+#define YYNNTS  25
+/* YYNRULES -- Number of rules.  */
+#define YYNRULES  47
+/* YYNSTATES -- Number of states.  */
+#define YYNSTATES  75
+
+/* YYMAXUTOK -- Last valid token kind.  */
+#define YYMAXUTOK   280
+
+
+/* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
+   as returned by fieldlex, with out-of-bounds checking.  */
+#define YYTRANSLATE(YYX)                                \
+  (0 <= (YYX) && (YYX) <= YYMAXUTOK                     \
+   ? YY_CAST (fieldsymbol_kind_t, fieldtranslate[YYX])        \
+   : YYSYMBOL_YYUNDEF)
+
+/* YYTRANSLATE[TOKEN-NUM] -- Symbol number corresponding to TOKEN-NUM
+   as returned by fieldlex.  */
+static const fieldtype_int8 fieldtranslate[] =
+{
+       0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25
+};
+
+#if YYDEBUG
+/* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+static const fieldtype_int16 fieldrline[] =
+{
+       0,   114,   114,   114,   116,   118,   120,   129,   130,   135,
+     136,   139,   140,   143,   157,   177,   178,   181,   191,   180,
+     272,   273,   279,   301,   310,   323,   343,   365,   366,   368,
+     369,   375,   395,   396,   397,   399,   410,   421,   437,   451,
+     452,   453,   456,   457,   460,   461,   464,   465
+};
+#endif
+
+/** Accessing symbol of state STATE.  */
+#define YY_ACCESSING_SYMBOL(State) YY_CAST (fieldsymbol_kind_t, fieldstos[State])
+
+#if YYDEBUG || 0
+/* The user-facing name of the symbol whose (internal) number is
+   YYSYMBOL.  No bounds checking.  */
+static const char *fieldsymbol_name (fieldsymbol_kind_t fieldsymbol) YY_ATTRIBUTE_UNUSED;
+
+/* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
+   First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
+static const char *const fieldtname[] =
+{
+  "\"end of file\"", "error", "\"invalid token\"", "WORD", "REGEXP",
+  "FIELD", "END", "LAYOUT", "STEMMING", "ISOUNDEX", "IPHONIX", "NUMERIC",
+  "ITEXT", "LOCAL", "GLOBAL", "BOTH", "INT", "IGNORE", "RECORD_END",
+  "HEADLINE", "DATE", "DAY", "MONTH", "YEAR", "STRING", "DESCRIPTION",
+  "$accept", "docspec", "parseformat", "format", "record", "layout", "end",
+  "layoutspecs", "layoutspec", "speclist", "spec", "$@1", "$@2", "options",
+  "option", "regexp", "indexspecs", "indexspec", "indextype", "dicts",
+  "date_spec", "date", "monthspec", "descr", "fieldlist", YY_NULLPTR
+};
+
+static const char *
+fieldsymbol_name (fieldsymbol_kind_t fieldsymbol)
+{
+  return fieldtname[fieldsymbol];
+}
+#endif
+
+#define YYPACT_NINF (-45)
+
+#define fieldpact_value_is_default(Yyn) \
+  ((Yyn) == YYPACT_NINF)
+
+#define YYTABLE_NINF (-1)
+
+#define fieldtable_value_is_error(Yyn) \
+  0
+
+/* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
+   STATE-NUM.  */
+static const fieldtype_int8 fieldpact[] =
+{
+       3,     8,    26,   -45,   -45,    23,   -45,   -45,     9,    27,
+      29,    30,    25,     9,    31,   -45,    27,    32,    33,   -45,
+     -45,   -45,    34,   -45,    28,   -14,    34,   -45,   -45,    34,
+     -45,    17,   -45,   -14,   -45,    36,   -45,   -45,   -45,   -14,
+      18,   -45,   -45,   -45,    36,    -6,   -45,   -45,    34,    34,
+      38,    15,    -6,    35,    37,    -3,   -45,   -45,   -45,   -45,
+      39,    15,     2,   -45,   -45,   -45,    34,    42,   -45,   -45,
+     -45,   -45,   -45,   -45,   -45
+};
+
+/* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
+   Performed when YYTABLE does not specify something else to do.  Zero
+   means the default is an error.  */
+static const fieldtype_int8 fielddefact[] =
+{
+       0,     0,     0,     2,     3,     7,     6,     1,     0,     4,
+       0,     0,     9,    11,     0,     5,    15,     0,     0,    10,
+       8,    12,    27,    16,     0,     0,    27,    28,    17,    27,
+      39,    42,    41,     0,    13,    46,    14,    43,    40,     0,
+      44,    18,    38,    45,    46,    20,    47,    24,    27,    27,
+       0,    29,    20,     0,     0,     0,    23,    33,    34,    32,
+       0,    29,     0,    21,    22,    25,    27,     0,    30,    36,
+      35,    37,    31,    26,    19
+};
+
+/* YYPGOTO[NTERM-NUM].  */
+static const fieldtype_int8 fieldpgoto[] =
+{
+     -45,   -45,   -45,   -45,   -45,   -45,   -45,    41,   -45,    40,
+     -45,   -45,   -45,    -5,   -45,   -26,   -13,   -45,   -45,   -45,
+     -44,   -29,   -45,   -45,     5
+};
+
+/* YYDEFGOTO[NTERM-NUM].  */
+static const fieldtype_int8 fielddefgoto[] =
+{
+       0,     2,     3,     4,     5,     9,    20,    12,    13,    15,
+      16,    35,    45,    51,    52,    28,    60,    61,    62,    72,
+      26,    33,    38,    44,    41
+};
+
+/* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
+   positive, shift that token.  If negative, reduce the rule whose
+   number is the opposite.  If YYTABLE_NINF, syntax error.  */
+static const fieldtype_int8 fieldtable[] =
+{
+      34,    25,    47,    36,    39,    48,    56,    30,    31,    32,
+      42,    66,     6,    49,    50,    69,    70,    71,    30,    31,
+      32,     1,    53,    54,    57,    58,     7,    59,    10,    11,
+       8,    19,    14,    17,    18,    22,    24,    25,    27,    40,
+      73,    37,    55,    43,    29,    67,    74,    63,    68,    46,
+       0,    64,     0,    65,    21,     0,    23
+};
+
+static const fieldtype_int8 fieldcheck[] =
+{
+      26,     4,     8,    29,    33,    11,    50,    21,    22,    23,
+      39,    55,     4,    19,    20,    13,    14,    15,    21,    22,
+      23,    18,    48,    49,     9,    10,     0,    12,    19,    20,
+       7,     6,     5,     4,     4,     4,     4,     4,     4,     3,
+      66,    24,     4,    25,    16,     6,     4,    52,    61,    44,
+      -1,    16,    -1,    16,    13,    -1,    16
+};
+
+/* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
+   state STATE-NUM.  */
+static const fieldtype_int8 fieldstos[] =
+{
+       0,    18,    27,    28,    29,    30,     4,     0,     7,    31,
+      19,    20,    33,    34,     5,    35,    36,     4,     4,     6,
+      32,    33,     4,    35,     4,     4,    46,     4,    41,    16,
+      21,    22,    23,    47,    41,    37,    41,    24,    48,    47,
+       3,    50,    47,    25,    49,    38,    50,     8,    11,    19,
+      20,    39,    40,    41,    41,     4,    46,     9,    10,    12,
+      42,    43,    44,    39,    16,    16,    46,     6,    42,    13,
+      14,    15,    45,    41,     4
+};
+
+/* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
+static const fieldtype_int8 fieldr1[] =
+{
+       0,    26,    27,    27,    28,    29,    30,    31,    31,    32,
+      32,    33,    33,    34,    34,    35,    35,    37,    38,    36,
+      39,    39,    40,    40,    40,    40,    40,    41,    41,    42,
+      42,    43,    44,    44,    44,    45,    45,    45,    46,    47,
+      47,    47,    48,    48,    49,    49,    50,    50
+};
+
+/* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
+static const fieldtype_int8 fieldr2[] =
+{
+       0,     2,     1,     1,     2,     3,     2,     0,     3,     0,
+       1,     1,     2,     4,     5,     1,     2,     0,     0,    10,
+       0,     2,     3,     2,     1,     3,     4,     0,     1,     0,
+       2,     2,     1,     1,     1,     1,     1,     1,     4,     1,
+       2,     1,     0,     1,     0,     1,     0,     3
+};
+
+
+enum { YYENOMEM = -2 };
+
+#define fielderrok         (fielderrstatus = 0)
+#define fieldclearin       (fieldchar = YYEMPTY)
+
+#define YYACCEPT        goto fieldacceptlab
+#define YYABORT         goto fieldabortlab
+#define YYERROR         goto fielderrorlab
+#define YYNOMEM         goto fieldexhaustedlab
+
+
 #define YYRECOVERING()  (!!fielderrstatus)
-#define YYBACKUP(token, value) \
-do								\
-  if (fieldchar == YYEMPTY && fieldlen == 1)				\
-    { fieldchar = (token), fieldlval = (value);			\
-      fieldchar1 = YYTRANSLATE (fieldchar);				\
-      YYPOPSTACK;						\
-      goto fieldbackup;						\
-    }								\
-  else								\
-    { fielderror ("syntax error: cannot back up"); YYERROR; }	\
-while (0)
 
-#define YYTERROR	1
-#define YYERRCODE	256
+#define YYBACKUP(Token, Value)                                    \
+  do                                                              \
+    if (fieldchar == YYEMPTY)                                        \
+      {                                                           \
+        fieldchar = (Token);                                         \
+        fieldlval = (Value);                                         \
+        YYPOPSTACK (fieldlen);                                       \
+        fieldstate = *fieldssp;                                         \
+        goto fieldbackup;                                            \
+      }                                                           \
+    else                                                          \
+      {                                                           \
+        fielderror (YY_("syntax error: cannot back up")); \
+        YYERROR;                                                  \
+      }                                                           \
+  while (0)
 
-#ifndef YYPURE
-#define YYLEX		fieldlex()
+/* Backward compatibility with an undocumented macro.
+   Use YYerror or YYUNDEF. */
+#define YYERRCODE YYUNDEF
+
+
+/* Enable debugging if requested.  */
+#if YYDEBUG
+
+# ifndef YYFPRINTF
+#  include <stdio.h> /* INFRINGES ON USER NAME SPACE */
+#  define YYFPRINTF fprintf
+# endif
+
+# define YYDPRINTF(Args)                        \
+do {                                            \
+  if (fielddebug)                                  \
+    YYFPRINTF Args;                             \
+} while (0)
+
+
+
+
+# define YY_SYMBOL_PRINT(Title, Kind, Value, Location)                    \
+do {                                                                      \
+  if (fielddebug)                                                            \
+    {                                                                     \
+      YYFPRINTF (stderr, "%s ", Title);                                   \
+      field_symbol_print (stderr,                                            \
+                  Kind, Value); \
+      YYFPRINTF (stderr, "\n");                                           \
+    }                                                                     \
+} while (0)
+
+
+/*-----------------------------------.
+| Print this symbol's value on YYO.  |
+`-----------------------------------*/
+
+static void
+field_symbol_value_print (FILE *fieldo,
+                       fieldsymbol_kind_t fieldkind, YYSTYPE const * const fieldvaluep)
+{
+  FILE *fieldoutput = fieldo;
+  YY_USE (fieldoutput);
+  if (!fieldvaluep)
+    return;
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+  YY_USE (fieldkind);
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
+}
+
+
+/*---------------------------.
+| Print this symbol on YYO.  |
+`---------------------------*/
+
+static void
+field_symbol_print (FILE *fieldo,
+                 fieldsymbol_kind_t fieldkind, YYSTYPE const * const fieldvaluep)
+{
+  YYFPRINTF (fieldo, "%s %s (",
+             fieldkind < YYNTOKENS ? "token" : "nterm", fieldsymbol_name (fieldkind));
+
+  field_symbol_value_print (fieldo, fieldkind, fieldvaluep);
+  YYFPRINTF (fieldo, ")");
+}
+
+/*------------------------------------------------------------------.
+| field_stack_print -- Print the state stack from its BOTTOM up to its |
+| TOP (included).                                                   |
+`------------------------------------------------------------------*/
+
+static void
+field_stack_print (field_state_t *fieldbottom, field_state_t *fieldtop)
+{
+  YYFPRINTF (stderr, "Stack now");
+  for (; fieldbottom <= fieldtop; fieldbottom++)
+    {
+      int fieldbot = *fieldbottom;
+      YYFPRINTF (stderr, " %d", fieldbot);
+    }
+  YYFPRINTF (stderr, "\n");
+}
+
+# define YY_STACK_PRINT(Bottom, Top)                            \
+do {                                                            \
+  if (fielddebug)                                                  \
+    field_stack_print ((Bottom), (Top));                           \
+} while (0)
+
+
+/*------------------------------------------------.
+| Report that the YYRULE is going to be reduced.  |
+`------------------------------------------------*/
+
+static void
+field_reduce_print (field_state_t *fieldssp, YYSTYPE *fieldvsp,
+                 int fieldrule)
+{
+  int fieldlno = fieldrline[fieldrule];
+  int fieldnrhs = fieldr2[fieldrule];
+  int fieldi;
+  YYFPRINTF (stderr, "Reducing stack by rule %d (line %d):\n",
+             fieldrule - 1, fieldlno);
+  /* The symbols being reduced.  */
+  for (fieldi = 0; fieldi < fieldnrhs; fieldi++)
+    {
+      YYFPRINTF (stderr, "   $%d = ", fieldi + 1);
+      field_symbol_print (stderr,
+                       YY_ACCESSING_SYMBOL (+fieldssp[fieldi + 1 - fieldnrhs]),
+                       &fieldvsp[(fieldi + 1) - (fieldnrhs)]);
+      YYFPRINTF (stderr, "\n");
+    }
+}
+
+# define YY_REDUCE_PRINT(Rule)          \
+do {                                    \
+  if (fielddebug)                          \
+    field_reduce_print (fieldssp, fieldvsp, Rule); \
+} while (0)
+
+/* Nonzero means print parse trace.  It is left uninitialized so that
+   multiple parsers can coexist.  */
+int fielddebug;
+#else /* !YYDEBUG */
+# define YYDPRINTF(Args) ((void) 0)
+# define YY_SYMBOL_PRINT(Title, Kind, Value, Location)
+# define YY_STACK_PRINT(Bottom, Top)
+# define YY_REDUCE_PRINT(Rule)
+#endif /* !YYDEBUG */
+
+
+/* YYINITDEPTH -- initial size of the parser's stacks.  */
+#ifndef YYINITDEPTH
+# define YYINITDEPTH 200
 #endif
 
-#ifdef YYPURE
-#ifdef YYLSP_NEEDED
-#ifdef YYLEX_PARAM
-#define YYLEX		fieldlex(&fieldlval, &fieldlloc, YYLEX_PARAM)
-#else
-#define YYLEX		fieldlex(&fieldlval, &fieldlloc)
-#endif
-#else /* not YYLSP_NEEDED */
-#ifdef YYLEX_PARAM
-#define YYLEX		fieldlex(&fieldlval, YYLEX_PARAM)
-#else
-#define YYLEX		fieldlex(&fieldlval)
-#endif
-#endif /* not YYLSP_NEEDED */
-#endif
+/* YYMAXDEPTH -- maximum size the stacks can grow to (effective only
+   if the built-in stack extension method is used).
 
-/* If nonreentrant, generate the variables here */
-
-#ifndef YYPURE
-
-int	fieldchar;			/*  the lookahead symbol		*/
-YYSTYPE	fieldlval;			/*  the semantic value of the		*/
-				/*  lookahead symbol			*/
-
-#ifdef YYLSP_NEEDED
-YYLTYPE fieldlloc;			/*  location data for the lookahead	*/
-				/*  symbol				*/
-#endif
-
-int fieldnerrs;			/*  number of parse errors so far       */
-#endif  /* not YYPURE */
-
-#if YYDEBUG != 0
-int fielddebug;			/*  nonzero means print parse trace	*/
-/* Since this is uninitialized, it does not stop multiple parsers
-   from coexisting.  */
-#endif
-
-/*  YYINITDEPTH indicates the initial size of the parser's stacks	*/
-
-#ifndef	YYINITDEPTH
-#define YYINITDEPTH 200
-#endif
-
-/*  YYMAXDEPTH is the maximum size the stacks can grow to
-    (effective only if the built-in stack extension method is used).  */
-
-#if YYMAXDEPTH == 0
-#undef YYMAXDEPTH
-#endif
+   Do not make this value too large; the results are undefined if
+   YYSTACK_ALLOC_MAXIMUM < YYSTACK_BYTES (YYMAXDEPTH)
+   evaluated with infinite-precision integer arithmetic.  */
 
 #ifndef YYMAXDEPTH
-#define YYMAXDEPTH 10000
+# define YYMAXDEPTH 10000
 #endif
 
-/* Prevent warning if -Wstrict-prototypes.  */
-#ifdef __GNUC__
-int fieldparse (void);
-#endif
-
-#if __GNUC__ > 1		/* GNU C and GNU C++ define this.  */
-#define __field_memcpy(FROM,TO,COUNT)	__builtin_memcpy(TO,FROM,COUNT)
-#else				/* not GNU C or C++ */
-#ifndef __cplusplus
 
-/* This is the most reliable way to avoid incompatibilities
-   in available built-in functions on various systems.  */
+
+
+
+
+/*-----------------------------------------------.
+| Release the memory associated to this symbol.  |
+`-----------------------------------------------*/
+
 static void
-__field_memcpy (from, to, count)
-     char *from;
-     char *to;
-     int count;
+fielddestruct (const char *fieldmsg,
+            fieldsymbol_kind_t fieldkind, YYSTYPE *fieldvaluep)
 {
-  register char *f = from;
-  register char *t = to;
-  register int i = count;
+  YY_USE (fieldvaluep);
+  if (!fieldmsg)
+    fieldmsg = "Deleting";
+  YY_SYMBOL_PRINT (fieldmsg, fieldkind, fieldvaluep, fieldlocationp);
 
-  while (i-- > 0)
-    *t++ = *f++;
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+  YY_USE (fieldkind);
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
-#else /* __cplusplus */
 
-/* This is the most reliable way to avoid incompatibilities
-   in available built-in functions on various systems.  */
-static void
-__field_memcpy (char *from, char *to, int count)
-{
-  register char *f = from;
-  register char *t = to;
-  register int i = count;
+/* Lookahead token kind.  */
+int fieldchar;
 
-  while (i-- > 0)
-    *t++ = *f++;
-}
-
-#endif
-#endif
-
+/* The semantic value of the lookahead symbol.  */
+YYSTYPE fieldlval;
+/* Number of syntax errors so far.  */
+int fieldnerrs;
 
 
-/* The user can define YYPARSE_PARAM as the name of an argument to be passed
-   into fieldparse.  The argument should have type void *.
-   It should actually point to an object.
-   Grammar actions can access the variable by casting it
-   to the proper pointer type.  */
 
-#ifdef YYPARSE_PARAM
-#define YYPARSE_PARAM_DECL void *YYPARSE_PARAM;
-#else
-#define YYPARSE_PARAM
-#define YYPARSE_PARAM_DECL
-#endif
+
+/*----------.
+| fieldparse.  |
+`----------*/
 
 int
-fieldparse(YYPARSE_PARAM)
-     YYPARSE_PARAM_DECL
+fieldparse (void)
 {
-  register int fieldstate;
-  register int fieldn;
-  register short *fieldssp;
-  register YYSTYPE *fieldvsp;
-  int fielderrstatus;	/*  number of tokens to shift before error messages enabled */
-  int fieldchar1 = 0;		/*  lookahead token as an internal (translated) token number */
+    field_state_fast_t fieldstate = 0;
+    /* Number of tokens to shift before error messages enabled.  */
+    int fielderrstatus = 0;
 
-  short	fieldssa[YYINITDEPTH];	/*  the state stack			*/
-  YYSTYPE fieldvsa[YYINITDEPTH];	/*  the semantic value stack		*/
+    /* Refer to the stacks through separate pointers, to allow fieldoverflow
+       to reallocate them elsewhere.  */
 
-  short *fieldss = fieldssa;		/*  refer to the stacks thru separate pointers */
-  YYSTYPE *fieldvs = fieldvsa;	/*  to allow fieldoverflow to reallocate them elsewhere */
+    /* Their size.  */
+    YYPTRDIFF_T fieldstacksize = YYINITDEPTH;
 
-#ifdef YYLSP_NEEDED
-  YYLTYPE fieldlsa[YYINITDEPTH];	/*  the location stack			*/
-  YYLTYPE *fieldls = fieldlsa;
-  YYLTYPE *fieldlsp;
+    /* The state stack: array, bottom, top.  */
+    field_state_t fieldssa[YYINITDEPTH];
+    field_state_t *fieldss = fieldssa;
+    field_state_t *fieldssp = fieldss;
 
-#define YYPOPSTACK   (fieldvsp--, fieldssp--, fieldlsp--)
-#else
-#define YYPOPSTACK   (fieldvsp--, fieldssp--)
-#endif
+    /* The semantic value stack: array, bottom, top.  */
+    YYSTYPE fieldvsa[YYINITDEPTH];
+    YYSTYPE *fieldvs = fieldvsa;
+    YYSTYPE *fieldvsp = fieldvs;
 
-  int fieldstacksize = YYINITDEPTH;
+  int fieldn;
+  /* The return value of fieldparse.  */
+  int fieldresult;
+  /* Lookahead symbol kind.  */
+  fieldsymbol_kind_t fieldtoken = YYSYMBOL_YYEMPTY;
+  /* The variables used to return semantic value and location from the
+     action routines.  */
+  YYSTYPE fieldval;
 
-#ifdef YYPURE
-  int fieldchar;
-  YYSTYPE fieldlval;
-  int fieldnerrs;
-#ifdef YYLSP_NEEDED
-  YYLTYPE fieldlloc;
-#endif
-#endif
 
-  YYSTYPE fieldval;		/*  the variable used to return		*/
-				/*  semantic values from the action	*/
-				/*  routines				*/
 
-  int fieldlen;
+#define YYPOPSTACK(N)   (fieldvsp -= (N), fieldssp -= (N))
 
-#if YYDEBUG != 0
-  if (fielddebug)
-    fprintf(stderr, "Starting parse\n");
-#endif
+  /* The number of symbols on the RHS of the reduced rule.
+     Keep to zero when no symbol should be popped.  */
+  int fieldlen = 0;
 
-  fieldstate = 0;
-  fielderrstatus = 0;
-  fieldnerrs = 0;
-  fieldchar = YYEMPTY;		/* Cause a token to be read.  */
+  YYDPRINTF ((stderr, "Starting parse\n"));
 
-  /* Initialize stack pointers.
-     Waste one element of value and location stack
-     so that they stay on the same level as the state stack.
-     The wasted elements are never initialized.  */
+  fieldchar = YYEMPTY; /* Cause a token to be read.  */
 
-  fieldssp = fieldss - 1;
-  fieldvsp = fieldvs;
-#ifdef YYLSP_NEEDED
-  fieldlsp = fieldls;
-#endif
+  goto fieldsetstate;
 
-/* Push a new state, which is found in  fieldstate  .  */
-/* In all cases, when you get here, the value and location stacks
-   have just been pushed. so pushing a state here evens the stacks.  */
+
+/*------------------------------------------------------------.
+| fieldnewstate -- push a new state, which is found in fieldstate.  |
+`------------------------------------------------------------*/
 fieldnewstate:
+  /* In all cases, when you get here, the value and location stacks
+     have just been pushed.  So pushing a state here evens the stacks.  */
+  fieldssp++;
 
-  *++fieldssp = fieldstate;
 
-  if (fieldssp >= fieldss + fieldstacksize - 1)
-    {
-      /* Give user a chance to reallocate the stack */
-      /* Use copies of these so that the &'s don't force the real ones into memory. */
-      YYSTYPE *fieldvs1 = fieldvs;
-      short *fieldss1 = fieldss;
-#ifdef YYLSP_NEEDED
-      YYLTYPE *fieldls1 = fieldls;
-#endif
+/*--------------------------------------------------------------------.
+| fieldsetstate -- set current state (the top of the stack) to fieldstate.  |
+`--------------------------------------------------------------------*/
+fieldsetstate:
+  YYDPRINTF ((stderr, "Entering state %d\n", fieldstate));
+  YY_ASSERT (0 <= fieldstate && fieldstate < YYNSTATES);
+  YY_IGNORE_USELESS_CAST_BEGIN
+  *fieldssp = YY_CAST (field_state_t, fieldstate);
+  YY_IGNORE_USELESS_CAST_END
+  YY_STACK_PRINT (fieldss, fieldssp);
 
-      /* Get the current used size of the three stacks, in elements.  */
-      int size = fieldssp - fieldss + 1;
-
-#ifdef fieldoverflow
-      /* Each stack pointer address is followed by the size of
-	 the data in use in that stack, in bytes.  */
-#ifdef YYLSP_NEEDED
-      /* This used to be a conditional around just the two extra args,
-	 but that might be undefined if fieldoverflow is a macro.  */
-      fieldoverflow("parser stack overflow",
-		 &fieldss1, size * sizeof (*fieldssp),
-		 &fieldvs1, size * sizeof (*fieldvsp),
-		 &fieldls1, size * sizeof (*fieldlsp),
-		 &fieldstacksize);
+  if (fieldss + fieldstacksize - 1 <= fieldssp)
+#if !defined fieldoverflow && !defined YYSTACK_RELOCATE
+    YYNOMEM;
 #else
-      fieldoverflow("parser stack overflow",
-		 &fieldss1, size * sizeof (*fieldssp),
-		 &fieldvs1, size * sizeof (*fieldvsp),
-		 &fieldstacksize);
-#endif
+    {
+      /* Get the current used size of the three stacks, in elements.  */
+      YYPTRDIFF_T fieldsize = fieldssp - fieldss + 1;
 
-      fieldss = fieldss1; fieldvs = fieldvs1;
-#ifdef YYLSP_NEEDED
-      fieldls = fieldls1;
-#endif
-#else /* no fieldoverflow */
+# if defined fieldoverflow
+      {
+        /* Give user a chance to reallocate the stack.  Use copies of
+           these so that the &'s don't force the real ones into
+           memory.  */
+        field_state_t *fieldss1 = fieldss;
+        YYSTYPE *fieldvs1 = fieldvs;
+
+        /* Each stack pointer address is followed by the size of the
+           data in use in that stack, in bytes.  This used to be a
+           conditional around just the two extra args, but that might
+           be undefined if fieldoverflow is a macro.  */
+        fieldoverflow (YY_("memory exhausted"),
+                    &fieldss1, fieldsize * YYSIZEOF (*fieldssp),
+                    &fieldvs1, fieldsize * YYSIZEOF (*fieldvsp),
+                    &fieldstacksize);
+        fieldss = fieldss1;
+        fieldvs = fieldvs1;
+      }
+# else /* defined YYSTACK_RELOCATE */
       /* Extend the stack our own way.  */
-      if (fieldstacksize >= YYMAXDEPTH)
-	{
-	  fielderror("parser stack overflow");
-	  return 2;
-	}
+      if (YYMAXDEPTH <= fieldstacksize)
+        YYNOMEM;
       fieldstacksize *= 2;
-      if (fieldstacksize > YYMAXDEPTH)
-	fieldstacksize = YYMAXDEPTH;
-      fieldss = (short *) alloca (fieldstacksize * sizeof (*fieldssp));
-      __field_memcpy ((char *)fieldss1, (char *)fieldss, size * sizeof (*fieldssp));
-      fieldvs = (YYSTYPE *) alloca (fieldstacksize * sizeof (*fieldvsp));
-      __field_memcpy ((char *)fieldvs1, (char *)fieldvs, size * sizeof (*fieldvsp));
-#ifdef YYLSP_NEEDED
-      fieldls = (YYLTYPE *) alloca (fieldstacksize * sizeof (*fieldlsp));
-      __field_memcpy ((char *)fieldls1, (char *)fieldls, size * sizeof (*fieldlsp));
-#endif
-#endif /* no fieldoverflow */
+      if (YYMAXDEPTH < fieldstacksize)
+        fieldstacksize = YYMAXDEPTH;
 
-      fieldssp = fieldss + size - 1;
-      fieldvsp = fieldvs + size - 1;
-#ifdef YYLSP_NEEDED
-      fieldlsp = fieldls + size - 1;
-#endif
+      {
+        field_state_t *fieldss1 = fieldss;
+        union fieldalloc *fieldptr =
+          YY_CAST (union fieldalloc *,
+                   YYSTACK_ALLOC (YY_CAST (YYSIZE_T, YYSTACK_BYTES (fieldstacksize))));
+        if (! fieldptr)
+          YYNOMEM;
+        YYSTACK_RELOCATE (fieldss_alloc, fieldss);
+        YYSTACK_RELOCATE (fieldvs_alloc, fieldvs);
+#  undef YYSTACK_RELOCATE
+        if (fieldss1 != fieldssa)
+          YYSTACK_FREE (fieldss1);
+      }
+# endif
 
-#if YYDEBUG != 0
-      if (fielddebug)
-	fprintf(stderr, "Stack size increased to %d\n", fieldstacksize);
-#endif
+      fieldssp = fieldss + fieldsize - 1;
+      fieldvsp = fieldvs + fieldsize - 1;
 
-      if (fieldssp >= fieldss + fieldstacksize - 1)
-	YYABORT;
+      YY_IGNORE_USELESS_CAST_BEGIN
+      YYDPRINTF ((stderr, "Stack size increased to %ld\n",
+                  YY_CAST (long, fieldstacksize)));
+      YY_IGNORE_USELESS_CAST_END
+
+      if (fieldss + fieldstacksize - 1 <= fieldssp)
+        YYABORT;
     }
+#endif /* !defined fieldoverflow && !defined YYSTACK_RELOCATE */
 
-#if YYDEBUG != 0
-  if (fielddebug)
-    fprintf(stderr, "Entering state %d\n", fieldstate);
-#endif
+
+  if (fieldstate == YYFINAL)
+    YYACCEPT;
 
   goto fieldbackup;
- fieldbackup:
 
-/* Do appropriate processing given the current state.  */
-/* Read a lookahead token if we need one and don't already have one.  */
-/* fieldresume: */
+
+/*-----------.
+| fieldbackup.  |
+`-----------*/
+fieldbackup:
+  /* Do appropriate processing given the current state.  Read a
+     lookahead token if we need one and don't already have one.  */
 
   /* First try to decide what to do without reference to lookahead token.  */
-
   fieldn = fieldpact[fieldstate];
-  if (fieldn == YYFLAG)
+  if (fieldpact_value_is_default (fieldn))
     goto fielddefault;
 
   /* Not known => get a lookahead token if don't already have one.  */
 
-  /* fieldchar is either YYEMPTY or YYEOF
-     or a valid token in external form.  */
-
+  /* YYCHAR is either empty, or end-of-input, or a valid lookahead.  */
   if (fieldchar == YYEMPTY)
     {
-#if YYDEBUG != 0
-      if (fielddebug)
-	fprintf(stderr, "Reading a token: ");
-#endif
-      fieldchar = YYLEX;
+      YYDPRINTF ((stderr, "Reading a token\n"));
+      fieldchar = fieldlex ();
     }
 
-  /* Convert token to internal form (in fieldchar1) for indexing tables with */
-
-  if (fieldchar <= 0)		/* This means end of input. */
+  if (fieldchar <= YYEOF)
     {
-      fieldchar1 = 0;
-      fieldchar = YYEOF;		/* Don't call YYLEX any more */
-
-#if YYDEBUG != 0
-      if (fielddebug)
-	fprintf(stderr, "Now at end of input.\n");
-#endif
+      fieldchar = YYEOF;
+      fieldtoken = YYSYMBOL_YYEOF;
+      YYDPRINTF ((stderr, "Now at end of input.\n"));
+    }
+  else if (fieldchar == YYerror)
+    {
+      /* The scanner already issued an error message, process directly
+         to error recovery.  But do not keep the error token as
+         lookahead, it is too special and may lead us to an endless
+         loop in error recovery. */
+      fieldchar = YYUNDEF;
+      fieldtoken = YYSYMBOL_YYerror;
+      goto fielderrlab1;
     }
   else
     {
-      fieldchar1 = YYTRANSLATE(fieldchar);
-
-#if YYDEBUG != 0
-      if (fielddebug)
-	{
-	  fprintf (stderr, "Next token is %d (%s", fieldchar, fieldtname[fieldchar1]);
-	  /* Give the individual parser a way to print the precise meaning
-	     of a token, for further debugging info.  */
-#ifdef YYPRINT
-	  YYPRINT (stderr, fieldchar, fieldlval);
-#endif
-	  fprintf (stderr, ")\n");
-	}
-#endif
+      fieldtoken = YYTRANSLATE (fieldchar);
+      YY_SYMBOL_PRINT ("Next token is", fieldtoken, &fieldlval, &fieldlloc);
     }
 
-  fieldn += fieldchar1;
-  if (fieldn < 0 || fieldn > YYLAST || fieldcheck[fieldn] != fieldchar1)
+  /* If the proper action on seeing token YYTOKEN is to reduce or to
+     detect an error, take that action.  */
+  fieldn += fieldtoken;
+  if (fieldn < 0 || YYLAST < fieldn || fieldcheck[fieldn] != fieldtoken)
     goto fielddefault;
-
   fieldn = fieldtable[fieldn];
-
-  /* fieldn is what to do for this token type in this state.
-     Negative => reduce, -fieldn is rule number.
-     Positive => shift, fieldn is new state.
-       New state is final state => don't bother to shift,
-       just return success.
-     0, or most negative number => error.  */
-
-  if (fieldn < 0)
+  if (fieldn <= 0)
     {
-      if (fieldn == YYFLAG)
-	goto fielderrlab;
+      if (fieldtable_value_is_error (fieldn))
+        goto fielderrlab;
       fieldn = -fieldn;
       goto fieldreduce;
     }
-  else if (fieldn == 0)
-    goto fielderrlab;
 
-  if (fieldn == YYFINAL)
-    YYACCEPT;
+  /* Count tokens shifted since error; after three, turn off error
+     status.  */
+  if (fielderrstatus)
+    fielderrstatus--;
 
   /* Shift the lookahead token.  */
-
-#if YYDEBUG != 0
-  if (fielddebug)
-    fprintf(stderr, "Shifting token %d (%s), ", fieldchar, fieldtname[fieldchar1]);
-#endif
-
-  /* Discard the token being shifted unless it is eof.  */
-  if (fieldchar != YYEOF)
-    fieldchar = YYEMPTY;
-
-  *++fieldvsp = fieldlval;
-#ifdef YYLSP_NEEDED
-  *++fieldlsp = fieldlloc;
-#endif
-
-  /* count tokens shifted since error; after three, turn off error status.  */
-  if (fielderrstatus) fielderrstatus--;
-
+  YY_SYMBOL_PRINT ("Shifting", fieldtoken, &fieldlval, &fieldlloc);
   fieldstate = fieldn;
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+  *++fieldvsp = fieldlval;
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
+
+  /* Discard the shifted token.  */
+  fieldchar = YYEMPTY;
   goto fieldnewstate;
 
-/* Do the default action for the current state.  */
-fielddefault:
 
+/*-----------------------------------------------------------.
+| fielddefault -- do the default action for the current state.  |
+`-----------------------------------------------------------*/
+fielddefault:
   fieldn = fielddefact[fieldstate];
   if (fieldn == 0)
     goto fielderrlab;
+  goto fieldreduce;
 
-/* Do a reduction.  fieldn is the number of a rule to reduce with.  */
+
+/*-----------------------------.
+| fieldreduce -- do a reduction.  |
+`-----------------------------*/
 fieldreduce:
+  /* fieldn is the number of a rule to reduce with.  */
   fieldlen = fieldr2[fieldn];
-  if (fieldlen > 0)
-    fieldval = fieldvsp[1-fieldlen]; /* implement default value of the action */
 
-#if YYDEBUG != 0
-  if (fielddebug)
+  /* If YYLEN is nonzero, implement the default value of the action:
+     '$$ = $1'.
+
+     Otherwise, the following line sets YYVAL to garbage.
+     This behavior is undocumented and Bison
+     users should not rely upon it.  Assigning to YYVAL
+     unconditionally makes the parser a bit smaller, and it avoids a
+     GCC warning that YYVAL may be used uninitialized.  */
+  fieldval = fieldvsp[1-fieldlen];
+
+
+  YY_REDUCE_PRINT (fieldn);
+  switch (fieldn)
     {
-      int i;
-
-      fprintf (stderr, "Reducing via rule %d (line %d), ",
-	       fieldn, fieldrline[fieldn]);
-
-      /* Print the symbols being reduced, and their result.  */
-      for (i = fieldprhs[fieldn]; fieldrhs[i] > 0; i++)
-	fprintf (stderr, "%s ", fieldtname[fieldrhs[i]]);
-      fprintf (stderr, " -> %s\n", fieldtname[fieldr1[fieldn]]);
-    }
-#endif
-
-
-  switch (fieldn) {
-
-case 5:
+  case 6: /* record: RECORD_END REGEXP  */
 {
   number_of_regexp += 
-      insert_regexp(fieldvsp[0].sval+1, number_of_regexp, &gregexp_pos);
+      insert_regexp((fieldvsp[0].sval)+1, number_of_regexp, &gregexp_pos);
 
-  s_free(fieldvsp[0].sval);
+  s_free((fieldvsp[0].sval));
   put_record_end_Ltable(gregexp_pos);
-;
-    break;}
-case 7:
-{layout_specified = 1;;
-    break;}
-case 12:
+}
+    break;
+
+  case 8: /* layout: LAYOUT layoutspecs end  */
+                      {layout_specified = 1;}
+    break;
+
+  case 13: /* layoutspec: DATE REGEXP date_spec regexp  */
 {
   long begin_tag_pos, date_begin_tag_pos;
 
-  if(fieldvsp[0].sval != NULL) {
+  if((fieldvsp[0].sval) != NULL) {
       number_of_regexp += 
-          insert_regexp(fieldvsp[0].sval+1, number_of_regexp, &date_begin_tag_pos);
+          insert_regexp((fieldvsp[0].sval)+1, number_of_regexp, &date_begin_tag_pos);
   } else date_begin_tag_pos = -1;
-  number_of_regexp += insert_regexp(fieldvsp[-2].sval+1,number_of_regexp,&begin_tag_pos);
+  number_of_regexp += insert_regexp((fieldvsp[-2].sval)+1,number_of_regexp,&begin_tag_pos);
   /* not all compiler can copy structs :-( */
-  put_hdate_ltable(begin_tag_pos, &(fieldvsp[-1].date), date_begin_tag_pos);
-  s_free(fieldvsp[-2].sval);
-  if (fieldvsp[0].sval != NULL) s_free(fieldvsp[0].sval);
-;
-    break;}
-case 13:
+  put_hdate_ltable(begin_tag_pos, &((fieldvsp[-1].date)), date_begin_tag_pos);
+  s_free((fieldvsp[-2].sval));
+  if ((fieldvsp[0].sval) != NULL) s_free((fieldvsp[0].sval));
+}
+    break;
+
+  case 14: /* layoutspec: HEADLINE REGEXP REGEXP INT regexp  */
 {
   long hline_begin_tag_pos, begin_tag_pos, end_tag_pos;
 
-  if(fieldvsp[0].sval != NULL) {
+  if((fieldvsp[0].sval) != NULL) {
     number_of_regexp += 
-        insert_regexp(fieldvsp[0].sval+1,number_of_regexp,&hline_begin_tag_pos);
+        insert_regexp((fieldvsp[0].sval)+1,number_of_regexp,&hline_begin_tag_pos);
   } else hline_begin_tag_pos = -1;
-  number_of_regexp += insert_regexp(fieldvsp[-3].sval+1,number_of_regexp,&begin_tag_pos);
-  number_of_regexp += insert_regexp(fieldvsp[-2].sval+1, number_of_regexp, &end_tag_pos);
+  number_of_regexp += insert_regexp((fieldvsp[-3].sval)+1,number_of_regexp,&begin_tag_pos);
+  number_of_regexp += insert_regexp((fieldvsp[-2].sval)+1, number_of_regexp, &end_tag_pos);
   put_headline(begin_tag_pos, end_tag_pos, hline_begin_tag_pos, 
-	       fieldvsp[-1].ival, offset, number_of_headlines);
-  offset += fieldvsp[-1].ival+1;
+	       (fieldvsp[-1].ival), offset, number_of_headlines);
+  offset += (fieldvsp[-1].ival)+1;
   ++number_of_headlines;
-  s_free(fieldvsp[-3].sval);
-  s_free(fieldvsp[-2].sval);
-  if (fieldvsp[0].sval != NULL) s_free(fieldvsp[0].sval);
-;
-    break;}
-case 16:
+  s_free((fieldvsp[-3].sval));
+  s_free((fieldvsp[-2].sval));
+  if ((fieldvsp[0].sval) != NULL) s_free((fieldvsp[0].sval));
+}
+    break;
+
+  case 17: /* $@1: %empty  */
 {
   /* insert begin_tag */
 
-  number_of_regexp += insert_regexp(fieldvsp[-1].sval+1, number_of_regexp, &gregexp_pos);
-  if(fieldvsp[0].sval != NULL) {
-    number_of_regexp += insert_regexp(fieldvsp[0].sval+1, number_of_regexp, &index_pos);
+  number_of_regexp += insert_regexp((fieldvsp[-1].sval)+1, number_of_regexp, &gregexp_pos);
+  if((fieldvsp[0].sval) != NULL) {
+    number_of_regexp += insert_regexp((fieldvsp[0].sval)+1, number_of_regexp, &index_pos);
   } else 
       index_pos = -1;
-;
-    break;}
-case 17:
+}
+    break;
+
+  case 18: /* $@2: %empty  */
 {
   if(fieldlist_not_empty == 0) {
     if(save_index_fields(NULL, &number_of_index_fields, &gfield_id)) {
@@ -860,26 +1400,27 @@ case 17:
     } else 
         put_index_fields(NULL, NULL, gfield_id, gregexp_pos, index_pos, 1);
   }
-;
-    break;}
-case 18:
+}
+    break;
+
+  case 19: /* spec: FIELD REGEXP regexp $@1 fieldlist $@2 options indexspecs END REGEXP  */
 {
   if (!fieldlist_not_empty && !options_not_empty && !indexspecs_not_empty) {
     long            pos;
 
     make_ntable (&pos);
     number_of_regexp +=
-      insert_regexp (fieldvsp[-8].sval + 1, number_of_regexp, &gregexp_pos);
+      insert_regexp ((fieldvsp[-8].sval) + 1, number_of_regexp, &gregexp_pos);
     Ntable->begin_tag_pos[pos] = gregexp_pos;
     number_of_regexp +=
-      insert_regexp (fieldvsp[0].sval + 1, number_of_regexp, &gregexp_pos);
+      insert_regexp ((fieldvsp[0].sval) + 1, number_of_regexp, &gregexp_pos);
     Ntable->end_tag_pos[pos] = gregexp_pos;
     Ntable->position += 1;
   } else if (!fieldlist_not_empty 
              && !options_not_empty 
              && indexspecs_not_empty) {
     number_of_regexp +=
-      insert_regexp (fieldvsp[0].sval + 1, number_of_regexp, &gregexp_pos);
+      insert_regexp ((fieldvsp[0].sval) + 1, number_of_regexp, &gregexp_pos);
     put_end_tag_ftable (gfield_id, gregexp_pos);
     global_dct_exists = true;
     number_of_indextypes = 0;
@@ -894,7 +1435,7 @@ case 18:
     long            begin_tag_pos = gregexp_pos; 
 
     number_of_regexp +=
-      insert_regexp (fieldvsp[0].sval + 1, number_of_regexp, &gregexp_pos);
+      insert_regexp ((fieldvsp[0].sval) + 1, number_of_regexp, &gregexp_pos);
     if (number_of_fields_inserted > 1) {
       for (i = 0; i < number_of_fields_inserted; i++) {
 	field_id = field_id_set[i];
@@ -926,52 +1467,56 @@ case 18:
     indexspecs_not_empty = 0;
     regexp_not_empty = 0;
   }
-  s_free (fieldvsp[-8].sval);
-  s_free (fieldvsp[0].sval);
-  if (fieldvsp[-7].sval != NULL)
-    s_free (fieldvsp[-7].sval);
-;
-    break;}
-case 20:
+  s_free ((fieldvsp[-8].sval));
+  s_free ((fieldvsp[0].sval));
+  if ((fieldvsp[-7].sval) != NULL)
+    s_free ((fieldvsp[-7].sval));
+}
+    break;
+
+  case 21: /* options: option options  */
 {
   options_not_empty = 1;
-  fieldval.sval = fieldvsp[0].sval;
-;
-    break;}
-case 21:
+  (fieldval.sval) = (fieldvsp[0].sval);
+}
+    break;
+
+  case 22: /* option: NUMERIC regexp INT  */
 {
   long            i, field_id;
 
-  if (fieldvsp[-1].sval != NULL) {
+  if ((fieldvsp[-1].sval) != NULL) {
     number_of_regexp += 
-        insert_regexp (fieldvsp[-1].sval + 1, number_of_regexp, &index_pos);
+        insert_regexp ((fieldvsp[-1].sval) + 1, number_of_regexp, &index_pos);
   } else
     index_pos = -1;
   if (number_of_fields_inserted > 1) {
     for (i = 0; i < number_of_fields_inserted; i++) {
       field_id = field_id_set[i];
-      put_numeric_ftable (index_pos, fieldvsp[0].ival, field_id);
+      put_numeric_ftable (index_pos, (fieldvsp[0].ival), field_id);
       save_numeric_index_fields (field_id);
     }
   } else {
-    put_numeric_ftable (index_pos, fieldvsp[0].ival, gfield_id);
+    put_numeric_ftable (index_pos, (fieldvsp[0].ival), gfield_id);
     save_numeric_index_fields (gfield_id);
   }
-  if (fieldvsp[-1].sval != NULL)
-    s_free (fieldvsp[-1].sval);	/* (up) */
-;
-    break;}
-case 22:
+  if ((fieldvsp[-1].sval) != NULL)
+    s_free ((fieldvsp[-1].sval));	/* (up) */
+}
+    break;
+
+  case 23: /* option: DATE date_spec  */
 {
     index_fields[gfield_id]->numeric = 1;
     index_fields[gfield_id]->numeric_len = 6; /* indicate date */
     index_fields[gfield_id]->is_date = true;
     memcpy(&(index_fields[gfield_id]->date_desc),
-            &(fieldvsp[0].date), sizeof(index_fields[gfield_id]->date_desc));
+            &((fieldvsp[0].date)), sizeof(index_fields[gfield_id]->date_desc));
     save_numeric_index_fields(gfield_id);
-;
-    break;}
-case 23:
+}
+    break;
+
+  case 24: /* option: STEMMING  */
 {
   long            i;
   long            field_id;
@@ -979,13 +1524,14 @@ case 23:
   if (number_of_fields_inserted > 1) {
     for (i = 0; i < number_of_fields_inserted; i++) {
       field_id = field_id_set[i];
-      index_fields[field_id]->stemming = fieldvsp[0].cval;
+      index_fields[field_id]->stemming = (fieldvsp[0].cval);
     }
   } else
-    index_fields[gfield_id]->stemming = fieldvsp[0].cval;
-;
-    break;}
-case 24:
+    index_fields[gfield_id]->stemming = (fieldvsp[0].cval);
+}
+    break;
+
+  case 25: /* option: HEADLINE regexp INT  */
 {
   long         fpos = index_fields[gfield_id]->number_of_Ftable;
   long         regexp_pos = index_fields[gfield_id]->Ftable[fpos].begin_tag_pos;
@@ -994,19 +1540,20 @@ case 24:
     fprintf (stderr, "syntax error!\nlayout has been specified\n");
     return (1);
   }
-  if (fieldvsp[-1].sval != NULL) {
-    ++(fieldvsp[-1].sval);
+  if ((fieldvsp[-1].sval) != NULL) {
+    ++((fieldvsp[-1].sval));
     number_of_regexp += 
-        insert_regexp (fieldvsp[-1].sval, number_of_regexp, &gregexp_pos);
+        insert_regexp ((fieldvsp[-1].sval), number_of_regexp, &gregexp_pos);
   } else
     gregexp_pos = -1;
-  put_headline (regexp_pos, -1, gregexp_pos, fieldvsp[0].ival, offset,
+  put_headline (regexp_pos, -1, gregexp_pos, (fieldvsp[0].ival), offset,
 		number_of_headlines);
-  offset += fieldvsp[0].ival + 1;
+  offset += (fieldvsp[0].ival) + 1;
   is_headline = 1;
-;
-    break;}
-case 25:
+}
+    break;
+
+  case 26: /* option: DATE REGEXP date_spec regexp  */
 {
   long            regexp_pos1, regexp_pos2;
 
@@ -1015,32 +1562,36 @@ case 25:
     return (1);
   }
   number_of_regexp += 
-      insert_regexp (fieldvsp[-2].sval + 1, number_of_regexp, &regexp_pos1);
-  if (fieldvsp[0].sval != NULL) {
+      insert_regexp ((fieldvsp[-2].sval) + 1, number_of_regexp, &regexp_pos1);
+  if ((fieldvsp[0].sval) != NULL) {
     number_of_regexp +=
-      insert_regexp (fieldvsp[-1].sval + 1, number_of_regexp, &regexp_pos2);
+      insert_regexp ((fieldvsp[-1].sval) + 1, number_of_regexp, &regexp_pos2);
   } else
     regexp_pos2 = -1;
   /* not all compiler can copy structs :-( */
-  put_hdate_ltable (regexp_pos1, &(fieldvsp[-1].date), regexp_pos2);
-  s_free (fieldvsp[-2].sval);
-  if (fieldvsp[0].sval != NULL)
-    s_free (fieldvsp[0].sval);
-;
-    break;}
-case 26:
-{fieldval.sval = NULL;;
-    break;}
-case 27:
-{fieldval.sval =fieldvsp[0].sval; ;
-    break;}
-case 29:
+  put_hdate_ltable (regexp_pos1, &((fieldvsp[-1].date)), regexp_pos2);
+  s_free ((fieldvsp[-2].sval));
+  if ((fieldvsp[0].sval) != NULL)
+    s_free ((fieldvsp[0].sval));
+}
+    break;
+
+  case 27: /* regexp: %empty  */
+                  {(fieldval.sval) = NULL;}
+    break;
+
+  case 28: /* regexp: REGEXP  */
+                         {(fieldval.sval) =(fieldvsp[0].sval); }
+    break;
+
+  case 30: /* indexspecs: indexspec indexspecs  */
 {
   indexspecs_not_empty = 1;
-  fieldval.sval = fieldvsp[0].sval;
-;
-    break;}
-case 30:
+  (fieldval.sval) = (fieldvsp[0].sval);
+}
+    break;
+
+  case 31: /* indexspec: indextype dicts  */
 {
   long            i;
   long            field_id;
@@ -1050,17 +1601,18 @@ case 30:
   if (number_of_fields_inserted > 1) {
     for (i = 0; i < number_of_fields_inserted; i++) {
       field_id = field_id_set[i];
-      put_indextypes (fieldvsp[-1].sval, index_kind,
+      put_indextypes ((fieldvsp[-1].sval), index_kind,
 		      field_id, number_of_indextypes);
     }
   } else
-    put_indextypes (fieldvsp[-1].sval, index_kind,
+    put_indextypes ((fieldvsp[-1].sval), index_kind,
 		    gfield_id, number_of_indextypes);
   ++number_of_indextypes;
-  s_free (fieldvsp[-1].sval);
-;
-    break;}
-case 34:
+  s_free ((fieldvsp[-1].sval));
+}
+    break;
+
+  case 35: /* dicts: GLOBAL  */
 {
   if (fieldlist_not_empty) {
     fprintf (stderr, 
@@ -1070,9 +1622,10 @@ case 34:
     index_kind = 0;
     global_dct_exists = true;
   }
-;
-    break;}
-case 35:
+}
+    break;
+
+  case 36: /* dicts: LOCAL  */
 {
   if (fieldlist_not_empty == 0) {
     fprintf (stderr, "warning: %s\n",
@@ -1082,9 +1635,10 @@ case 35:
   } else {
     index_kind = 1;
   }
-;
-    break;}
-case 36:
+}
+    break;
+
+  case 37: /* dicts: BOTH  */
 {
   if (fieldlist_not_empty == 0) {
     fprintf (stderr, "warning: %s %s\n",
@@ -1097,44 +1651,53 @@ case 36:
     global_dct_exists = true;
     index_kind_both = true;
   }
-;
-    break;}
-case 37:
+}
+    break;
+
+  case 38: /* date_spec: REGEXP date date date  */
 {
     DateDescription date;
-    date.sscanf_arg       = strdup(fieldvsp[-3].sval+1); s_free(fieldvsp[-3].sval);
+    date.sscanf_arg       = strdup((fieldvsp[-3].sval)+1); s_free((fieldvsp[-3].sval));
     date.sscanf_arg[strlen(date.sscanf_arg)-1] = '\0';
-    date.order[0]  = tolower(fieldvsp[-2].cval);
-    date.order[1]  = tolower(fieldvsp[-1].cval);
-    date.order[2]  = tolower(fieldvsp[0].cval);
+    date.order[0]  = tolower((fieldvsp[-2].cval));
+    date.order[1]  = tolower((fieldvsp[-1].cval));
+    date.order[2]  = tolower((fieldvsp[0].cval));
     date.month_is_string = 
-        (fieldvsp[-2].cval == 'M') || (fieldvsp[-1].cval == 'M') || (fieldvsp[0].cval == 'M') ;
+        ((fieldvsp[-2].cval) == 'M') || ((fieldvsp[-1].cval) == 'M') || ((fieldvsp[0].cval) == 'M') ;
     /* not all compiler can copy structs :-( */
-    memcpy(&(fieldval.date), &date, sizeof(date));
-;
-    break;}
-case 38:
-{fieldval.cval = 'd';;
-    break;}
-case 39:
-{fieldval.cval = fieldvsp[0].cval;;
-    break;}
-case 40:
-{fieldval.cval = 'y';;
-    break;}
-case 41:
-{fieldval.cval = 'm';;
-    break;}
-case 42:
-{fieldval.cval = 'M';;
-    break;}
-case 43:
-{fieldval.sval = NULL;;
-    break;}
-case 44:
-{fieldval.sval = fieldvsp[0].sval;;
-    break;}
-case 46:
+    memcpy(&((fieldval.date)), &date, sizeof(date));
+}
+    break;
+
+  case 39: /* date: DAY  */
+                                    {(fieldval.cval) = 'd';}
+    break;
+
+  case 40: /* date: MONTH monthspec  */
+                                    {(fieldval.cval) = (fieldvsp[0].cval);}
+    break;
+
+  case 41: /* date: YEAR  */
+                                    {(fieldval.cval) = 'y';}
+    break;
+
+  case 42: /* monthspec: %empty  */
+                  {(fieldval.cval) = 'm';}
+    break;
+
+  case 43: /* monthspec: STRING  */
+                         {(fieldval.cval) = 'M';}
+    break;
+
+  case 44: /* descr: %empty  */
+                  {(fieldval.sval) = NULL;}
+    break;
+
+  case 45: /* descr: DESCRIPTION  */
+                              {(fieldval.sval) = (fieldvsp[0].sval);}
+    break;
+
+  case 47: /* fieldlist: WORD descr fieldlist  */
 {
   ++number_of_fields_inserted;
   if (number_of_fields_inserted > 1) {
@@ -1150,224 +1713,220 @@ case 46:
       }
     }
   }
-  if (save_index_fields (fieldvsp[-2].sval, &number_of_index_fields, &gfield_id)) {
+  if (save_index_fields ((fieldvsp[-2].sval), &number_of_index_fields, &gfield_id)) {
     make_index_fields (number_of_index_fields);
-    put_index_fields (fieldvsp[-2].sval, fieldvsp[-1].sval, gfield_id, gregexp_pos, index_pos, 0);
+    put_index_fields ((fieldvsp[-2].sval), (fieldvsp[-1].sval), gfield_id, gregexp_pos, index_pos, 0);
   } else
-    put_index_fields (fieldvsp[-2].sval, fieldvsp[-1].sval, gfield_id, gregexp_pos, index_pos, 1);
+    put_index_fields ((fieldvsp[-2].sval), (fieldvsp[-1].sval), gfield_id, gregexp_pos, index_pos, 1);
   if (number_of_fields_inserted == 2)
     field_id_set[1] = gfield_id;
   else if (number_of_fields_inserted > 2)
     field_id_set[number_of_fields_inserted - 1] = gfield_id;
   fieldlist_not_empty = 1;
-  fieldval.sval = fieldvsp[0].sval;
-  s_free (fieldvsp[-2].sval);
-  s_free (fieldvsp[-1].sval);
-;
-    break;}
+  (fieldval.sval) = (fieldvsp[0].sval);
+  s_free ((fieldvsp[-2].sval));
+  s_free ((fieldvsp[-1].sval));
 }
-   /* the action file gets copied in in place of this dollarsign */
+    break;
 
-
-  fieldvsp -= fieldlen;
-  fieldssp -= fieldlen;
-#ifdef YYLSP_NEEDED
-  fieldlsp -= fieldlen;
-#endif
 
-#if YYDEBUG != 0
-  if (fielddebug)
-    {
-      short *ssp1 = fieldss - 1;
-      fprintf (stderr, "state stack now");
-      while (ssp1 != fieldssp)
-	fprintf (stderr, " %d", *++ssp1);
-      fprintf (stderr, "\n");
+
+      default: break;
     }
-#endif
+  /* User semantic actions sometimes alter fieldchar, and that requires
+     that fieldtoken be updated with the new translation.  We take the
+     approach of translating immediately before every use of fieldtoken.
+     One alternative is translating here after every semantic action,
+     but that translation would be missed if the semantic action invokes
+     YYABORT, YYACCEPT, or YYERROR immediately after altering fieldchar or
+     if it invokes YYBACKUP.  In the case of YYABORT or YYACCEPT, an
+     incorrect destructor might then be invoked immediately.  In the
+     case of YYERROR or YYBACKUP, subsequent parser actions might lead
+     to an incorrect destructor call or verbose syntax error message
+     before the lookahead is translated.  */
+  YY_SYMBOL_PRINT ("-> $$ =", YY_CAST (fieldsymbol_kind_t, fieldr1[fieldn]), &fieldval, &fieldloc);
+
+  YYPOPSTACK (fieldlen);
+  fieldlen = 0;
 
   *++fieldvsp = fieldval;
 
-#ifdef YYLSP_NEEDED
-  fieldlsp++;
-  if (fieldlen == 0)
-    {
-      fieldlsp->first_line = fieldlloc.first_line;
-      fieldlsp->first_column = fieldlloc.first_column;
-      fieldlsp->last_line = (fieldlsp-1)->last_line;
-      fieldlsp->last_column = (fieldlsp-1)->last_column;
-      fieldlsp->text = 0;
-    }
-  else
-    {
-      fieldlsp->last_line = (fieldlsp+fieldlen-1)->last_line;
-      fieldlsp->last_column = (fieldlsp+fieldlen-1)->last_column;
-    }
-#endif
-
-  /* Now "shift" the result of the reduction.
-     Determine what state that goes to,
-     based on the state we popped back to
-     and the rule number reduced by.  */
-
-  fieldn = fieldr1[fieldn];
-
-  fieldstate = fieldpgoto[fieldn - YYNTBASE] + *fieldssp;
-  if (fieldstate >= 0 && fieldstate <= YYLAST && fieldcheck[fieldstate] == *fieldssp)
-    fieldstate = fieldtable[fieldstate];
-  else
-    fieldstate = fielddefgoto[fieldn - YYNTBASE];
+  /* Now 'shift' the result of the reduction.  Determine what state
+     that goes to, based on the state we popped back to and the rule
+     number reduced by.  */
+  {
+    const int fieldlhs = fieldr1[fieldn] - YYNTOKENS;
+    const int fieldi = fieldpgoto[fieldlhs] + *fieldssp;
+    fieldstate = (0 <= fieldi && fieldi <= YYLAST && fieldcheck[fieldi] == *fieldssp
+               ? fieldtable[fieldi]
+               : fielddefgoto[fieldlhs]);
+  }
 
   goto fieldnewstate;
 
-fielderrlab:   /* here on detecting error */
 
-  if (! fielderrstatus)
-    /* If not already recovering from an error, report this error.  */
+/*--------------------------------------.
+| fielderrlab -- here on detecting error.  |
+`--------------------------------------*/
+fielderrlab:
+  /* Make sure we have latest lookahead translation.  See comments at
+     user semantic actions for why this is necessary.  */
+  fieldtoken = fieldchar == YYEMPTY ? YYSYMBOL_YYEMPTY : YYTRANSLATE (fieldchar);
+  /* If not already recovering from an error, report this error.  */
+  if (!fielderrstatus)
     {
       ++fieldnerrs;
-
-#ifdef YYERROR_VERBOSE
-      fieldn = fieldpact[fieldstate];
-
-      if (fieldn > YYFLAG && fieldn < YYLAST)
-	{
-	  int size = 0;
-	  char *msg;
-	  int x, count;
-
-	  count = 0;
-	  /* Start X at -fieldn if nec to avoid negative indexes in fieldcheck.  */
-	  for (x = (fieldn < 0 ? -fieldn : 0);
-	       x < (sizeof(fieldtname) / sizeof(char *)); x++)
-	    if (fieldcheck[x + fieldn] == x)
-	      size += strlen(fieldtname[x]) + 15, count++;
-	  msg = (char *) malloc(size + 15);
-	  if (msg != 0)
-	    {
-	      strcpy(msg, "parse error");
-
-	      if (count < 5)
-		{
-		  count = 0;
-		  for (x = (fieldn < 0 ? -fieldn : 0);
-		       x < (sizeof(fieldtname) / sizeof(char *)); x++)
-		    if (fieldcheck[x + fieldn] == x)
-		      {
-			strcat(msg, count == 0 ? ", expecting `" : " or `");
-			strcat(msg, fieldtname[x]);
-			strcat(msg, "'");
-			count++;
-		      }
-		}
-	      fielderror(msg);
-	      free(msg);
-	    }
-	  else
-	    fielderror ("parse error; also virtual memory exceeded");
-	}
-      else
-#endif /* YYERROR_VERBOSE */
-	fielderror("parse error");
+      fielderror (YY_("syntax error"));
     }
-
-  goto fielderrlab1;
-fielderrlab1:   /* here on error raised explicitly by an action */
 
   if (fielderrstatus == 3)
     {
-      /* if just tried and failed to reuse lookahead token after an error, discard it.  */
+      /* If just tried and failed to reuse lookahead token after an
+         error, discard it.  */
 
-      /* return failure if at end of input */
-      if (fieldchar == YYEOF)
-	YYABORT;
-
-#if YYDEBUG != 0
-      if (fielddebug)
-	fprintf(stderr, "Discarding token %d (%s).\n", fieldchar, fieldtname[fieldchar1]);
-#endif
-
-      fieldchar = YYEMPTY;
+      if (fieldchar <= YYEOF)
+        {
+          /* Return failure if at end of input.  */
+          if (fieldchar == YYEOF)
+            YYABORT;
+        }
+      else
+        {
+          fielddestruct ("Error: discarding",
+                      fieldtoken, &fieldlval);
+          fieldchar = YYEMPTY;
+        }
     }
 
-  /* Else will try to reuse lookahead token
-     after shifting the error token.  */
+  /* Else will try to reuse lookahead token after shifting the error
+     token.  */
+  goto fielderrlab1;
 
-  fielderrstatus = 3;		/* Each real token shifted decrements this */
 
-  goto fielderrhandle;
+/*---------------------------------------------------.
+| fielderrorlab -- error raised explicitly by YYERROR.  |
+`---------------------------------------------------*/
+fielderrorlab:
+  /* Pacify compilers when the user code never invokes YYERROR and the
+     label fielderrorlab therefore never appears in user code.  */
+  if (0)
+    YYERROR;
+  ++fieldnerrs;
 
-fielderrdefault:  /* current state does not do anything special for the error token. */
+  /* Do not reclaim the symbols of the rule whose action triggered
+     this YYERROR.  */
+  YYPOPSTACK (fieldlen);
+  fieldlen = 0;
+  YY_STACK_PRINT (fieldss, fieldssp);
+  fieldstate = *fieldssp;
+  goto fielderrlab1;
 
-#if 0
-  /* This is wrong; only states that explicitly want error tokens
-     should shift them.  */
-  fieldn = fielddefact[fieldstate];  /* If its default is to accept any token, ok.  Otherwise pop it.*/
-  if (fieldn) goto fielddefault;
-#endif
 
-fielderrpop:   /* pop the current state because it cannot handle the error token */
+/*-------------------------------------------------------------.
+| fielderrlab1 -- common code for both syntax error and YYERROR.  |
+`-------------------------------------------------------------*/
+fielderrlab1:
+  fielderrstatus = 3;      /* Each real token shifted decrements this.  */
 
-  if (fieldssp == fieldss) YYABORT;
-  fieldvsp--;
-  fieldstate = *--fieldssp;
-#ifdef YYLSP_NEEDED
-  fieldlsp--;
-#endif
-
-#if YYDEBUG != 0
-  if (fielddebug)
+  /* Pop stack until we find a state that shifts the error token.  */
+  for (;;)
     {
-      short *ssp1 = fieldss - 1;
-      fprintf (stderr, "Error: state stack now");
-      while (ssp1 != fieldssp)
-	fprintf (stderr, " %d", *++ssp1);
-      fprintf (stderr, "\n");
+      fieldn = fieldpact[fieldstate];
+      if (!fieldpact_value_is_default (fieldn))
+        {
+          fieldn += YYSYMBOL_YYerror;
+          if (0 <= fieldn && fieldn <= YYLAST && fieldcheck[fieldn] == YYSYMBOL_YYerror)
+            {
+              fieldn = fieldtable[fieldn];
+              if (0 < fieldn)
+                break;
+            }
+        }
+
+      /* Pop the current state because it cannot handle the error token.  */
+      if (fieldssp == fieldss)
+        YYABORT;
+
+
+      fielddestruct ("Error: popping",
+                  YY_ACCESSING_SYMBOL (fieldstate), fieldvsp);
+      YYPOPSTACK (1);
+      fieldstate = *fieldssp;
+      YY_STACK_PRINT (fieldss, fieldssp);
     }
-#endif
 
-fielderrhandle:
-
-  fieldn = fieldpact[fieldstate];
-  if (fieldn == YYFLAG)
-    goto fielderrdefault;
-
-  fieldn += YYTERROR;
-  if (fieldn < 0 || fieldn > YYLAST || fieldcheck[fieldn] != YYTERROR)
-    goto fielderrdefault;
-
-  fieldn = fieldtable[fieldn];
-  if (fieldn < 0)
-    {
-      if (fieldn == YYFLAG)
-	goto fielderrpop;
-      fieldn = -fieldn;
-      goto fieldreduce;
-    }
-  else if (fieldn == 0)
-    goto fielderrpop;
-
-  if (fieldn == YYFINAL)
-    YYACCEPT;
-
-#if YYDEBUG != 0
-  if (fielddebug)
-    fprintf(stderr, "Shifting error token, ");
-#endif
-
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++fieldvsp = fieldlval;
-#ifdef YYLSP_NEEDED
-  *++fieldlsp = fieldlloc;
-#endif
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
+
+
+  /* Shift the error token.  */
+  YY_SYMBOL_PRINT ("Shifting", YY_ACCESSING_SYMBOL (fieldn), fieldvsp, fieldlsp);
 
   fieldstate = fieldn;
   goto fieldnewstate;
+
+
+/*-------------------------------------.
+| fieldacceptlab -- YYACCEPT comes here.  |
+`-------------------------------------*/
+fieldacceptlab:
+  fieldresult = 0;
+  goto fieldreturnlab;
+
+
+/*-----------------------------------.
+| fieldabortlab -- YYABORT comes here.  |
+`-----------------------------------*/
+fieldabortlab:
+  fieldresult = 1;
+  goto fieldreturnlab;
+
+
+/*-----------------------------------------------------------.
+| fieldexhaustedlab -- YYNOMEM (memory exhaustion) comes here.  |
+`-----------------------------------------------------------*/
+fieldexhaustedlab:
+  fielderror (YY_("memory exhausted"));
+  fieldresult = 2;
+  goto fieldreturnlab;
+
+
+/*----------------------------------------------------------.
+| fieldreturnlab -- parsing is finished, clean up and return.  |
+`----------------------------------------------------------*/
+fieldreturnlab:
+  if (fieldchar != YYEMPTY)
+    {
+      /* Make sure we have latest lookahead translation.  See comments at
+         user semantic actions for why this is necessary.  */
+      fieldtoken = YYTRANSLATE (fieldchar);
+      fielddestruct ("Cleanup: discarding lookahead",
+                  fieldtoken, &fieldlval);
+    }
+  /* Do not reclaim the symbols of the rule whose action triggered
+     this YYABORT or YYACCEPT.  */
+  YYPOPSTACK (fieldlen);
+  YY_STACK_PRINT (fieldss, fieldssp);
+  while (fieldssp != fieldss)
+    {
+      fielddestruct ("Cleanup: popping",
+                  YY_ACCESSING_SYMBOL (+*fieldssp), fieldvsp);
+      YYPOPSTACK (1);
+    }
+#ifndef fieldoverflow
+  if (fieldss != fieldssa)
+    YYSTACK_FREE (fieldss);
+#endif
+
+  return fieldresult;
 }
+
 
 extern FILE* fieldin;
 extern int fieldlineno;
 extern char fieldtext[];
-extern int fielddebug;
+int fielddebug;
 
 
 fielderror (s)

@@ -9,6 +9,8 @@
  * Status          : Unknown, Use with caution!
  */
 
+#include "/usr/include/ctype.h"
+
 #ifndef _CTYPE_H_
 #define _CTYPE_H_
 
@@ -29,6 +31,7 @@ extern char _fw_ctype_[];
 #endif /* STDC_HEADERS */
 #endif /* CTYPE_C */
 
+/*
 #define	isalnum(c)	((_fw_ctype_ + 1)[(unsigned char)c] & (_U|_L|_N))
 #define	isalpha(c)	((_fw_ctype_ + 1)[(unsigned char)c] & (_U|_L))
 #define	isascii(c)	((unsigned)(c) <= 0177)
@@ -41,11 +44,14 @@ extern char _fw_ctype_[];
 #define	ispunct(c)	((_fw_ctype_ + 1)[(unsigned char)c] & _P)
 #define	isspace(c)	((_fw_ctype_ + 1)[(unsigned char)c] & _S)
 #define	isupper(c)	((_fw_ctype_ + 1)[(unsigned char)c] & _U)
+*/
 /*
 #define	isxdigit(c)	((_fw_ctype_ + 1)[(unsigned char)c] & (_N|_X))
 */
+/*
 #define	isxdigit(c)	((_fw_ctype_ + 1)[(unsigned char)c] & _X)
 #define	toascii(c)	((c) & 0177)
+*/
 
 /***********************************************************************/
 /* in cyrillic we have low symbols from 0xc0 to 0xdf and upper symbols */
