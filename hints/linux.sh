@@ -7,3 +7,4 @@ d_memcpy='define';
 d_memmove='define';
 d_myctype='undef';
 d_myregexp='define'
+libs='-lncurses'
