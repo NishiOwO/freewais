@@ -6,4 +6,4 @@ cc='gcc' ;
 d_memcpy='define';
 d_memmove='define';
 d_myctype='undef';
-d_myregexp='define';
+d_myregexp='define'
