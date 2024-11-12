@@ -294,7 +294,7 @@ fd_connect_to_server (hname, port, fd)
 #ifdef __linux__
     char str[80];
     memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_INET;
+    hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_DGRAM;
     hints.ai_flags = 0;
     hints.ai_protocol = IPPROTO_TCP;
@@ -303,7 +303,7 @@ fd_connect_to_server (hname, port, fd)
       return FALSE;
     }
     for(rp = result; rp != NULL; rp = rp->ai_next){
-      *fd = socket (AF_INET, SOCK_STREAM, 0);
+      *fd = socket (rp->ai_family, rp->ai_socktype, rp->ai_protocol);
       if(connect (*fd, rp->ai_addr, rp->ai_addrlen) != -1) break;
       close(*fd);
     }
