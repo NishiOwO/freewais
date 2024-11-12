@@ -1,0 +1,88 @@
+#                              -*- Mode: Perl -*- 
+# Conscript<5> -- 
+# ITIID           : $ITI$ $Header $__Header$
+# Author          : Ulrich Pfeifer
+# Created On      : Mon Aug  5 22:38:15 1996
+# Last Modified By: Ulrich Pfeifer
+# Last Modified On: Fri Nov 22 21:16:48 1996
+# Language        : CPerl
+# Update Count    : 38
+# Status          : Unknown, Use with caution!
+# 
+# (C) Copyright 1996, Universität Dortmund, all rights reserved.
+# 
+# $$
+# $Log: Conscript,v $
+# Revision 2.2  1997/02/04 17:10:39  pfeifer
+# Switched to CVS
+#
+# Revision 2.0.1.1  1996/12/27 15:28:46  pfeifer
+# patch69: Auxiliary cons(1) script.
+#
+# Revision 1.1  1996/08/07 05:49:53  pfeifer
+# Vor unified version
+#
+# 
+
+Import qw(CONS ARCH GERMAN PROXIMITY);
+
+@FIELDS = qw(ck jt py ti au ed);
+@GEXT   = qw(cat doc doc fn hl inv src dct);
+
+@DBF = map $_=".$_", @GEXT;
+for (@FIELDS) {
+  push @DBF, "_field_$_.inv", "_field_$_.dct";
+}
+@TEST  = map "test$_",  @DBF;
+@TESTG = map "testg$_", @DBF;
+
+%TEST = (
+         PLAIN     => 'Probabilistic Indexing',
+         WEIGHT    => 'Probabilistic <* 3 Indexing',
+         BOOLEAN   => 'au=(pennekamp or fuhr) and processing',
+         FIELD     => 'au=pfeifer',
+         NUMERIC   => 'py==1995',
+         COMPLEX   => 'py==1995 and (ti=(Retrieval freeWAIS) or au=pfeifer)',
+         PARTIAL   => 'Pfeif*',
+         DATE      => 'ed>19930101',
+         );
+if ($GERMAN) {
+  $TEST{GERMAN}    = 'au=großjohann';
+}
+if ($PROXIMITY) {
+  $TEST{PROXIMITY} = '(Searching w/2 Documents) or (Development pre/3 Linear)';
+} else {
+  $TEST{LITERAL}   = q['Enhanced Retrieval'];
+}
+Command $CONS [@TEST], "#$ARCH/ir/waisindex", 'TEST', 'test.fmt',
+  "%1 -t fields -d %2:d/test %2";
+if ($GERMAN) {
+  Command $CONS [@TESTG], "#$ARCH/ir/waisindex", 'TEST', 'TEST.german', "testg.fmt",
+  "%1 -t fields -d %2:d/testg %2 %3";
+}
+while (($key, $value) = each %TEST) {
+  my $test = 'test';
+  my @TEST = @TEST;
+
+  if ($key eq GERMAN) {
+    $test = 'testg';
+    @TEST = @TESTG;
+  }
+
+  Command $CONS "$key.is", "$key.should", "#$ARCH/ui/waissearch", @TEST,
+  qq[@(echo q;echo q) | %2 -d %1:d/$test "$value" >  %> 2>&1] ;
+
+  # This is hard to do! Here was something like:
+  #      if cmp $key.is $key.should  ; then
+  #         echo Test $key is ok;
+  #      else 
+  #         Test $key failed; 
+  #      fi
+  #    
+  Command $CONS $key, "$key.is", "$key.should",
+  qq[@-cmp %1 %2 && echo Test $key is ok
+     cmp %1 %2 || echo Test $key failed];
+
+}
+
+

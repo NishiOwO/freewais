@@ -1,0 +1,15 @@
+
+ Search Response:
+  NumberOfRecordsReturned: 10
+   1: Score:   43, lines:  12 '1994 Poersch, T.; Pfeifer Similarity Measures for Strings'
+   2: Score:   42, lines:  19 '1991 Pfeifer, U.          Entwicklung linear iterativer und logist'
+   3: Score:   38, lines:  12 '1995 Pfeifer, U; Poersch, Searching Proper Names in Databases'
+   4: Score:   34, lines:  19 '1995 Pfeifer, U.; Fuhr, N Efficient Processing of Vague Queries us'
+   5: Score:   34, lines:  17 '1990 Pfeifer, U.          Development of Log-Linear and Linear-Ite'
+   6: Score:   33, lines:  19 '1991 Fuhr, N.; Pfeifer, U Combining Model-Oriented and Description'
+   7: Score:   33, lines:  12 '1994 Pfeifer, U.; Penneka Incremental Processing of Vague Queries'
+   8: Score:   29, lines:  18 '1994 Fuhr, N.; Pfeifer, U Probabilistic Information Retrieval as C'
+   9: Score:   29, lines:  30 '1995 Pfeifer, U.; Fuhr, N Searching Structured Documents with the'
+  10: Score:   21, lines:  17 '1994 Fuhr, N.; Pfeifer, U Probabilistic  Learning Approaches for I'
+
+View document number [type 0 or q to quit]: Search for new words [type q to quit]: 

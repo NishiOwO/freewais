@@ -1,0 +1,66 @@
+?RCS:                         -*- Mode: Fundamental -*- 
+?RCS: $Basename: d_embed.U $
+?RCS: $Revision: 1.2 $
+?RCS: Author          : Ulrich Pfeifer
+?RCS: Created On      : Wed Aug 30 12:09:59 1995
+?RCS: Last Modified By: Ulrich Pfeifer
+?RCS: Last Modified On: Mon May  5 12:49:37 1997
+?RCS: Language        : N/A
+?RCS: Update Count    : 33
+?RCS: Status          : Unknown, Use with caution!
+?RCS: 
+?RCS: (C) Copyright 1997, Universität Dortmund, all rights reserved.
+?RCS: 
+?RCS: 
+?MAKE:d_embed embed_cflags embed_ldopts: perl
+?MAKE:	-pick add $@ %<
+?S:d_embed:
+?S:     Embed perl for special stemmer?
+?S:.
+?C:EMBED:
+?C:     Embed perl for special stemmer?
+?C:.
+?H:#$d_embed EMBED /**/
+?H:.
+?T:cont
+?LINT:describe regexpdir regexplib
+echo $n "Checking if you have a decent Perl installed ... $c" >&4
+if $perl -MExtUtils::Embed -e ldopts  >/dev/null 2>&1 ; then
+    echo "yes"
+    cont=x
+    case "$d_embed" in
+        $define) d_embed='y';;
+        $undef)  d_embed='n';;
+        *)       d_embed='y';;
+    esac
+    while test "$cont"; do
+        case "$d_embed" in
+            '') dflt="y";;
+            *) dflt="$d_embed";;
+        esac
+        rp='Do you want to embed Perl?';
+        . ./myread
+        d_embed="$ans"
+        case "$d_embed" in
+            'y') cont='';;
+            'n') cont='';;
+            *) echo "Please answer 'y' or 'n'";;
+        esac
+    done
+
+    case "$d_embed" in
+        'n') d_embed=$undef;
+             embed_cflags=''
+             embed_ldopts=''
+             ;;
+        'y') d_embed=$define;
+             embed_cflags=`$perl -MExtUtils::Embed -e 'ccflags;' -e perl_inc `
+             embed_ldopts=`$perl -MExtUtils::Embed -e ldopts`
+    esac
+    
+else
+    echo "$perl does not work. So we will not try to embed perl";
+    d_embed=$undef
+    embed_cflags=''
+    embed_ldopts=''
+fi

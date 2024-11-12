@@ -1,0 +1,118 @@
+#                              -*- Mode: Perl -*- 
+# Conscript -- 
+# ITIID           : $ITI$ $Header $__Header$
+# Author          : Ulrich Pfeifer
+# Created On      : Fri Jul 26 16:00:33 1996
+# Last Modified By: Ulrich Pfeifer
+# Last Modified On: Sat Feb  8 12:06:19 1997
+# Language        : CPerl
+# Update Count    : 151
+# Status          : Unknown, Use with caution!
+# 
+# (C) Copyright 1996, Universität Dortmund, all rights reserved.
+# 
+# $$
+# $Log: Conscript,v $
+# Revision 2.4  1997/02/08 11:17:42  pfeifer
+# Compiled on linux
+#
+# Revision 2.3  1997/02/04 17:23:45  pfeifer
+# Removed debugging output.
+#
+# Revision 2.2  1997/02/04 17:12:00  pfeifer
+# Switched to CVS
+#
+# Revision 2.0.1.1  1996/12/27 16:05:47  pfeifer
+# patch69: Auxiliary cons(1) script.
+#
+# Revision 1.1  1996/08/07 05:49:53  pfeifer
+# Vor unified version
+#
+# Revision 1.1  1996/07/26 15:47:42  pfeifer
+# Initial revision
+#
+# 
+
+Import qw(CONS LINK ARCH LIB TEST BIN INCLUDE LIBDIR);
+
+Library $LINK $LIB, 
+  qw(cutil.c syslog.c futil.c ircfiles.c irfileio.c irfiles.c
+     irtfiles.c irkeywords.c stemmer.c panic.c sockets.c transprt.c
+     ustubs.c wmessage.c wprot.c wutil.c zprot.c zutil.c ztype1.c
+     soundex.c docid.c list.c lock.c udping.c ir.c irretrvl.c
+     stoplist.c irsearch.c synonym.c trie.c field_index.c
+     field_search.c ui.c sersrch.c irhash.c hash.c irinv.c weight.c
+     boolean_op.c field_l.c field_y.c query_y.c query_l.c);
+
+if (-e 'grundform.c') {
+  Library $LINK $LIB, qw(any_stemmer.c grundform.c);
+}
+
+if (-e 'html_entities.c') {
+   Library $LINK $LIB, qw(html_entities.c);
+}
+
+Install $CONS $LIBDIR, $LIB;
+
+$flex = $CONF{LEX}  || 'flex';
+$yacc = $CONF{yacc} || 'bison -y';
+
+($FLEX = $flex) =~ s/\s.*//;
+($YACC = $yacc) =~ s/\s.*//;
+for (split ':', $CONS->{ENV}->{PATH}) {
+  $have_flex++ if -x "$_/$FLEX";
+  $have_bison++ if -x "$_/$YACC";
+  $have_yacc++ if -x "$_/yacc";
+}
+
+unless ($have_bison) {
+  if ($have_yacc) {
+    $yacc = 'yacc';
+    $have_bison++;
+  }
+} 
+
+for $parser (qw(query field)) {
+  # We should be mor careful here and delete flex and bison output
+  # only if we will be able to recreate them. But we use a link anyway
+  # ;-)
+  $have_flex and
+    Command $CONS  "${parser}_l.c", "${parser}_l.l",
+    qq[
+       $flex -L %<
+       sed -e 's/yy\\(.\\)/${parser}\\1/g' < lex.yy.c > %>
+      ];
+  $have_bison and
+    Command $CONS  ["${parser}_y.c", "${parser}_y.h"], "${parser}_y.y", 
+    qq[
+       $yacc -d -l  %<
+       sed -e 's/yy\\(.\\)/${parser}\\1/g' < y.tab.c > %>
+       sed -e 's/yy\\(.\\)/${parser}\\1/g' < y.tab.h > %>:d/${parser}_y.h
+         rm -f y.tab.c y.tab.h
+        ];
+}
+
+Program $LINK 'waisindex', 'waisindex.c';
+Install $CONS $BIN, 'waisindex';
+
+Program $LINK 'waisserver', 'waisserver.c';
+Install $CONS $BIN, 'waisserver';
+
+#$TLINK = $LINK->clone(CFLAGS => $LINK->{CFLAGS} . "-DTEST_QUERY");
+@INC = join ' -I', split (':', $CONS->{CPPPATH}),
+  "-I$Config::Config{installarchlib}/CORE";
+
+Command $CONS 'query_ty.o', 'query_y.c',
+  qq[
+    $CONS->{CC} $CONS->{CFLAGS} @INC -c -o %> -DTEST_QUERY %1
+   ];
+
+Program $LINK 'test_query', 'query_ty.o';
+
+Command $CONS "#$ARCH/wais.h", qw(mkinc ui.h cutil.h irext.h irfiles.h
+                           irsearch.h irtfiles.h weight.h docid.h),
+  qq[$^X %1 @INC  %< > %>];
+
+Install $CONS $INCLUDE, "#$ARCH/wais.h";
+
+Command $CONS 'mkinc', 'mkinc.SH', "cd $ARCH/ir; /bin/sh mkinc.SH";

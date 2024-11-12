@@ -1,0 +1,45 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.5 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Wed Mar 23 09:48:45 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Wed May  7 20:57:56 1997
+;## Language        : Makefile
+;## Update Count    : 55
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+
+Initialize(CFLAGS,$ccflags $optimize `echo $mccflags | sed -e s:-I$ctypedir::g`)
+Initialize(LDFLAGS, -L$(TOP)/lib)
+Initialize(DPFLAGS,`echo $mccflags | sed -e s:-I$ctypedir::g` $cppflags)
+
+SRCS = ctest.c mkctype.c
+
+all:: ctype.o
+
+NormalProgramTarget(mkctype,mkctype.c,mkctype.o)
+
+includes:: ctype.c
+
+ctype.c: mkctype ctype.tmpl
+	./mkctype > ctype.c
+	cat ctype.tmpl >> ctype.c
+
+local_realclean::
+	$(RM) ctype.c
+
+DependTarget()
+
+#define all test
+
+NormalProgramTarget(ctest,ctest.c ctype.c, ctest.o ctype.o)
+
+ctest.o: ctest.c
+	$(CC) -c -I. $(JCFLAGS) ctest.c
+
+test:: ctest
+	./ctest

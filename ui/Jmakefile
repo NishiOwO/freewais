@@ -1,0 +1,53 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.13 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Tue Mar  8 14:48:35 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Wed May  7 21:03:30 1997
+;## Language        : Makefile
+;## Update Count    : 134
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+
+>LN
+
+Initialize(CFLAGS,$ccflags $optimize -I$(TOP)/lib/ir $mccflags $embed_cflags)
+Initialize(DPFLAGS,-I$(TOP)/lib/ir $mccflags $embed_cflags)
+Initialize(LDFLAGS,-L$(TOP)/lib -lwais $socketlib -lm $embed_ldopts) 
+Initialize(BIN_EXP,$installbin)
+Initialize(PRIVLIB,$installprivlib)
+
+OBJ1 = util.o
+OBJS = $(OBJ1) wais-ui.o source.o question.o document.o
+SRCS = question.c document.c util.c source.c wais-ui.c
+
+NormalProgramTarget(waissearch,waissearch.c,waissearch.o $(OBJ1))
+InstallProgram(waissearch,$(BIN_EXP))
+NormalProgramTarget(waisq,waisq.c,waisq.o $(OBJS))
+InstallProgram(waisq,$(BIN_EXP))
+NormalProgramTarget(swais,swais.c,swais.o $(OBJS))
+InstallProgram(swais,$(BIN_EXP))
+DependTarget()
+
+install::
+	$(RM) $(BIN_EXP)/waisping
+	$(LN) $(BIN_EXP)/waisq $(BIN_EXP)/waisping
+
+all:: wais.el
+
+;# wais.el
+
+wais.el: wais.el.raw
+	$(SED) -e 's:INSTALLROOT:"$(BIN_EXP)/":g' < wais.el.raw > wais.el;
+
+MakeDirectories(install, $(PRIVLIB)/emacs $(PRIVLIB)/emacs/lisp)
+InstallNonExec(wais.el, $(PRIVLIB)/emacs/lisp)
+
+local_realclean::
+	$(RM) wais.el
+
+test::

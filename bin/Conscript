@@ -1,0 +1,52 @@
+#                              -*- Mode: Perl -*- 
+# Conscript -- bin
+# ITIID           : $ITI$ $Header $__Header$
+# Author          : Ulrich Pfeifer
+# Created On      : Sat Jul 27 19:32:10 1996
+# Last Modified By: Ulrich Pfeifer
+# Last Modified On: Thu May  1 11:50:39 1997
+# Language        : CPerl
+# Update Count    : 21
+# Status          : Unknown, Use with caution!
+# 
+# (C) Copyright 1996, Universität Dortmund, all rights reserved.
+# 
+# $$
+# $Log: Conscript,v $
+# Revision 2.4  1997/04/24 13:56:06  pfeifer
+# Aktuelle/letzte LS6 Version
+#
+# Revision 2.3  1997/02/07 15:22:20  pfeifer
+# Minor fixes
+#
+# Revision 2.2  1997/02/04 17:11:00  pfeifer
+# Switched to CVS
+#
+# Revision 2.0.1.1  1996/12/27 15:47:46  pfeifer
+# patch69: Auxiliary cons(1) script.
+#
+# Revision 1.1  1996/08/07 05:49:53  pfeifer
+# Vor unified version
+#
+# Revision 1.1  1996/07/28 16:11:29  pfeifer
+# Initial revision
+#
+# 
+
+Import qw(CONS SCRIPT MAN1 ARCH);
+
+@SCRIPTS = qw(check-sources getaddrs server_stats stats.awk
+              wais-gif-display wais-html-display wais-jfif-display
+              wais-jpeg-display wais-pict-display wais-ppm-display
+              wais-tiff-display waisretrieve ws
+             );
+
+@POD     = qw(makedb catalog dictionary inverted_file mkfmt);
+
+for (@POD) {
+  Command $CONS "$_", "$_.SH", qq[cd $ARCH/bin; sh $_.SH];
+  Command $CONS "$_.1", $_, 'pod2man %< > %>';
+}
+Install $CONS $SCRIPT, @SCRIPTS;
+Install $CONS $MAN1, map($_ .= '.1', @POD);
+

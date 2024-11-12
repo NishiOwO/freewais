@@ -1,0 +1,27 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.2 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Tue May  6 09:25:28 1997
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Wed May  7 21:03:29 1997
+;## Language        : Makefile
+;## Update Count    : 13
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+
+Initialize(CFLAGS,$ccflags $optimize -I$(TOP)/lib/ir $mccflags $embed_cflags)
+Initialize(DPFLAGS,-I$(TOP)/lib/ir $mccflags $embed_cflags)
+Initialize(LDFLAGS, -L$(TOP)/lib -lwais $socketlib -lm $embed_ldopts) 
+Initialize(BIN_EXP,$installbin)
+
+NormalProgramTarget(waisserver,waisserver.c,waisserver.o)
+InstallProgram(waisserver,$(BIN_EXP))
+MakeDirectories(install,$(BIN_EXP))
+DependTarget()
+
+test::
+

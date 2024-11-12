@@ -1,0 +1,38 @@
+#                              -*- Mode: Perl -*- 
+# Conscript -- 
+# ITIID           : $ITI$ $Header $__Header$
+# Author          : Ulrich Pfeifer
+# Created On      : Fri Jul 26 16:00:33 1996
+# Last Modified By: Ulrich Pfeifer
+# Last Modified On: Sat Dec 28 17:11:31 1996
+# Language        : CPerl
+# Update Count    : 30
+# Status          : Unknown, Use with caution!
+# 
+# (C) Copyright 1996, Universität Dortmund, all rights reserved.
+# 
+# $$
+# $Log: Conscript,v $
+# Revision 2.2  1997/02/04 17:11:56  pfeifer
+# Switched to CVS
+#
+# Revision 2.0.1.1  1996/12/27 16:05:42  pfeifer
+# patch69: Auxiliary cons(1) script.
+#
+# Revision 1.1  1996/08/07 05:49:53  pfeifer
+# Vor unified version
+#
+# Revision 1.1  1996/07/26 15:47:42  pfeifer
+# Initial revision
+#
+# 
+
+Import qw(LINK LIB MAN1);
+
+# The following should be easier. Maybe Install should take files
+# as first argument too?
+for (<*.man>) {
+  $_ =~ s/\.man$// or die;
+  Command $LINK "$_.1", "$_.man", "ln %< %>";
+  Install $LINK $MAN1, "$_.1";
+}

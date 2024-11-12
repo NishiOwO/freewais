@@ -1,0 +1,60 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.5 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Tue Mar  8 14:49:56 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Wed May  7 20:56:53 1997
+;## Language        : Makefile
+;## Update Count    : 48
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+
+>SCRIPTDIR
+>MANSRC
+
+++SCRIPTS check-sources getaddrs server_stats stats.awk
+++SCRIPTS wais-gif-display wais-html-display wais-jfif-display
+++SCRIPTS wais-jpeg-display wais-pict-display wais-ppm-display
+++SCRIPTS wais-tiff-display waisretrieve ws
+
+all::
+	@echo "Nothing to make in \"bin\".";
+
+#define DocumentedPerlScriptRule(script)                                @!\
+++SCRIPTS script                                                        @!\
+                                                                        @!\
+all:: script.man script                                                 @!\
+                                                                        @!\
+script: script.SH                                                       @@\
+	/bin/sh script.SH                                               @@\
+                                                                        @!\
+script.man: script                                                      @@\
+	pod2man script > script.man                                     @@\
+                                                                        @!\
+local_realclean::                                                       @@\
+	$(RM) script script.man                                         @@\
+                                                                        @!\
+InstallManPage(script,$(MANSRC))
+
+DocumentedPerlScriptRule(makedb)
+DocumentedPerlScriptRule(catalog)
+DocumentedPerlScriptRule(dictionary)
+DocumentedPerlScriptRule(inverted_file)
+DocumentedPerlScriptRule(mkfmt)
+
+ws: ws.SH
+	/bin/sh ws.SH
+
+InstallScripts()
+MakeDirectories(install.man, $(MANSRC))
+DependTarget()
+CleanTarget()
+
+local_realclean::
+	$(RM) ws
+
+test::

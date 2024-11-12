@@ -1,0 +1,100 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.2 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Tue Mar  8 14:40:27 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Wed May  7 21:03:26 1997
+;## Language        : Makefile
+;## Update Count    : 280
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+>CC
+Initialize(CTYPEDIR,$ctypedir)
+Initialize(CTYPEOBJ,$ctypeobj)
+Initialize(REGEXPDIR,$regexpdir)
+Initialize(REGEXPOBJ,$regexpobj)
+Initialize(EMBED,$embed_ldopts)
+Initialize(CFLAGS,$ccflags $optimize $mccflags)
+Initialize(SO,$so)
+Initialize(REV,$baserev.$patchlevel)
+Initialize(PRIVLIB,$installprivlib)
+Initialize(PRIVINC,`echo $installprivlib | sed -e s:/lib/:/include/:`)
+
+SUBDIRS =  $(CTYPEDIR) $(REGEXPDIR) ftw ir 
+
+IROBJS = \
+ir/any_stemmer.o ir/grundform.o ir/syslog.o ir/ircfiles.o              \
+ir/irfileio.o ir/irfiles.o ir/irtfiles.o ir/irkeywords.o ir/stemmer.o  \
+ir/sockets.o ir/transprt.o ir/html_entities.o ir/wmessage.o ir/wprot.o \
+ir/wutil.o ir/zprot.o ir/zutil.o ir/ztype1.o ir/soundex.o ir/docid.o   \
+ir/list.o ir/lock.o ir/udping.o ir/ir.o ir/irretrvl.o ir/stoplist.o    \
+ir/irsearch.o ir/synonym.o ir/trie.o ir/field_index.o                  \
+ir/field_search.o ir/ui.o ir/sersrch.o ir/irhash.o ir/hash.o           \
+ir/irinv.o ir/weight.o ir/boolean_op.o ir/field_l.o ir/field_y.o       \
+ir/query_y.o ir/query_l.o
+
+FTWOBJS = ftw/alphasort.o ftw/alloca.o ftw/freedir.o ftw/ftw.o ftw/scandir.o
+SRCS    = cutil.c ustubs.c panic.c futil.c
+OBJS    = cutil.o ustubs.o panic.o futil.o
+
+all:: libwais.a wais.h
+
+$(CTYPEOBJ) $(REGEXPOBJ) $(FTWOBJS) $(IROBJS): subdirs
+
+#define all default
+
+DependTarget()
+SetSubdirs($(SUBDIRS))
+DependDirs($(SUBDIRS))
+MakeMakeSubdirs(test)
+
+ALLOBJ = $(CTYPEOBJ) $(REGEXPOBJ) $(OBJS) $(FTWOBJS) $(IROBJS)
+
+/*
+ This does not work because of implicit rules for '*.o'
+
+ NormalLibraryTarget(wais,$(SRCS),$(ALLOBJ))
+
+ We hand code it therefore
+*/
+
+>RM
+>AR
+>RANLIB
+libwais.a: $(OBJS) subdirs
+	$(RM) $@
+	$(AR) $@ $(ALLOBJ)
+	$(RANLIB) $@
+
+InstallLibrary(wais,$(PRIVLIB))
+
+shared: libwais.$(SO).$(REV)
+
+libwais.$(SO).$(REV): $(OBJS) subdirs
+	$(RM) $@
+	@case '$(CFLAGS)' in  \
+	*pic*) \
+	   lddlflags=`perl -MConfig -e 'print $$Config{lddlflags}'` ; \
+	   echo $(CC) $$lddlflags -o libwais.$(SO).$(REV) $(ALLOBJ) $(EMBED); \
+	   $(CC) $$lddlflags -o libwais.$(SO).$(REV) $(ALLOBJ) $(EMBED);; \
+	*) \
+	   echo "You probably must add '-fpic' or '-pic' to the CFLAGS"; \
+	   exit 1;; \
+        esac 
+
+EINC = ir/ui.h cutil.h ir/irext.h ir/irfiles.h ir/irsearch.h ir/irtfiles.h \
+       ir/weight.h ir/docid.h
+MKINC = ./mkinc
+
+wais.h: $(EINC)
+	-perl $(MKINC) $(CFLAGS) $(EINC) > wais.h
+
+InstallMultipleDestFlags(install,wais.h,$(PRIVINC),-m 664)
+
+local_realclean::
+	$(RM) wais.h
+

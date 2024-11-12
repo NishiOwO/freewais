@@ -1,0 +1,3734 @@
+Wed Sep 10 08:19:47 1997  Norbert Goevert  <goevert@ls6.informatik.uni-dortmund.de>
+
+	* 2.2.10: new version
+
+Fri Mar  7 16:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+	* lib/ftw.c lib/scantest.c x/Xwais.old: Minor fixes for next.
+
+	* hints/hpux.sh hints/linux.sh hints/next.sh: Some hints for next
+	  and hpux. Snarfed from  the Perl distrubtion
+
+	* Configure MANIFEST MANIFEST.new config_h.SH confmagic.h U/Loc.U
+	  U/d_compress.U U/d_embed.U: Added some stuff to make it
+	  compilable without perl again.
+
+	* ir/ChangeLog ir/Jmakefile ir/Makefile.SH ir/docid.c
+	  ir/field_index.c ir/field_y.c ir/futil.c ir/grundform.c ir/ir.c
+	  ir/irfiles.c ir/irtfiles.c ir/ustubs.c ir/waisserver.c: Minor
+	  fixes for next. Stuff for compilation without Perl
+
+	* Added standard header to all source files. Tried to infer author
+ 	  and creation date form comments and changelogs. Removed the
+	  Thinking machines header:
+
+	  	WIDE AREA INFORMATION SERVER SOFTWARE:
+
+	  	No guarantees or restrictions.  See the readme file for
+ 	  	the full standard disclaimer.
+
+	  Moved the CNDIR copyright line to the header.
+	  Removed changelogs.
+	
+Tue Feb 11 17:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irinv.c: Jan Wolter <janc@izzy.net>:
+	  
+	    When appending records to numeric fields, wais merges them in
+	  in lexical
+	    order instead of numeric order, so that the entries in the .inv
+	  files
+	    are sorted:
+	  
+		1 10 11 12 13 14 15 16 17 18 19 2 20 21 22 3 4 5 6 7 8 9
+	  
+	    instead of
+	  
+		1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+	  
+	    this causes an interesting variety of search problems, since
+	  the search
+	    engines expect numeric fields to be sorted in numeric order,
+	  not in
+	    lexical order.
+
+Tue Feb 11 12:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ChangeLog config_h.SH confmagic.h: Regenerated ChangeLog
+
+Mon Feb 10 15:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/Makefile: Generated from Imakefile. So purge it.
+
+	* U/d_extern_sys_errlist.U: Added to repository.
+
+Mon Feb 10 14:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf-faq.1: Updated systems list
+
+	* doc/SF/Imakefile: Calls fixlink as ./fixlink now.
+
+	* ChangeLog: Regenerated with changelog(1)
+
+	* hints/sunos_4_1.sh: Added. Don't know for what it's good ;-)
+
+Sat Feb  8 11:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Configure: Added Linux hints
+
+	* ir/Conscript x/Conscript: Compiled on linux
+
+	* Construct: Call [cC]onfigure with ./
+
+Sat Feb  8 10:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* patchlevel.h ir/html_entities.c ir/html_entities.h x/Conscript:
+	  added cons files
+
+	* hints/linux.sh: Switch optimization off. Tell Configure that
+	  strup is present
+
+Fri Feb  7 15:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Configure Construct bin/Conscript: Minor fixes
+
+	* doc/SF/fwsf.dvi: re-added fwsf.dvi
+
+Fri Feb  7 13:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/swais.c ui/util.c ui/util.h ui/wais-ui.c ui/wais-ui.h
+	  ui/wais.el.raw ui/wais.h ui/waisq.c ui/waissearch.c x/Makefile
+	  x/Makefile.in x/My-Makefile x/MyList.c x/MyList.h x/MyListP.h
+	  x/cat.h x/catalog.c x/cursor.h x/display.c x/display.h
+	  x/filereq.c x/filereq.h x/myAsciiSink.c x/myAsciiSrc.c
+	  x/myAsciiSrc.h x/myAsciiSrcP.h x/qcommands.c x/qcommands.h
+	  x/qdisplay.c x/qdisplay.h x/scommands.c x/tcommands.c
+	  x/tcommands.h x/text.c x/text.h x/util.c x/util.h x/xquestion.h
+	  x/xwais.c x/xwais.h x/xwaisq.c: Imported WSC freeWAIS-sf-2.1.2
+
+	* Configure MANIFEST.new config_h.SH confmagic.h U/Loc.U
+	  U/i_sysutsname.U ir/hash.c ir/ir.c ir/irtfiles.c ir/sockets.c
+	  ir/synonym.c ir/synonym.h ir/udping.c ir/ui.c ir/waisserver.c
+	  ui/waissearch.c x/catalog.c: Integrated some WSC fixes
+
+Fri Feb  7 12:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Makefile.in config.guess config.sub configure configure.in
+	  FIELD-EXAMPLE/DATE.should FIELD-EXAMPLE/WEIGHT.should
+	  FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt bin/Makefile.in
+	  bin/catalog bin/catalog.1 bin/check-sources bin/dictionary
+	  bin/dictionary.1 bin/inverted_file bin/inverted_file.1 bin/makedb
+	  bin/makedb.1 bin/mkfmt bin/mkfmt.1 bin/server_stats
+	  bin/waisretrieve ctype/ctype.c doc/SF/fwsf.texi ir/Makefile.in
+	  ir/cutil.c ir/cutil.h ir/docid.c ir/field_index.c
+	  ir/field_index.h ir/field_l.c ir/field_search.c ir/field_y.c
+	  ir/field_y.y ir/futil.c ir/hash.c ir/ir.c ir/ircfiles.c
+	  ir/ircfiles.h ir/irext.h ir/irfileio.c ir/irfiles.c ir/irfiles.h
+	  ir/irhash.c ir/irinv.c ir/irretrvl.c ir/irsearch.c ir/irsparse.c
+	  ir/irtfiles.c ir/irverify.c ir/list.c ir/lock.c ir/lock.h
+	  ir/panic.c ir/query_l.c ir/query_l.l ir/query_y.c ir/query_y.y
+	  ir/sersrch.c ir/server-single.c ir/sigsrch.c ir/sockets.c
+	  ir/stoplist.c ir/synonym.c ir/synonym.h ir/transprt.c ir/trie.c
+	  ir/udping.c ir/ui.c ir/ustubs.c ir/waisindex.c ir/waisserver.c
+	  ir/weight.c ir/weight.h ir/wmessage.c ir/wprot.c ir/wutil.c
+	  ir/zprot.c ir/ztype1.c ir/zutil.c lib/Makefile.in lib/alphasort.c
+	  lib/ftw.c lib/ftw.man lib/scandir.c lib/scandir.man
+	  lib/stringtoany.c regexp/Makefile.in ui/Makefile.in ui/document.c
+	  ui/document.h ui/globals.h ui/messages.h ui/question.c
+	  ui/question.h ui/source.c ui/source.h ui/status.h ui/swais.c
+	  ui/util.c ui/util.h ui/wais-ui.c ui/wais-ui.h ui/wais.el.raw
+	  ui/wais.h ui/waisq.c ui/waissearch.c x/Makefile.in x/My-Makefile
+	  x/MyList.c x/MyList.h x/MyListP.h x/cat.h x/catalog.c x/cursor.h
+	  x/display.c x/display.h x/filereq.c x/filereq.h x/myAsciiSink.c
+	  x/myAsciiSrc.c x/myAsciiSrc.h x/myAsciiSrcP.h x/qcommands.c
+	  x/qcommands.h x/qdisplay.c x/qdisplay.h x/scommands.c
+	  x/tcommands.c x/tcommands.h x/text.c x/text.h x/util.c x/util.h
+	  x/xquestion.h x/xwais.c x/xwais.h x/xwaisq.c: Imported WSC
+	  freeWAIS-sf-2.1.1
+
+	* config.guess config.h config.h.in config.sub defaults.h.in
+	  patchlevel.h bin/catalog bin/catalog.1 bin/dictionary
+	  bin/dictionary.1 bin/inverted_file bin/inverted_file.1 bin/makedb
+	  bin/makedb.1 bin/mkfmt.1 ctype/mkctype1.c doc/SF/freeWAIS-sf-faq:
+	  file config.h.in was initially added on branch WSC.
+
+	* ChangeLog Makefile.in config.h config.h.in configure configure.in
+	  defaults.h.in patchlevel.h FIELD-EXAMPLE/BOOLEAN.should
+	  FIELD-EXAMPLE/COMPLEX.should FIELD-EXAMPLE/DATE.should
+	  FIELD-EXAMPLE/FIELD.should FIELD-EXAMPLE/GERMAN.should
+	  FIELD-EXAMPLE/LITERAL.should FIELD-EXAMPLE/Makefile.in
+	  FIELD-EXAMPLE/NUMERIC.should FIELD-EXAMPLE/PARTIAL.should
+	  FIELD-EXAMPLE/PLAIN.should FIELD-EXAMPLE/PROXIMITY.should
+	  FIELD-EXAMPLE/TEST FIELD-EXAMPLE/TEST.german
+	  FIELD-EXAMPLE/WEIGHT.should FIELD-EXAMPLE/test.fmt
+	  FIELD-EXAMPLE/testg.fmt bin/Makefile.in bin/catalog bin/catalog.1
+	  bin/check-sources bin/dictionary bin/dictionary.1
+	  bin/inverted_file bin/inverted_file.1 bin/makedb bin/makedb.1
+	  bin/mkfmt bin/mkfmt.1 bin/server_stats bin/waisretrieve
+	  ctype/Makefile.in ctype/ctest.c ctype/ctype.c ctype/ctype.h
+	  ctype/ctype.tmpl ctype/mkctype.c ctype/mkctype1.c
+	  doc/SF/freeWAIS-sf-faq doc/SF/fwsf.ps doc/SF/fwsf.texi
+	  ir/Makefile.in ir/analyse_str.h ir/boolean_op.c ir/boolean_op.h
+	  ir/cdialect.h ir/cutil.c ir/cutil.h ir/docid.c ir/docid.h
+	  ir/field.h ir/field_index.c ir/field_index.h ir/field_l.c
+	  ir/field_l.l ir/field_search.c ir/field_search.h ir/field_token.h
+	  ir/field_y.c ir/field_y.h ir/field_y.y ir/futil.c ir/futil.h
+	  ir/hash.c ir/hash.h ir/ir.c ir/ir.h ir/ircfiles.c ir/ircfiles.h
+	  ir/irext.h ir/irfileio.c ir/irfileio.h ir/irfiles.c ir/irfiles.h
+	  ir/irhash.c ir/irhash.h ir/irinv.c ir/irinv.h ir/irkeywords.c
+	  ir/irretrvl.c ir/irretrvl.h ir/irsearch.c ir/irsearch.h
+	  ir/irsparse.c ir/irsparse.h ir/irtfiles.c ir/irtfiles.h
+	  ir/irverify.c ir/irverify.h ir/list.c ir/list.h ir/lock.c
+	  ir/lock.h ir/panic.c ir/panic.h ir/query_l.c ir/query_l.l
+	  ir/query_token.h ir/query_y.c ir/query_y.h ir/query_y.y
+	  ir/sersrch.c ir/server-single.c ir/server.h ir/sighash.h
+	  ir/sigindex.h ir/sigsrch.c ir/sigsrch.h ir/sockets.c ir/sockets.h
+	  ir/soundex.c ir/stem.h ir/stemmer.c ir/stemmer.h ir/stoplist.c
+	  ir/stoplist.h ir/synonym.c ir/synonym.h ir/syslog.c ir/syslog.h
+	  ir/transprt.c ir/transprt.h ir/trie.c ir/trie.h ir/udping.c
+	  ir/ui.c ir/ui.h ir/ustubs.c ir/ustubs.h ir/waisindex.c
+	  ir/waisserver.c ir/weight.c ir/weight.h ir/wmessage.c
+	  ir/wmessage.h ir/wprot.c ir/wprot.h ir/wutil.c ir/wutil.h
+	  ir/zprot.c ir/zprot.h ir/ztype1.c ir/ztype1.h ir/zutil.c
+	  ir/zutil.h lib/Makefile.in lib/alloca.c lib/alphasort.c
+	  lib/freedir.c lib/ftw.c lib/ftw.man lib/ftwtest.c lib/scandir.c
+	  lib/scandir.man lib/scantest.c lib/stringtoany.c lib/trunc.c
+	  regexp/Makefile.in regexp/regexp.c ui/Makefile.in ui/Retrieval.h
+	  ui/document.c ui/document.h ui/globals.h ui/lisp-ui.c ui/list.h
+	  ui/messages.h ui/question.c ui/question.h ui/source.c ui/source.h
+	  ui/status.h ui/swais.c ui/util.c ui/util.h ui/wais-ui.c
+	  ui/wais-ui.h ui/wais.el.raw ui/wais.h ui/waisq.c ui/waissearch.c
+	  x/Makefile x/Makefile.in x/My-Makefile x/MyList.c x/MyList.h
+	  x/MyListP.h x/Retrieval.h x/Viewport.c x/cat.h x/catalog.c
+	  x/cursor.h x/display.c x/display.h x/filereq.c x/filereq.h
+	  x/list.h x/myAsciiSink.c x/myAsciiSink.h x/myAsciiSinkP.h
+	  x/myAsciiSrc.c x/myAsciiSrc.h x/myAsciiSrcP.h x/qcommands.c
+	  x/qcommands.h x/qdisplay.c x/qdisplay.h x/scommands.c
+	  x/scommands.h x/scrolllist.h x/tcommands.c x/tcommands.h x/text.c
+	  x/text.h x/util.c x/util.h x/xquestion.h x/xstuff.h x/xwais.c
+	  x/xwais.h x/xwaisq.c: Imported WSC freeWAIS-sf-2.1
+
+	* ChangeLog README config.h.in configure configure.in patchlevel.h
+	  FIELD-EXAMPLE/DATE.should FIELD-EXAMPLE/WEIGHT.should
+	  FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt bin/catalog
+	  bin/catalog.1 bin/check-sources bin/dictionary bin/dictionary.1
+	  bin/inverted_file bin/inverted_file.1 bin/makedb bin/makedb.1
+	  bin/mkfmt bin/mkfmt.1 bin/server_stats bin/waisretrieve
+	  ctype/Makefile.in ctype/ctype.c ctype/mkctype.c doc/SF/fwsf.texi
+	  ir/Makefile.in ir/cutil.c ir/cutil.h ir/docid.c ir/field_index.c
+	  ir/field_index.h ir/field_l.c ir/field_search.c ir/field_y.y
+	  ir/futil.c ir/hash.c ir/ir.c ir/ircfiles.c ir/ircfiles.h
+	  ir/irext.h ir/irfileio.c ir/irfiles.c ir/irfiles.h ir/irhash.c
+	  ir/irinv.c ir/irretrvl.c ir/irsearch.c ir/irsparse.c
+	  ir/irtfiles.c ir/irverify.c ir/list.c ir/lock.c ir/lock.h
+	  ir/panic.c ir/query_l.c ir/query_l.l ir/query_y.y ir/sersrch.c
+	  ir/server-single.c ir/sigsrch.c ir/sockets.c ir/stoplist.c
+	  ir/transprt.c ir/trie.c ir/ui.c ir/ustubs.c ir/waisindex.c
+	  ir/waisserver.c ir/weight.c ir/weight.h ir/wmessage.c ir/wprot.c
+	  ir/wutil.c ir/zprot.c ir/ztype1.c ir/zutil.c lib/Makefile.in
+	  lib/alphasort.c lib/ftw.c lib/ftw.man lib/scandir.c
+	  lib/scandir.man lib/stringtoany.c regexp/Makefile.in
+	  ui/Makefile.in ui/document.c ui/document.h ui/globals.h
+	  ui/messages.h ui/question.c ui/question.h ui/source.c ui/source.h
+	  ui/status.h: Imported WSC freeWAIS-sf-2.1.2
+
+Tue Feb  4 17:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ANNOUNCEMENT COPYRIGHT Configure Construct DOCUMENTS
+	  Defaults.tmpl.in Defaults.tmpl.top INSTALLATION Imakefile
+	  Install.tmpl.in MANIFEST.maintainer Makefile.in Makefile.original
+	  README-s README-sf.html acconfig.h config.c config.sh
+	  config.sh.sun4-solaris config_h.SH configure install.sh
+	  FIELD-EXAMPLE/Conscript FIELD-EXAMPLE/Imakefile
+	  FIELD-EXAMPLE/Makefile.in FIELD-EXAMPLE/test.fmt
+	  FIELD-EXAMPLE/testg.fmt U/End.U U/Myinit.U U/d_alloca.U
+	  U/d_alphasort.U U/d_cache_syn.U U/d_compiler_version.U
+	  U/d_compress.U U/d_getpwuid.U U/d_huge_headlines.U
+	  U/d_local_search.U U/d_myctype.U U/d_myregexp.U U/d_proximity.U
+	  U/d_remove.U U/d_udping.U U/d_urldocid.U U/d_version_string.U
+	  bin/Conscript bin/Imakefile bin/Makefile.in bin/Makefile.original
+	  bin/catalog.SH bin/catalog.man bin/check-sources
+	  bin/check-sources.script bin/dictionary.SH bin/dictionary.man
+	  bin/getaddrs.script bin/index.mail.script bin/inverted_file.SH
+	  bin/inverted_file.man bin/makedb.SH bin/makedb.man bin/mkfmt
+	  bin/mkfmt.SH bin/mkfmt.man bin/server_stats
+	  bin/server_stats.script bin/start.myserver.script
+	  bin/swais.sh.script bin/wais-gif-display.script
+	  bin/wais-html-display.script bin/wais-jfif-display.script
+	  bin/wais-jpeg-display.script bin/wais-pict-display.script
+	  bin/wais-ppm-display.script bin/wais-tiff-display.script
+	  bin/waisretrieve bin/waisretrieve.script bin/ws bin/ws.script
+	  ctype/Conscript ctype/Imakefile ctype/Makefile.in ctype/ctype.c
+	  doc/Imakefile doc/SF/FAQ doc/SF/Imakefile doc/SF/Makefile
+	  doc/SF/SFgate.texi doc/SF/faq-store doc/SF/faq.pl
+	  doc/SF/faq.status.1 doc/SF/fixlink doc/SF/freeWAIS-sf-faq.1
+	  doc/SF/freeWAIS-sf.tex doc/SF/fwsf.texi
+	  doc/original-TM-wais/Imakefile doc/original-TM-wais/Makefile
+	  doc/original-TM-wais/manl/Conscript
+	  doc/original-TM-wais/manl/Imakefile
+	  doc/original-TM-wais/manl/Makefile ir/Conscript ir/Imakefile
+	  ir/Jmakefile ir/Makefile.SH ir/Makefile.in ir/Makefile.original
+	  ir/analyse_str.c ir/any_stemmer.c ir/any_stemmer.h
+	  ir/byte_order.h ir/cdialect.h ir/cutil.c ir/cutil.h ir/docid.c
+	  ir/field_index.c ir/field_index.h ir/field_l.c ir/field_search.c
+	  ir/field_stat.h ir/field_token.h ir/field_y.y ir/futil.c
+	  ir/grundform.c ir/grundform.h ir/gstem.c ir/hash.c ir/ir.c
+	  ir/ircfiles.c ir/ircfiles.h ir/irdirent.h ir/irext.h
+	  ir/irfileio.c ir/irfiles.c ir/irfiles.h ir/irhash.c ir/irinv.c
+	  ir/irkeywords.c ir/irlex.h ir/irretrvl.c ir/irsearch.c
+	  ir/irsparse.c ir/irtfiles.c ir/irverify.c ir/iso.c ir/iso.h
+	  ir/iubuild.c ir/list.c ir/lock.c ir/lock.h ir/macbuild.c
+	  ir/macver.c ir/mkinc.SH ir/panic.c ir/query_l.c ir/query_l.l
+	  ir/query_token.h ir/query_y.y ir/sersrch.c ir/server-single.c
+	  ir/sighash.c ir/sigsrch.c ir/sockets.c ir/stem.h ir/stoplist.c
+	  ir/transprt.c ir/trie.c ir/ui-local.c ir/ui.c ir/ustubs.c
+	  ir/version.h ir/waisindex.c ir/waisserver.c ir/weight.c
+	  ir/weight.h ir/wmessage.c ir/wprot.c ir/wutil.c ir/zprot.c
+	  ir/ztype1.c ir/zutil.c lib/ChangeLog lib/Conscript lib/Imakefile
+	  lib/Makefile.in lib/Makefile.original lib/alphasort.c lib/ftw.c
+	  lib/ftw.man lib/pdftw.h lib/scandir.c lib/scandir.man
+	  lib/stringtoany.c local/Imakefile local/udping.c local/udpserv.c
+	  local/udpserv.pl regexp/Conscript regexp/Imakefile
+	  regexp/Makefile.in regexp/Makefile.orig ui/Conscript ui/Imakefile
+	  ui/Makefile.in ui/Makefile.original ui/document.c ui/document.h
+	  ui/fix-gmacs.sh ui/globals.h ui/messages.h ui/question.c
+	  ui/question.h ui/screen-ui.c ui/shell-ui.c ui/source.c
+	  ui/source.h ui/status.h ui/swais.c ui/util.c ui/util.h
+	  ui/wais-ui.c ui/wais-ui.h ui/wais.el.raw ui/wais.h ui/waisq.c
+	  ui/waissearch.c x/AsciiSrcSearch.c x/Imakefile x/Makefile
+	  x/Makefile.in x/Makefile.stub x/My-Makefile x/MyList.c x/MyList.h
+	  x/MyListP.h x/cat.h x/catalog.c x/cursor.h x/display.c
+	  x/display.h x/filereq.c x/filereq.h x/fixResources.sh
+	  x/myAsciiSink.c x/myAsciiSrc.c x/myAsciiSrc.h x/myAsciiSrcP.h
+	  x/qcommands.c x/qcommands.h x/qdisplay.c x/qdisplay.h
+	  x/scommands.c x/tcommands.c x/tcommands.h x/text.c x/text.h
+	  x/util.c x/util.h x/xquestion.h x/xwais.c x/xwais.h x/xwaisq.c:
+	  Switched to CVS
+
+	* ir/Conscript: Removed debugging output.
+
+Tue Feb  4 13:00:00 1997 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* cons: Initial revision
+
+	* ChangeLog Configure Construct Jmakefile MANIFEST Makefile.SH
+	  config_h.SH cons.PL defaults.h FIELD-EXAMPLE/BOOLEAN.should
+	  FIELD-EXAMPLE/COMPLEX.should FIELD-EXAMPLE/Conscript
+	  FIELD-EXAMPLE/DATE.should FIELD-EXAMPLE/FIELD.should
+	  FIELD-EXAMPLE/GERMAN.should FIELD-EXAMPLE/Jmakefile
+	  FIELD-EXAMPLE/LITERAL.should FIELD-EXAMPLE/Makefile.SH
+	  FIELD-EXAMPLE/NUMERIC.should FIELD-EXAMPLE/PARTIAL.should
+	  FIELD-EXAMPLE/PLAIN.should FIELD-EXAMPLE/PROXIMITY.should
+	  FIELD-EXAMPLE/TEST FIELD-EXAMPLE/TEST.german
+	  FIELD-EXAMPLE/WEIGHT.should FIELD-EXAMPLE/test.fmt
+	  FIELD-EXAMPLE/testg.fmt bin/Conscript bin/Jmakefile
+	  bin/Makefile.SH bin/catalog.SH bin/catalog.man bin/check-sources
+	  bin/dictionary.SH bin/dictionary.man bin/inverted_file.SH
+	  bin/inverted_file.man bin/makedb.SH bin/makedb.man bin/mkfmt.SH
+	  bin/mkfmt.man bin/server_stats bin/waisretrieve bin/ws.SH
+	  ctype/Conscript ctype/Jmakefile ctype/Makefile.SH ctype/ctest.c
+	  ctype/ctype.h ctype/mkctype.c doc/SF/freeWAIS-sf-faq.1
+	  doc/SF/fwsf.ps doc/SF/fwsf.texi
+	  doc/original-TM-wais/manl/Conscript
+	  doc/original-TM-wais/manl/Makefile.SH hints/solaris_2.sh
+	  ir/ChangeLog ir/Conscript ir/Jmakefile ir/Makefile.SH
+	  ir/any_stemmer.c ir/any_stemmer.h ir/boolean_op.c ir/boolean_op.h
+	  ir/cdialect.h ir/cutil.c ir/cutil.h ir/docid.c ir/docid.h
+	  ir/field_index.c ir/field_index.h ir/field_l.c ir/field_l.l
+	  ir/field_search.c ir/field_y.c ir/field_y.h ir/field_y.y
+	  ir/futil.c ir/futil.h ir/grundform.c ir/grundform.h ir/hash.c
+	  ir/hash.h ir/ir.c ir/ir.h ir/ircfiles.c ir/ircfiles.h ir/irext.h
+	  ir/irfileio.c ir/irfileio.h ir/irfiles.c ir/irfiles.h ir/irhash.c
+	  ir/irhash.h ir/irinv.c ir/irkeywords.c ir/irretrvl.c
+	  ir/irretrvl.h ir/irsearch.c ir/irsearch.h ir/irsparse.c
+	  ir/irsparse.h ir/irtfiles.c ir/irtfiles.h ir/irverify.c
+	  ir/irverify.h ir/list.c ir/list.h ir/lock.c ir/lock.h ir/mkinc.SH
+	  ir/panic.c ir/panic.h ir/query_l.c ir/query_l.l ir/query_y.c
+	  ir/query_y.h ir/query_y.y ir/sersrch.c ir/server-single.c
+	  ir/server.h ir/sighash.c ir/sighash.h ir/sigindex.h ir/sigsrch.c
+	  ir/sigsrch.h ir/sockets.c ir/sockets.h ir/soundex.c ir/stemmer.c
+	  ir/stemmer.h ir/stoplist.c ir/stoplist.h ir/synonym.c
+	  ir/synonym.h ir/syslog.c ir/syslog.h ir/transprt.c ir/transprt.h
+	  ir/trie.c ir/trie.h ir/ui.c ir/ui.h ir/ustubs.c ir/ustubs.h
+	  ir/waisindex.c ir/waisserver.c ir/weight.c ir/weight.h
+	  ir/wmessage.c ir/wmessage.h ir/wprot.c ir/wprot.h ir/wutil.c
+	  ir/wutil.h ir/zprot.c ir/zprot.h ir/ztype1.c ir/ztype1.h
+	  ir/zutil.c ir/zutil.h lib/Conscript lib/Jmakefile lib/Makefile.SH
+	  lib/alloca.c lib/alphasort.c lib/freedir.c lib/ftw.c lib/ftw.man
+	  lib/ftwtest.c lib/scandir.c lib/scandir.man lib/scantest.c
+	  lib/stringtoany.c lib/trunc.c regexp/Conscript regexp/Jmakefile
+	  regexp/Makefile.SH regexp/regexp.c ui/ChangeLog ui/Conscript
+	  ui/Jmakefile ui/Makefile.SH ui/Retrieval.h ui/document.c
+	  ui/document.h ui/globals.h ui/lisp-ui.c ui/list.h ui/messages.h
+	  ui/question.c ui/question.h ui/source.c ui/source.h ui/status.h
+	  ui/swais.c ui/util.c ui/util.h ui/wais-ui.c ui/wais-ui.h
+	  ui/wais.el.raw ui/wais.h ui/waisq.c ui/waissearch.c
+	  x/Imakefile.SH x/My-Makefile x/MyList.c x/MyList.h x/MyListP.h
+	  x/Retrieval.h x/Viewport.c x/Xwais.raw x/cat.h x/catalog.c
+	  x/cursor.h x/display.c x/display.h x/filereq.c x/filereq.h
+	  x/list.h x/myAsciiSink.c x/myAsciiSink.h x/myAsciiSinkP.h
+	  x/myAsciiSrc.c x/myAsciiSrc.h x/myAsciiSrcP.h x/qcommands.c
+	  x/qcommands.h x/qdisplay.c x/qdisplay.h x/scommands.c
+	  x/scommands.h x/scrolllist.h x/tcommands.c x/tcommands.h x/text.c
+	  x/text.h x/util.c x/util.h x/xquestion.h x/xstuff.h x/xwais.c
+	  x/xwais.h x/xwaisq.c: Switched to CVS
+
+	* cons: Importet official 1.1 dist
+
+	* cons: Changes by ULPFR
+
+Fri Dec 27 16:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* lib/Jmakefile regexp/Jmakefile: Creates target Directory now if
+	  necessary.
+
+	* ir/grundform.c ir/grundform.h: New module which implements German
+	  grundform reduction via embeded perl.
+
+	* ir/irfiles.c: Support for any_stemmer. Removed handle_numeric().
+
+	* doc/SF/freeWAIS-sf-faq.1: Updated systems list.
+
+	* ui/Jmakefile x/Imakefile.SH: Support for embeded Perl.
+
+	* ir/any_stemmer.c ir/any_stemmer.h: Interface for different
+	  stemmers.
+
+	* ChangeLog: This version requires perl5.003_13 or better.
+
+	* doc/original-TM-wais/manl/Conscript ir/Conscript lib/Conscript
+	  regexp/Conscript: Auxiliary cons(1) script.
+
+	* ir/field_y.y: Made the stemming more flexible. Lexer is supposed
+	  to return a char indicating which stemmer is used. Definitions
+	  are in any_stemmer.h.
+
+	* ir/irsearch.c: Postponed downcasing. It's done in the stemmer
+	  (any_stemmer.c) now.
+
+	* ir/boolean_op.c: Fixed not bug (Reversed semantics if one
+	  argument was empty).
+
+	* ir/query_l.l: Added a Hack for ISBN numbers. Hyphens within a
+	  word are legal letters now disregarding the selected character
+	  set. See the SPRINGER define in defaults.h.
+
+	* ir/irfiles.h ir/irtfiles.c ir/sersrch.c: Support for any_stemmer.
+
+	* ir/field_index.c ir/field_index.h ir/field_l.l: Uses
+	  any_stemmer.[ch] now.
+
+	* ir/mkinc.SH: Perl script to generate a new selfcontained wais.h.
+
+	* ir/Jmakefile ir/Makefile.SH: Support for embeded Perl in
+	  grundform.c
+
+	* defaults.h: Additional #defines: HAS_GRUNDFORM, SPRINGER
+
+	* x/xwais.c: Added Dummy DumpTextToScreen().
+
+	* ir/query_y.y: Cleaned the handling of phonetic codes.
+
+Fri Dec 27 15:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/Conscript bin/Conscript ctype/Conscript
+	  ctype/Jmakefile: Auxiliary cons(1) script.
+
+	* FIELD-EXAMPLE/testg.fmt: Auxiliary cons(1) script. Converted to
+	  new style fmt description.
+
+	* bin/catalog.SH bin/dictionary.SH bin/inverted_file.SH
+	  bin/mkfmt.SH bin/ws.SH: Now long path to the perl binary sould be
+	  no problem any more.
+
+	* ctype/ctype.h: Made str?cmp #defines for likers wich check with
+	  libc for duplicates.
+
+	* cons.PL: Modified version of Bob Sidebothams cons tool.  Get the
+	  original version from
+	  http://www.perl.com/CPAN/autjors/id/BOBSIDE/
+
+	* ctype/Makefile.SH: Regenerated with new(?) metaconfig.
+
+	* MANIFEST: Added cons(1) support and German Grundform reduction
+	  via embeded Perl.
+
+	* bin/makedb.SH: Fixes from Norbert Goevert.
+
+	* Jmakefile: Support for generation of the Emacs TAGS file.
+
+	* Construct: Main cons(1) script.
+
+Tue Sep 10 13:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c ir/query_y.y ir/sersrch.c: Will remove downcase
+	  now.
+
+Wed Aug  7 05:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Construct bin/Conscript ctype/Conscript ir/Conscript
+	  lib/Conscript regexp/Conscript ui/Conscript: Vor unified version
+
+Mon Jul 29 17:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Construct: Initial revision
+
+Mon Jun 10 14:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: From: cshenton@wirehead.it.hq.nasa.gov (Chris
+	  Shenton)
+	  
+	  Added switch to disable output of data source file names into the
+	  .src file: ui/source.c has a hardwired constant:
+	  
+	      #define DESC_SIZE 65535
+	      [...]
+		char desc_string[DESC_SIZE];
+	  
+	  which causes waiq to fail if the ":description ..." field in the
+	  .src file is greater than this size.; this can easily occur if
+	  the number of data source files is large, since their names are
+	  part of the description.
+
+Wed May 29 13:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* config.sh.sun4-solaris: Initial revision
+
+Wed May 29 11:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ircfiles.c: Preliminary fix for a header-end bug.
+
+Tue May  7 12:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/any_stemmer.c: Initial revision
+
+Tue May  7 09:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/grundform.c: Initial revision
+
+Mon Apr 29 15:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/stoplist.c ir/stoplist.h ir/waisindex.c: Fix from Norbert
+	  Goevert.
+
+	* ir/Jmakefile ir/Makefile.SH: Adviced flex to strip '#line'
+	  comments.
+
+	* FIELD-EXAMPLE/BOOLEAN.should FIELD-EXAMPLE/COMPLEX.should
+	  FIELD-EXAMPLE/LITERAL.should FIELD-EXAMPLE/PARTIAL.should
+	  FIELD-EXAMPLE/PLAIN.should FIELD-EXAMPLE/PROXIMITY.should
+	  FIELD-EXAMPLE/WEIGHT.should: Scores changed. This this was due to
+	  changed nummeric indexing.
+
+	* MANIFEST: Added hints for solaris (-lnsl -lsocket).
+
+	* bin/inverted_file.SH: Sanity check.
+
+	* doc/SF/freeWAIS-sf-faq.1: update systems list.
+
+	* Configure: Added hint processing. Currently only a small hint for
+	  solaris is available.
+
+	* ir/ircfiles.c ir/irtfiles.c ir/query_y.c ir/query_y.y
+	  ir/soundex.c: Fixed some off-by-ones.
+
+	* ChangeLog: Some contributed fixes. Fixed this 'make depend'
+	  problem.
+
+	* FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt: Fixed region end
+	  for numeric indexing.
+
+	* ir/field_index.c: Fixes for numerics and date.
+
+	* hints/solaris_2.sh: Add '-lnsl -lsockets' to the default linker
+	  flags.
+
+	* ir/cutil.c ir/irext.h ir/irsearch.c ir/panic.c lib/alloca.c:
+	  Removed stuff which leads to bad dependencies with brain dead
+	  mkdep.
+
+	* defaults.h: Changed MAX_HEADER_LEN to 500.
+
+	* ir/sockets.c: Fixed long/int mismatch.
+
+Sat Feb 10 11:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: Patch from RBarnett@us.teltech.com (Rodney
+	  Barnett): The search_word() function in sersrch.c sorts the
+	  results with qsort() before returning them to the next level
+	  operator, so any duplicate document ids in the results will be
+	  adjacent and I believe that the boolean operators can tolerate
+	  adjacent duplicates of that sort.  However, they do not eliminate
+	  the duplication, so any higher-level operators will have to deal
+	  with it as well.
+
+	* ir/field_index.c: Fix from Fred DiMartino
+	  <oscar@darefred.jpl.nasa.gov>: Upon investigation I noticed that
+	  the temporary values for year, month and day, were never
+	  initialized.	This means that if sscanf() does not detect a
+	  pattern it is looking for it will not change the value. 
+	  Therefore in (1) month and day contain whatever was on the stack,
+	  and the same for day in (2)...
+
+Wed Jan 31 14:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf-faq.1: System list update.
+
+	* ChangeLog: Last official patch ;-)
+
+	* ir/irfiles.c: Check for presence of keywords vefore printing them
+	  ;-).
+
+	* Configure: Configure now contains a warning not to include single
+	  quotes in the character definitions.
+
+	* ir/ir.c ir/ustubs.c: Use getcwd() is present.
+
+	* FIELD-EXAMPLE/Jmakefile FIELD-EXAMPLE/Makefile.SH ir/query_l.c:
+	  Changed the query term weighting syntax to 'Probabilistic <* 3
+	  Indexing'.
+
+	* ir/query_l.l: Changed the query term weighting syntax to
+	  'Probabilistic <* 3 Indexing'. Replace single quotes around a
+	  string by double quotes after recogniszing. So single quotes may
+	  be legal chars.
+
+	* ir/query_y.y: Forgott to switch yydebug off :-(
+
+Tue Jan 23 15:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.SH: Fix for backticks in file selection.
+
+	* ChangeLog: Fixed /<\/foo>/ matching.
+
+	* ui/Jmakefile ui/Makefile.SH: Generate $(PRIVLIB)/emacs/lisp if
+	  necessary.
+
+	* ir/field_l.l: Matches </foo> now.
+
+	* doc/SF/fwsf.texi: Fix for texinfo-3.7.
+
+	* ir/ircfiles.c ir/syslog.c: Fix from Brian Bullen.
+
+Sun Jan 14 17:00:00 1996 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf-faq.1: Udp systems update.
+
+	* ir/cdialect.h: Changed #if I_ALLOCA to #ifdef I_ALLOCA.
+
+	* ir/query_l.c ir/query_l.l: Numeric searches with negative numbers
+	  did not work.
+
+	* ChangeLog: Fixed serching for negative numbers.
+
+Fri Dec 29 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ChangeLog: "back bay" and catg=rea
+
+	* ir/field_search.c ir/sersrch.c: String search in global field did
+	  not work if other fields occurred in the query.
+
+Thu Dec 28 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/boolean_op.c: Rodney Barnett wrote:
+	  
+		  word1 prox_op (word2 bool_op word3)
+	  
+	  where prox_op is "w/n" or "pre/n" and bool_op is "and" or "or",
+	  do not work properly.  I do not know much about the history of
+	  freeWAIS-sf, so I cannot tell how many previous versions have the
+	  same problem.  However, a quick check of the code I have
+	  indicates that the problem existed in freeWAIS-sf-1.2-pre9 as
+	  well. [...] Rodney rbarnett@us.teltech.com
+
+	* ir/zutil.c: Init response now tells about the freeWAIS-sf
+	  Version.  There is currently no other way to determine what
+	  server you are connected to!
+
+	* ChangeLog: InitResponseAPDU.
+
+	* ir/weight.c ir/weight.h: Changed return type of
+	  read_weight_from*() to double. Some compilers like that more than
+	  float :-(.
+
+	* ir/field_l.c ir/field_l.l ir/query_l.c: New flex.
+
+Wed Dec 20 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_l.l: Adapted to 'flex version 2.5.2'. Numeric searches
+	  with '.' did not work.
+
+	* ir/field_l.c ir/field_l.l ir/query_l.c: Adapted to 'flex version
+	  2.5.2'.
+
+	* ChangeLog: Numeric searches with '.' did not work.
+
+	* ir/field_y.c ir/query_y.c: GNU Bison version 1.24.
+
+	* config.sh: cc
+
+Wed Dec 20 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* config.sh: Initial revision
+
+Mon Dec 18 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/stoplist.c ir/stoplist.h: Disabling the internal stoplist did
+	  not work.
+
+	* ir/zutil.h: Renamed ON to WON and OFF to WOFF.
+
+	* ChangeLog: Stoplist fixed
+
+	* ir/irfiles.c ir/irkeywords.c ir/waisindex.c: Rename char* keyword
+	  to char* keywrd sice it conficts with keywords() on some systems.
+
+	* bin/makedb.SH: Some backtickes were not evaled corectely.
+
+Wed Dec 13 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/waisq.c: From: malyshki@cs.wmich.edu (Vladislav Malyshkin) The
+	  differencs between these files is : 1) added +1 to s_malloc(..)
+	  and s_realloc(...) 2) now waisq understands  new values for -v
+	  option. Now it is possible to use -v 10-20	(print documents #
+	  10,11,12,.....20) and -v all	    (print all) old version -v
+	  document_number also works.
+
+Wed Dec  6 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/myAsciiSrc.c: Added inclusion of "../ir/cdialect.h".
+
+	* ir/waisserver.c: Replaced include of <sys/file.h> by "cdialect.h"
+	  (Patch from Rodney Barnett).
+
+	* ir/irsearch.c: Change float parameter of search_word() and
+	  search_word_before_pairs() to double.  (Patch from Rodney
+	  Barnett).
+
+	* ChangeLog: ir/field_index.h and ir/query_y.y should be in sync
+	  again now.
+
+	* ir/waisindex.c: Added dbm stuff from
+	  egw@aubranch.egwestate.andrews.edu.
+
+	* ir/query_l.l: Removed bad free() call (Patch from RodneyBarnett).
+
+	* ui/Jmakefile: Added MakeDirectories for $(PRIVLIB)/emacs/lisp and
+	  clean target for wais.el.
+
+	* ir/sersrch.c: Change float parameter of search_word() and to
+	  double. (Patch from Rodney Barnett).
+
+Wed Dec  6 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ctype/mkctype.c: Produces now dummy _AP definition as fallback.
+
+	* ir/irext.h: Change float parameter of search_word to double.
+	  (Patch from Rodney Barnett).
+
+	* doc/SF/freeWAIS-sf-faq.1: Update
+
+	* ir/ircfiles.c: Added dbm stuff from
+	  egw@aubranch.egwestate.andrews.edu. Did not add the program for
+	  filling the dbm database yet.
+
+	* ctype/ctype.h: Added dummy _AP definition.
+
+	* doc/SF/fwsf.texi: Added some mirror sites.
+
+Fri Nov 17 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: Index types are now reported in the <database>.src
+	  file.
+
+	* FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt: Indexing for py
+	  was erroneous.
+
+	* doc/SF/fwsf.texi: Typo, <numeric> -> numeric:.
+
+	* ChangeLog: Fixed fmt files. Added index types to <database>.src.
+
+	* doc/SF/freeWAIS-sf-faq.1: Just an update.
+
+	* FIELD-EXAMPLE/COMPLEX.should FIELD-EXAMPLE/NUMERIC.should:
+	  Correct results for test now?
+
+Tue Nov 14 18:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: Fix for literal searches from Ellen G. White.
+
+	* ir/query_y.y: Did we really forgot to integrate 2.0.1.[1-3] in
+	  the patches? Shudder!
+
+	* ir/field_index.h: Lost changes?
+
+	* ChangeLog: BOL bug in headlines. Fix for literal searches. Update
+	  query_y.y.
+
+	* ir/field_index.c: regexp_bolp().
+
+	* ir/ircfiles.c: Fixed erroneous beginning of line matches for
+	  headlines.
+
+Tue Nov 14 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: partial more verbose?
+
+Tue Nov 14 08:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ChangeLog: Typo.
+
+	* ir/field_index.c: typo
+
+Mon Nov 13 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c: Fixed false beginning-of-line matches with
+	  region end expressions.
+
+	* ChangeLog: Region-end expressions matched beginning of line in
+	  the feist region line after the begin-expression.
+
+Thu Nov  9 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_search.c: indent.
+
+	* ir/irfiles.c: Fixed a very tricky memory bug which must be in
+	  there since wais8-b.
+
+	* ChangeLog: Fixed bug occurred during extending the waisperl
+	  stuff.
+
+	* ir/ui.c: added a fix from ui-local.c.
+
+	* ir/field_l.c ir/field_l.l: Added '\t' to the regular expressions.
+
+	* ir/field_index.c: Keeps now trac of used file buffers.
+
+	* MANIFEST ir/Jmakefile ir/Makefile.SH: Remved ui-local.c
+
+	* doc/SF/fwsf.texi: Frequency in dictionary is not document
+	  frequency.
+
+	* ir/irfiles.h: Added counter for file buffers to database record.
+
+	* ir/waisindex.c: Force rewrite of source description now.
+
+Fri Nov  3 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irsearch.c: Removed prototype for search_word_before_pairs
+	  since it makes the AIX compiler unhappy.
+
+	* ir/irext.h: Removed prototype for search_word since it makes the
+	  AIX compiler unhappy.
+
+	* ir/sersrch.c: removed some unnecessary variables.
+
+	* ChangeLog: AIX 3.2
+
+	* ir/boolean_op.c: Uninitialzed memory read bug in Intersection.
+
+Fri Nov  3 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ctype/ctype.h: Prototypes for mystrcmp, mystrncmp, and
+	  mystrcasecmp.
+
+	* FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt: Fixed off-by-one
+	  bug in headlines. Fixed off-by-one bug in skip expressions.
+
+	* FIELD-EXAMPLE/BOOLEAN.should FIELD-EXAMPLE/COMPLEX.should
+	  FIELD-EXAMPLE/DATE.should FIELD-EXAMPLE/FIELD.should
+	  FIELD-EXAMPLE/GERMAN.should FIELD-EXAMPLE/LITERAL.should
+	  FIELD-EXAMPLE/NUMERIC.should FIELD-EXAMPLE/PARTIAL.should
+	  FIELD-EXAMPLE/PLAIN.should FIELD-EXAMPLE/PROXIMITY.should
+	  FIELD-EXAMPLE/WEIGHT.should ir/field_y.y ir/ircfiles.c: Fixed
+	  off-by-one bug in headlines.
+
+	* ir/field_index.c: Completely rewrote how_index_line. The regions
+	  now cannot overlap themselfes - which was wiered. Also regions
+	  are closed now when field or document changes. Now buggy format
+	  descriptions where the region end expressions never matches can
+	  be processed without exhausting cpu and disk.
+
+	* ChangeLog: New how_index_line. Fixed off-by-one bugs.
+
+	* ctype/ctest.c: Added dummy _AP macro to make it usable in
+	  ./ctype.h.
+
+	* doc/SF/fwsf.texi: Included new test.fmt. Change some of the
+	  off-by-one regexps (probably not all).
+
+	* ir/cdialect.h: Moved the define for _AP up before the include of
+	  ctype.h.
+
+Tue Oct 31 17:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.c ir/field_l.l: Cosmetics only.
+
+	* ir/Makefile.SH lib/Makefile.SH: Chmod is now called directly when
+	  installing library.
+
+	* doc/SF/freeWAIS-sf-faq.1: RCS compliant now?
+
+	* bin/Makefile.SH: Mkdep fix (foo).
+
+	* ChangeLog: Fixed installation code.
+
+	* lib/Jmakefile: Install manpage fixed.
+
+Fri Oct 27 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ChangeLog: Data queries should now be yyyymmdd. The next century
+	  starts soon.
+
+Fri Oct 27 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Makefile.SH lib/Makefile.SH: Calling ranlib on installed
+	  library should work now.
+
+	* doc/SF/fwsf.texi: Updated mailinglist stuff.
+
+	* Configure: Version string now indicates if proximity or string
+	  search is selected.
+
+	* bin/makedb.man: Cleaned by Norbert Goevert.
+
+	* MANIFEST FIELD-EXAMPLE/Jmakefile FIELD-EXAMPLE/Makefile.SH
+	  ir/field_index.c: Data queries should now be yyyymmdd. The next
+	  century starts soon.
+
+	* ir/ircfiles.c: Strip centuries from data for insertion in the
+	  headline. The original code assumes date to be yymmdd. Since the
+	  date in the headline is of limited use, we do not fix that now.
+
+	* bin/makedb.SH: Cleaned by Norbert Goevert. Also the files already
+	  dead are counted and subtracted from limit.
+
+Wed Oct 25 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.SH: - minor fixings within the documentation -
+	  handling of default values for `limit' (defaults to 100),
+	  `options' (defaults to empty string), `dbdir' (defaults to
+	  current working directory) - inserted variable $reindex to
+	  determine wether reindexing of the whole database is necessary
+	  (return value from sub any_newer, argument for sub waisindex) -
+	  new sub get_files_from_pattern to derive files from
+	  $files{$database}
+
+Fri Oct 20 17:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.SH bin/makedb.man: makedb now can index in temporary
+	  directories. So the time where databases are not available is
+	  just the time needed to copy the database back.
+
+	* ir/sersrch.c: Fixed weigting bug for numeric searches.
+
+	* ChangeLog: sys_errlist, numeric
+
+	* ir/sockets.c ir/syslog.c ir/waisserver.c x/myAsciiSrc.c: Fixed
+	  the sys_errlist stuff (for the last time?).
+
+	* doc/SF/freeWAIS-sf-faq.1: Now RFC compliant?
+
+	* ir/Jmakefile ir/Makefile.SH: Sighash seems to be obsolete?
+
+	* Configure: Configure now test if a extern definition for
+	  sys_errlist should be included.
+
+	* ir/server-single.c: Removed unconditional reference to
+	  sys_errlist.
+
+	* config_h.SH: Configure now test if a extern definition for
+	  sys_errlist.
+
+Fri Oct 20 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/faq-store: Initial revision
+
+	* doc/SF/faq.pl: Uses Storable now.
+
+Mon Oct 16 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/Jmakefile FIELD-EXAMPLE/Makefile.SH: realclean was
+	  not removing the 'ed' index and dictionary.
+
+Mon Oct 16 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ChangeLog: Hack for tags in HTML/URL
+
+	* MANIFEST.new U/End.U U/Loc.U U/d_alloca.U U/d_alphasort.U
+	  U/d_compiler_version.U U/d_compress.U U/d_getpwuid.U
+	  U/d_huge_headlines.U U/d_local_search.U U/d_myctype.U
+	  U/d_myregexp.U U/d_proximity.U U/d_remove.U U/d_udping.U
+	  U/d_version_string.U doc/SF/fixlink lib/ChangeLog local/udping.c
+	  local/udpserv.c: Last ls6 version?
+
+Mon Oct 16 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: Passed dataops->type to how_index_line if
+	  dataops->indextype is not given. this is obviously a hack.
+
+	* ir/field_index.c: Code for removing tag in HTML/URL
+
+	* ui/Jmakefile: Remove waisping before linking.
+
+	* FIELD-EXAMPLE/Jmakefile: removed include for "../config.h".
+
+	* ir/field_l.l: Cleaned (?) escaping code. Made \n and alias for
+	  buildin regexps.
+
+	* FIELD-EXAMPLE/WEIGHT.should: Was broken in patch < 37.
+
+Wed Oct 11 20:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Jmakefile: Added --define for etags
+
+	* ir/irinv.c: Repassed through GNU indet. No change.
+
+	* ir/irhash.c: Bad memory bug. Tung copied add_word to
+	  field_add_word and added one more than obsolete '+'.
+
+	* ChangeLog: Memory bug fixed.
+
+Wed Oct 11 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_y.y: Clean grammar.
+
+	* ir/query_l.l: Query parser now knows about the legal character
+	  set.
+
+	* ir/field_y.y: Removed bad free.
+
+	* ir/field_index.c: Fixed memory read error.
+
+	* ChangeLog: Purify is happy now. There remains a serious memory
+	  error which breaks the inverted files in unknown circumstaces.
+
+Wed Oct 11 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_l.l: Words are now forced to be made up of legal
+	  characters only.
+
+Tue Oct 10 19:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sockets.c ir/waisserver.c x/myAsciiSrc.c: Not all compilers
+	  know elseif :-(
+
+Tue Oct 10 18:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irsearch.c ir/query_l.c ir/query_l.l: Handling for query term
+	  weighting with '<- 99.99' as prefix operator.
+
+	* ChangeLog: Query term weighting added.
+
+	* MANIFEST FIELD-EXAMPLE/Makefile.SH: Added test for term
+	  weighting.
+
+	* ir/query_y.h ir/query_y.y: Added query term weighting. Did some
+	  cleanup of the grammar. Not yet sure that all expressions
+	  remeained valid. Means Not sure that the grammar works ;-)
+
+	* ir/Jmakefile ir/Makefile.SH: Rule to compile test_query.
+
+	* ir/sersrch.c: Fixed bug (?) from tung. The field 'text' was not
+	  recognized in every case.
+
+	* FIELD-EXAMPLE/Jmakefile: Added test for term weighting. query:
+	  Probabilistic <- 3 Indexing
+
+	* ir/irext.h: Additional parameter query_weight for search_word().
+
+	* doc/SF/freeWAIS-sf-faq.1: Typos
+
+Tue Oct 10 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/weight.c: GNU indent.
+
+	* FIELD-EXAMPLE/Jmakefile: Fixed date query.
+
+	* ir/irfiles.c: Make matching partial words available in
+	  search_word.
+
+	* doc/SF/freeWAIS-sf-faq.1: FAQ now mentiones 2.0.
+
+	* Configure: Typo
+
+	* FIELD-EXAMPLE/COMPLEX.should FIELD-EXAMPLE/DATE.should
+	  FIELD-EXAMPLE/NUMERIC.should: Fixed numeric weighting (binary
+	  0/1).
+
+	* doc/SF/fwsf.texi: Roughly adapted to 2.0.
+
+	* ir/sersrch.c: Fixed weighting of partial matches for numeric
+	  fields.  Patch depends on the internal_weight of numeric matches
+	  to be 1.0
+
+	* ir/irfiles.h: Added parameter match_word to
+	  look_up_partialword_in_dictionary() prototype.
+
+	* FIELD-EXAMPLE/Makefile.SH ctype/Makefile.SH ir/Makefile.SH
+	  lib/Makefile.SH regexp/Makefile.SH ui/Makefile.SH: Another mkdep
+	  fix.
+
+	* ChangeLog: Fixed weighting for numeric '<' and '>'.
+
+Mon Oct  9 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/faq.pl: Jetzt wirklich RFC compatibel?
+
+Mon Oct  9 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: First 2.0 version.
+
+Fri Oct  6 19:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.man: Slight changes.
+
+	* ChangeLog Configure config_h.SH: Added unit for HUGE_HEADLINES.
+
+	* lib/Jmakefile: Fixed handling of man3.
+
+	* ir/field_y.c: Was proximity table?
+
+Fri Oct  6 17:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/LITERAL.should: query: 'Enhanced Retrieval'
+
+	* ir/field_y.y: Clean up the handling of the date layout option.
+	  Added rule for specifying date indexing. Indented the whole.
+
+	* FIELD-EXAMPLE/PARTIAL.should: query: Pfeif*
+
+	* FIELD-EXAMPLE/FIELD.should: query: au=pfeifer
+
+	* ir/irfiles.c: Added code to document date and numeric fields in
+	  the source description.
+
+	* Jmakefile: Excluded the lex/yacc generated files from TAGS
+	  generation.
+
+	* ir/irfiles.h: Added DateDescription to store all information
+	  needed for extracting dates.
+
+	* MANIFEST: Added FIELD-EXAMPLE/DATE.should.
+
+	* FIELD-EXAMPLE/GERMAN.should: query: au=großjohann
+
+	* FIELD-EXAMPLE/TEST FIELD-EXAMPLE/TEST.german: Change test data
+	  comlete to have more complex records with resonable date entries.
+
+	* FIELD-EXAMPLE/NUMERIC.should: query: py==1995
+
+	* ir/field_y.h: DateDescription is now member of the stack union.
+
+	* FIELD-EXAMPLE/PLAIN.should: query: Probabilistic Indexing
+
+	* FIELD-EXAMPLE/DATE.should: query: ed>1993
+
+	* ir/field_index.c: Moved fields_getdate_internal() (former
+	  fields_getdate) from ircfiles.c. Fixed clear_Ltable to honor new
+	  DateDescription. Added code in how_index_line() for indexing
+	  dates by calling fields_getdate_internal().
+
+	* FIELD-EXAMPLE/Jmakefile: Added test for date. Removed #ifdef's
+	  which were evaluated at distribution generation time.
+
+	* FIELD-EXAMPLE/COMPLEX.should: query: py==1995 and (ti=(Retrieval
+	  freeWAIS) or au=pfeifer)
+
+	* FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt: The format
+	  description demonstrated now the use of the date field. Also a
+	  new syntax without the nasty '<...>' is shown. Added some
+	  hopefully useful comments.
+
+	* ir/ircfiles.c: Moved fields_getdate_internal (former
+	  fields_getdate) index_fields.c. New fields_getdate() just calls
+	  fields_getdate_internal with the global date specification.
+
+	* ir/field_l.l: Made comments operable. Added aliases for keywords:
+	  <field>    -> region <date>	  -> date <headline> -> headline
+	  <layout>   -> layout <numeric>  -> numeric record-end ->
+	  record-sep All new keywords may be followed by ';'; The <end>
+	  after the layout section is optional now.
+
+	* FIELD-EXAMPLE/PROXIMITY.should: query: (Searching w/2 Documents)
+	  or (Development pre/3 Linear)
+
+	* FIELD-EXAMPLE/BOOLEAN.should: query: au=(pennekamp or fuhr) and
+	  processing
+
+	* MANIFEST: Added FIELD-EXAMPLE/DATE.should
+
+	* ir/cdialect.h: Typo.
+
+	* ir/field_index.h: In structure ltable: Moved date info in new
+	  structure DateDescription.  Added prototype for
+	  fields_getdate_internal().
+
+	* ChangeLog: Date
+
+Fri Oct  6 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y ir/ircfiles.c: Rather complex DateDescription. May
+	  cause alignment problems.
+
+Fri Oct  6 08:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y: Cleanup. Date spec structure.
+
+Fri Oct  6 07:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/swais.c: Added conditional include of <termios.h>.
+
+	* bin/Makefile.SH ctype/Makefile.SH
+	  doc/original-TM-wais/manl/Makefile.SH ir/Makefile.SH
+	  lib/Makefile.SH regexp/Makefile.SH: Beautified mkdep output.
+
+	* config_h.SH: Added I_TERMIOS for ui/swais.c
+
+	* ChangeLog: Cosmetics only.
+
+	* ir/sockets.c ir/waisserver.c x/myAsciiSrc.c: Added sys_errlist
+	  hack for BSD.
+
+	* bin/Makefile.SH ctype/Makefile.SH
+	  doc/original-TM-wais/manl/Makefile.SH ir/Makefile.SH
+	  lib/Makefile.SH regexp/Makefile.SH ui/Makefile.SH: Fix for mkdep.
+	  Forgot to double '$' :-(
+
+	* ui/Jmakefile: Swapped installation of swais and waissearch.
+
+	* ui/Makefile.SH: Beautified mkdep output. Swapped installation of
+	  swais and waissearch.
+
+Wed Oct  4 17:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/docid.c: Hack to enforce trailing \0 in WriteAnySymbol().
+
+	* bin/makedb.SH: Fix from Norbert Goevert.
+
+	* ChangeLog: Mainly Makefile.SH and ir/sockets.c changed.
+
+	* ir/server-single.c: Replaced call to ulimit() by getrlimit() as
+	  suggested by John Fieber.
+
+	* ir/sockets.c: Tried a major cleanup. Removed all #ifdef __XXX__.
+
+	* FIELD-EXAMPLE/Makefile.SH bin/Makefile.SH ctype/Makefile.SH
+	  doc/original-TM-wais/manl/Makefile.SH ir/Makefile.SH
+	  lib/Makefile.SH regexp/Makefile.SH ui/Makefile.SH: Fixed 'make
+	  depend' for 'gcc -M'.
+
+	* MANIFEST: Removed doc/original-TM-wais/Makefile.
+
+	* ir/waisserver.c: replaced HAVE_SYS_SELECT_H by I_SYS_SELECT.
+
+	* Configure: New check for Version. Tests for sys_error and
+	  strerror.
+
+	* config_h.SH: Definitions for I_SYS_RESOURCE, I_SYS_SELECT,
+	  I_SYS_SOCKET.
+
+Wed Oct  4 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Jmakefile: Test with metaconfigs errnolist. Does not work.
+	  Assumes the name of the array to be sys_errnolist instead of
+	  sys_errlist.
+
+Wed Oct  4 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* U/Loc.U: Vor Loeschen von Perl. Schein jetzt immer getestet zu
+	  werden?
+
+Fri Sep 29 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* config_h.SH: Added I_NETINET_IN and I_SYS_TYPES/I_TERMIO for
+	  swais.
+
+	* ui/swais.c: Removed #ifdef ULTRIX/__convex__ code.  Added
+	  conditional inclusion of <netinet/in.h>, <termio.h>, and
+	  <sgtty.h>.
+
+	* Makefile.SH FIELD-EXAMPLE/Makefile.SH bin/Makefile.SH
+	  ctype/Makefile.SH doc/original-TM-wais/manl/Makefile.SH
+	  ir/Makefile.SH lib/Makefile.SH regexp/Makefile.SH ui/Makefile.SH:
+	  Switched to dist-3.0.60.
+
+	* ir/Jmakefile: Added ../ctype/ctype.o to libwais.a. This will
+	  cause problems if one switches back to the sustems ctype without
+	  removing the library.
+
+	* x/Imakefile.SH: Extraction message.
+
+	* ui/wais-ui.c: Won't prepend source->directory if source->database
+	  starts with '/'.
+
+	* ui/Jmakefile: Moved compilation for swais down since it is the
+	  most likely to fail.
+
+Fri Sep 29 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Configure: Switched to dist-3.0.60.
+
+Thu Sep 21 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf-faq.1: Automatic Changes
+
+	* ChangeLog: No real changes.
+
+Thu Sep 21 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/original-TM-wais/manl/Makefile.SH: Fixed bad extraction
+	  message.
+
+	* bin/makedb.SH: Fixed typos.
+
+	* bin/Makefile.SH: Made ws shell extractable.
+
+Wed Sep 20 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/inverted_file.SH bin/inverted_file.man bin/mkfmt.SH
+	  bin/mkfmt.man: Fixed references.
+
+	* bin/catalog.SH bin/catalog.man bin/dictionary.SH
+	  bin/dictionary.man: Added author.
+
+	* bin/makedb.SH regexp/Makefile.SH: Fixed extraction message.
+
+	* MANIFEST: Added new utilities in bin. Remoed some old trash.
+
+	* Configure: Configure now looks for perl.
+
+	* ui/Jmakefile ui/Makefile.SH: Installs link named waisping for
+	  waisq.
+
+	* bin/Makefile.SH: bin/Makefile.SH: Added makedb catalog dictionary
+	  inverted_file mkfmt. Removed swais.sh.
+
+	* ChangeLog: Mainly new utilities.
+
+	* bin/Jmakefile: bin/Jmakefile: Added makedb catalog dictionary
+	  inverted_file mkfmt. Removed swais.sh.
+
+Wed Sep 20 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/ws.SH: Calls waissearch with the apropriate parameter given a
+	  source description.
+
+Wed Sep 20 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/mkfmt.man: Automatically derived from mkfmt.SH
+
+	* bin/inverted_file.man: Automatically derived from
+	  inverted_file.SH
+
+	* bin/dictionary.SH: Print the dictionary of a wais database.
+
+	* bin/mkfmt.SH: Interacively generate format files (not really yet)
+
+	* bin/inverted_file.SH: Print the inverted file or a single list.
+
+	* bin/dictionary.man: Automatically derived from dictionary.SH
+
+Wed Sep 20 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/catalog.SH: Print a catalog of a wais database
+
+	* bin/catalog.man: Automatically derived from catalog.SH
+
+	* bin/makedb.man: Automatically derived from makedb.SH
+
+	* bin/makedb.SH: Maintain databases calling waisindex. Really cute
+	  wrapper. Emulates updates!
+
+Tue Sep 19 19:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/Makefile.SH: Fix to make mkdep run on Linux (second try).
+	  Added REGLIB to object list.
+
+	* ir/cutil.c ir/irfiles.h: Changed ISO to MYCTYPE. Broke 8-bit
+	  code!
+
+	* ChangeLog: patch13
+
+	* FIELD-EXAMPLE/Makefile.SH bin/Makefile.SH ctype/Makefile.SH
+	  doc/original-TM-wais/manl/Makefile.SH lib/Makefile.SH
+	  regexp/Makefile.SH: Fix to make mkdep run on Linux (second try).
+
+	* ir/syslog.c: Added dummy variable in case you system has syslog.
+	  This should make your compiler and ar happy.
+
+	* ir/Jmakefile: Added MakeDirectories for PRIVLIB.
+
+	* ui/Jmakefile: Added REGLIB to object list.
+
+	* Configure: Test for compiler version failed if $cc -v was too
+	  verbose. Rerunning Configure did twist the default for MYREGEXP.
+
+	* ir/Makefile.SH: Added MakeDirectories for PRIVLIB. Fix to make
+	  mkdep run on Linux (second try).
+
+Tue Sep 19 18:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.SH: Fehlt noch URL handling bei incrementellem update
+
+Tue Sep 19 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.SH: ok.
+
+Tue Sep 19 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.SH: Fehlt noch -test option.
+
+Tue Sep 19 06:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/makedb.SH: Initial revision
+
+Fri Sep 15 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/Jmakefile ui/Makefile.SH: Did not link with the local regexp
+	  library.
+
+Fri Sep 15 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.h: Added header.  Fixed #ifdef in cpp macro call.
+
+	* ir/field_l.l: Comments for format files (Shell stryle)
+
+	* FIELD-EXAMPLE/Makefile.SH bin/Makefile.SH ctype/Makefile.SH
+	  doc/original-TM-wais/manl/Makefile.SH ir/Makefile.SH
+	  lib/Makefile.SH ui/Makefile.SH: Mkdep now works on linux also.
+
+	* Configure: Regexp question twisted the answer.
+
+	* ir/irext.h: Fixed #ifdef in cpp macro call.
+
+	* ir/field_l.c: Comments for format files.
+
+	* ir/cdialect.h: Prototypes for getuser_name() and
+	  getuser_env_name(). Fixed CNIDR copyright line.
+
+	* ir/weight.h: Removed prototype for write_weight_in_ptr() which
+	  seems to puzzle the OSF compiler.
+
+	* ui/wais-ui.c: Fixed CNIDR copyright line. Fix from kru@upc.muc.de
+	  (Frithjof Kruggel): -s option in waisq, waissearch.
+
+	* ir/cutil.h ir/docid.c ir/docid.h ir/futil.c ir/futil.h ir/hash.c
+	  ir/hash.h ir/ir.h ir/ircfiles.c ir/irfileio.c ir/irfileio.h
+	  ir/irhash.c ir/irhash.h ir/irinv.c ir/irkeywords.c ir/irretrvl.c
+	  ir/irretrvl.h ir/irsearch.c ir/irsearch.h ir/irsparse.c
+	  ir/irsparse.h ir/irtfiles.c ir/irtfiles.h ir/irverify.c
+	  ir/irverify.h ir/list.c ir/list.h ir/lock.c ir/lock.h ir/panic.c
+	  ir/panic.h ir/server-single.c ir/server.h ir/sighash.c
+	  ir/sighash.h ir/sigindex.h ir/sigsrch.c ir/sigsrch.h ir/sockets.c
+	  ir/sockets.h ir/stem.h ir/stemmer.c ir/stemmer.h ir/stoplist.c
+	  ir/stoplist.h ir/synonym.c ir/synonym.h ir/syslog.c ir/syslog.h
+	  ir/transprt.c ir/transprt.h ir/trie.c ir/trie.h ir/ui-local.c
+	  ir/ui.c ir/ui.h ir/ustubs.c ir/ustubs.h ir/waisindex.c
+	  ir/waisserver.c ir/wmessage.c ir/wmessage.h ir/wprot.c ir/wprot.h
+	  ir/wutil.c ir/wutil.h ir/zprot.c ir/zprot.h ir/ztype1.c
+	  ir/ztype1.h ir/zutil.c ir/zutil.h lib/alphasort.c lib/freedir.c
+	  lib/ftw.c lib/ftwtest.c lib/scandir.c lib/scantest.c
+	  lib/stringtoany.c lib/trunc.c ui/Retrieval.h ui/document.c
+	  ui/document.h ui/globals.h ui/lisp-ui.c ui/list.h ui/messages.h
+	  ui/question.c ui/question.h ui/source.c ui/source.h ui/status.h
+	  ui/swais.c ui/util.c ui/util.h ui/wais-ui.h ui/wais.h ui/waisq.c
+	  ui/waissearch.c x/MyList.c x/MyList.h x/MyListP.h x/Retrieval.h
+	  x/Viewport.c x/cat.h x/catalog.c x/cursor.h x/display.c
+	  x/display.h x/filereq.c x/filereq.h x/list.h x/myAsciiSink.c
+	  x/myAsciiSink.h x/myAsciiSinkP.h x/myAsciiSrc.c x/myAsciiSrc.h
+	  x/myAsciiSrcP.h x/qcommands.c x/qcommands.h x/qdisplay.c
+	  x/qdisplay.h x/scommands.c x/scommands.h x/scrolllist.h
+	  x/tcommands.c x/tcommands.h x/text.c x/text.h x/util.c x/util.h
+	  x/xquestion.h x/xstuff.h x/xwais.c x/xwais.h x/xwaisq.c: Fixed
+	  CNIDR copyright line.
+
+Wed Sep 13 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/mkfmt: Initial revision
+
+Tue Sep 12 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cdialect.h: Added LITTLEENDIAN BIGENDIAN
+
+	* Makefile.SH FIELD-EXAMPLE/Makefile.SH bin/Makefile.SH
+	  ctype/Makefile.SH doc/original-TM-wais/manl/Makefile.SH
+	  ir/Makefile.SH lib/Makefile.SH regexp/Makefile.SH ui/Makefile.SH:
+	  Removed leading tabs in make macro definitions.
+
+	* ctype/Jmakefile: no change
+
+	* MANIFEST: removed byte_order.h
+
+	* ir/syslog.c: Changed NEED_VSYSLOG to HAS_SYSLOG.
+
+	* Configure: Tests for byteorder and syslog.
+
+	* lib/alloca.c: Removed redefinition of malloc.
+
+	* ir/sersrch.c: Removed inclusion of byte_order.h.
+
+	* config_h.SH: Added BYTEORDER, HAS_SYSLOG and I_ALLOCA.
+
+	* ir/ir.c: Removed prototypr for alphasort(). gcc and cc do not
+	  agree on it.
+
+Mon Sep 11 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* lib/scandir.c: Added dummy variable in case scandir is known.
+
+	* ChangeLog: Runs with gcc version 2.5.8 on Sunos 4.1.4 and 5.3. Cc
+	  on Sunos 4.1.4 also ok.
+
+	* ui/source.c ui/waissearch.c: Changed TELL_USER to call
+	  getuser_name().
+
+Mon Sep 11 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/server-single.c: Streamlined sys/file.h fcntl.h and
+	  sys/fcntl.h stuff. Hope it still works.
+
+	* ir/cutil.c ir/irtfiles.c: no change
+
+	* lib/Jmakefile lib/Makefile.SH: Added alloca to library.
+
+	* ir/sersrch.c: Added typecasts for readCompressedInteger() to make
+	  gcc happy.
+
+	* FIELD-EXAMPLE/Jmakefile: Changed d_waissearch_args to
+	  waissearch_args to make metalint happy.
+
+	* lib/alloca.c: Wrapped into #ifndef HAS_ALLOCA.
+
+	* ir/cutil.h: Added conditional inclusion of sys/param.h.
+
+	* ir/futil.c: Changed HAVE_GETCWD to HAS_GETCWD. Added conditional
+	  inclusion of pwd.h.
+
+	* ir/ir.c: Changed TELL_USER to call getuser_name(). Replaced
+	  alphasort() by prototype.
+
+	* ir/waisindex.c: Fixed declaration of number_of_files in main().
+
+	* ir/irhash.c: Added typecasts for writeCompressedInteger() to make
+	  gcc happy.
+
+	* ir/ustubs.c: Simplified getwd(), getcwd() and memmove() stuff.
+	  Added getuser_name() and getuser_env_name().
+
+	* ir/ircfiles.c: Replaced inclusion of string.h by cdialect.h.
+	  Moved example lines starting with '#' to the right.
+
+	* ir/waisserver.c: Streamlined sys/file.h, fcntl.h, and sys/fcntl.h
+	  stuff. Set return type of signal handlers to Signal_t.
+
+	* lib/alphasort.c: Added dummy variable in case alphasort is known.
+
+	* ir/cdialect.h: Added alloca magics from autoconf. Added
+	  prototypes for getuser_name() and getuser_env_name().
+
+	* Configure: Added various options from the autoconf configure. See
+	  descriptions of the other changes.
+
+	* ir/irfiles.c: Replaced getenv("USER") by getuser_env_name().
+
+Sun Sep 10 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/Makefile: Added to dist
+
+	* x/cat.h: Removed duplicate RCS log.
+
+	* MANIFEST: Removed doc/original-TM-wais/manl/Makefile and
+	  x/Makefile
+
+Sun Sep 10 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.c ir/field_y.c ir/field_y.h ir/query_l.c ir/query_y.c
+	  ir/query_y.h: Added to dist
+
+	* Jmakefile Makefile.SH: typo
+
+Sun Sep 10 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Configure config_h.SH defaults.h: Added test for vprintf.
+
+	* ir/field_index.c: Changed SYSVREGEXP to MYREGEXP to really use
+	  the included regexp packet if requested.
+
+	* Jmakefile Makefile.SH: Code for generating and removing Emacs
+	  TAGS.
+
+	* ir/cutil.c: Fixed check for existing vprintf.
+
+Fri Sep  8 19:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/catalog.c: Removed duplicate RCSid.
+
+	* ir/cutil.h: Fixed prototype for substrcmp
+
+	* ir/boolean_op.h: Fixed prototypes for save_operand_id and
+	  retriev_result.
+
+	* ir/ir.c: Fixed handling of NULL index_directory in
+	  server_security.
+
+	* ir/Jmakefile ir/Makefile.SH: Added dependency to PRIVLIB and
+	  $socketlib. Not sure if $socketlib is used correctly?
+
+	* regexp/regexp.c: Changed STRCSPN to HAS_STRCSPN as proposed by
+	  metaconfig.
+
+	* ir/cdialect.h: Added conditional #undef bcopy to overwrite
+	  confmagic.h definitions when bcopy cannot do overlapping copies.
+
+	* doc/SF/faq.pl: Made it ignore 2.0 records to keep it out of the
+	  listing until the official announcement.
+
+	* doc/original-TM-wais/manl/Makefile: L=1
+
+	* ir/sighash.c: #ifdef-ed definition of add_stop_words with
+	  AUTO_STOPWORDS. irhash.c contains another one!?  #ifdef-ed also a
+	  call to it.
+
+	* ir/irfiles.h: Removed superfluous second prototype for
+	  allocate_index_block.
+
+	* ir/waisserver.c: Gcc did not accept struct sigcontext* in
+	  prototype. Added a typedef struct sigcontext sigcontext_t and it
+	  magically worked!
+
+	* ChangeLog: -
+
+	* ir/cutil.c: Changed HAVE_STRDUP to HAS_STRDUP.
+
+	* lib/Jmakefile lib/Makefile.SH: Added initialization for BIN_EXP.
+	  Jmake does not know about it?
+
+	* ir/field_y.y: * Fixed prototype for put_tags_in_gdb.
+
+	* lib/scandir.c: Added NLENGTH macro for DIRENT.
+
+	* ir/field_index.c: Removed prototype for getrnge. Sunos 4.1.4 and
+	  5.3 do not agree on it.
+
+Fri Sep  8 18:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Configure: Customized for sunos 5.3 and gcc 2.5.8.  Needs
+	  -lsocket and -lnsl during configuration (additional libraries).
+	  Fixed Installation (some paths were missing)
+
+	* MANIFEST MANIFEST.new: added install.SH for systems without BSD
+	  conformant install
+
+Fri Sep  8 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* install.SH: Metaconfig baseline
+
+Fri Sep  8 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* install.sh: Metaconfig baseline
+
+Fri Sep  8 08:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* iubio-wais.news iubio-wais.readme sound.readme ir/irinv.h
+	  ir/irkeywords.c ir/irretrvl.c ir/irretrvl.h ir/irsearch.c
+	  ir/irsearch.h ir/irsparse.c ir/irsparse.h ir/irtfiles.c
+	  ir/irtfiles.h ir/irverify.c ir/irverify.h ir/list.c ir/list.h
+	  ir/lock.c ir/lock.h ir/panic.c ir/panic.h ir/prototypes.h
+	  ir/query_l.l ir/query_y.y ir/sersrch.c ir/server-single.c
+	  ir/server.h ir/sighash.c ir/sighash.h ir/sigindex.h ir/sigsrch.c
+	  ir/sigsrch.h ir/sockets.c ir/sockets.h ir/soundex.c ir/soundex.h
+	  ir/stem.h ir/stemmer.c ir/stemmer.h ir/stoplist.c ir/stoplist.h
+	  ir/synonym.c ir/synonym.h ir/syslog.c ir/syslog.h ir/transprt.c
+	  ir/transprt.h ir/trie.c ir/trie.h ir/udping.c ir/ui-local.c
+	  ir/ui.c ir/ui.h ir/ustubs.c ir/ustubs.h ir/waisindex.c
+	  ir/waisserver.c ir/weight.c ir/weight.h ir/wmessage.c
+	  ir/wmessage.h ir/wprot.c ir/wprot.h ir/wutil.c ir/wutil.h
+	  ir/zprot.c ir/zprot.h ir/ztype1.c ir/ztype1.h ir/zutil.c
+	  ir/zutil.h lib/Jmakefile lib/Makefile.SH lib/README lib/alloca.c
+	  lib/alphasort.c lib/freedir.c lib/ftw.c lib/ftw.man lib/ftwtest.c
+	  lib/scandir.c lib/scandir.man lib/scantest.c lib/stringtoany.c
+	  lib/trunc.c regexp/ANNOUNCE regexp/Jmakefile regexp/Makefile.SH
+	  regexp/README regexp/cdefs.h regexp/regerror.c regexp/regexp.c
+	  regexp/regexp.h regexp/regexp.man regexp/regmagic.h
+	  regexp/regsub.c regexp/tests regexp/timer.c regexp/try.c
+	  ui/ChangeLog ui/Jmakefile ui/Makefile.SH ui/README ui/Retrieval.h
+	  ui/dirname ui/document.c ui/document.h ui/globals.h ui/lisp-ui.c
+	  ui/list.h ui/lucid.lisp ui/messages.h ui/question.c ui/question.h
+	  ui/source.c ui/source.h ui/status.h ui/swais.c ui/uri-lucid.lisp
+	  ui/util.c ui/util.h ui/wais-ui.c ui/wais-ui.h ui/wais.el.raw
+	  ui/wais.h ui/waisq.c ui/waissearch.c x/ChangeLog x/Imakefile.SH
+	  x/My-Makefile x/MyList.c x/MyList.h x/MyListP.h x/README
+	  x/Retrieval.h x/Viewport.c x/Xwais.old x/Xwais.raw x/XwaisHELP
+	  x/XwaisqHELP x/cat.h x/catalog.c x/cr x/cursor.h x/dirname
+	  x/display.c x/display.h x/filereq.c x/filereq.h x/list.h
+	  x/makex.sh x/myAsciiSink.c x/myAsciiSink.h x/myAsciiSinkP.h
+	  x/myAsciiSrc.c x/myAsciiSrc.h x/myAsciiSrcP.h x/qcommands.c
+	  x/qcommands.h x/qdisplay.c x/qdisplay.h x/scommands.c
+	  x/scommands.h x/scrolllist.h x/tcommands.c x/tcommands.h x/text.c
+	  x/text.h x/util.c x/util.h x/xquestion.h x/xstuff.h x/xwais.bit
+	  x/xwais.c x/xwais.h x/xwaisq.bit x/xwaisq.c x/xwaist.bit:
+	  Metaconfig baseline
+
+Fri Sep  8 07:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ChangeLog Configure Jmakefile MANIFEST MANIFEST.new Makefile.SH
+	  README TODO config_h.SH confmagic.h defaults.h
+	  FIELD-EXAMPLE/BOOLEAN.should FIELD-EXAMPLE/COMPLEX.should
+	  FIELD-EXAMPLE/ChangeLog FIELD-EXAMPLE/FIELD.should
+	  FIELD-EXAMPLE/GERMAN.should FIELD-EXAMPLE/Jmakefile
+	  FIELD-EXAMPLE/LITERAL.should FIELD-EXAMPLE/Makefile.SH
+	  FIELD-EXAMPLE/NUMERIC.should FIELD-EXAMPLE/PARTIAL.should
+	  FIELD-EXAMPLE/PLAIN.should FIELD-EXAMPLE/PROXIMITY.should
+	  FIELD-EXAMPLE/TEST FIELD-EXAMPLE/TEST.german
+	  FIELD-EXAMPLE/test.fde FIELD-EXAMPLE/test.fmt
+	  FIELD-EXAMPLE/testg.fmt U/Loc.U U/Myinit.U U/d_cache_syn.U
+	  U/d_compiler_version.U U/d_compress.U U/d_local_search.U
+	  U/d_myctype.U U/d_myregexp.U U/d_proximity.U U/d_udping.U
+	  U/d_urldocid.U U/d_version_string.U bin/Jmakefile bin/Makefile.SH
+	  bin/README bin/check-sources bin/getaddrs bin/index.mail
+	  bin/server_stats bin/start.myserver bin/stats.awk bin/swais.sh
+	  bin/test.waisindex bin/wais-gif-display bin/wais-html-display
+	  bin/wais-jfif-display bin/wais-jpeg-display bin/wais-pict-display
+	  bin/wais-ppm-display bin/wais-tiff-display bin/waisretrieve
+	  bin/waissearch-modem bin/ws ctype/ChangeLog ctype/Jmakefile
+	  ctype/Makefile.SH ctype/ctest.c ctype/ctype.h ctype/ctype.tmpl
+	  ctype/mkctype.c doc/CNIDR/COPYRIGHT doc/CNIDR/DOCUMENTS
+	  doc/CNIDR/FAQ.txt doc/CNIDR/INSTALLATION doc/CNIDR/NEXT-RELEASE
+	  doc/CNIDR/README doc/CNIDR/RELEASE-NOTES doc/SF/FAQ
+	  doc/SF/Imakefile doc/SF/SFgate.texi doc/SF/UniDo-Logo.eps
+	  doc/SF/cleanhtml doc/SF/epsf.tex doc/SF/faq.pl
+	  doc/SF/freeWAIS-sf-faq.1 doc/SF/fwsf.texi
+	  doc/original-TM-wais/FAQ.txt doc/original-TM-wais/Makefile
+	  doc/original-TM-wais/README doc/original-TM-wais/bibliography.txt
+	  doc/original-TM-wais/cm-servers.ps
+	  doc/original-TM-wais/doc-ids.txt
+	  doc/original-TM-wais/helpful-scripts.txt
+	  doc/original-TM-wais/overview.txt
+	  doc/original-TM-wais/protspec.txt
+	  doc/original-TM-wais/question.txt doc/original-TM-wais/source.txt
+	  doc/original-TM-wais/wais-concepts.txt
+	  doc/original-TM-wais/wais-corp.txt
+	  doc/original-TM-wais/wais.el.txt
+	  doc/original-TM-wais/waisindex.txt
+	  doc/original-TM-wais/waisprot.txt doc/original-TM-wais/waisq.txt
+	  doc/original-TM-wais/waissearch.hlp
+	  doc/original-TM-wais/waissearch.txt
+	  doc/original-TM-wais/waisserver.txt
+	  doc/original-TM-wais/waistation_users_guide.txt
+	  doc/original-TM-wais/xwais.txt doc/original-TM-wais/xwaisq.txt
+	  doc/original-TM-wais/z3950-spec.txt
+	  doc/original-TM-wais/manl/Jmakefile
+	  doc/original-TM-wais/manl/Makefile
+	  doc/original-TM-wais/manl/Makefile.SH
+	  doc/original-TM-wais/manl/waisindex.man
+	  doc/original-TM-wais/manl/waisq.man
+	  doc/original-TM-wais/manl/waissearch.man
+	  doc/original-TM-wais/manl/waisserver.man
+	  doc/original-TM-wais/manl/xwais.man
+	  doc/original-TM-wais/manl/xwaisq.man ir/ChangeLog ir/DESIGN
+	  ir/Jmakefile ir/Makefile.SH ir/README ir/README_FIELDS
+	  ir/analyse_str.h ir/boolean_op.c ir/boolean_op.h ir/byte_order.h
+	  ir/cdialect.h ir/cutil.c ir/cutil.h ir/docid.c ir/docid.h
+	  ir/field.h ir/field_index.c ir/field_index.h ir/field_l.l
+	  ir/field_search.c ir/field_search.h ir/field_y.y ir/futil.c
+	  ir/futil.h ir/hash.c ir/hash.h ir/ir.c ir/ir.h ir/ircfiles.c
+	  ir/ircfiles.h ir/irext.h ir/irfileio.c ir/irfileio.h ir/irfiles.c
+	  ir/irfiles.h ir/irhash.c ir/irhash.h ir/irinv.c: Metaconfig
+	  baseline
+
+	* ir/iubuild.c: Not needed
+
+Thu Sep  7 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* MANIFEST.new: Last version with x clients
+
+	* U/d_compress.U U/d_udping.U: Initial revision
+
+Thu Sep  7 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* MANIFEST MANIFEST.new: Initial revision
+
+Thu Sep  7 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* INSTALLATION: Initial revision
+
+	* Makefile.in: Last revision
+
+Thu Sep  7 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/Imakefile doc/original-TM-wais/Imakefile
+	  doc/original-TM-wais/manl/Imakefile local/Imakefile: Initial
+	  revision
+
+	* Imakefile FIELD-EXAMPLE/Imakefile doc/SF/Imakefile: Last revision
+
+Thu Sep  7 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Jmakefile: Festlegung der Verzeichnisse erfolgt mit jmake!!
+
+	* U/Loc.U: Initial revision
+
+	* ctype/Jmakefile ir/Jmakefile lib/Jmakefile regexp/Jmakefile
+	  ui/Jmakefile: Anhaengigkeiten zur Uebersetungszeit muessen noch
+	  entfernt werden
+
+Thu Sep  7 07:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Jmakefile FIELD-EXAMPLE/Jmakefile U/Myinit.U U/d_cache_syn.U
+	  U/d_compiler_version.U U/d_local_search.U U/d_myctype.U
+	  U/d_myregexp.U U/d_proximity.U U/d_urldocid.U
+	  U/d_version_string.U ctype/Jmakefile ir/Jmakefile lib/Jmakefile
+	  regexp/Jmakefile ui/Jmakefile: Initial revision
+
+Fri Aug 11 08:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/udping.c: Obsolet %d in format string
+
+	* ir/query_y.y: gcc bug on Solaris:
+	  
+	  void maybe_downcase(s) char *s; { #ifdef NOPAIRS     if (*s !=
+	  '"')	       if (*s != '\'')		   while (*s) *s =
+	  tolower(*(s++)); #endif }
+	  
+	  On solaris we get:	     maybe_downcase: peter -> eeee
+	  
+	  Which is a strange optimization!
+	  
+	  void maybe_downcase(s) char *s; { #ifdef NOPAIRS     if (*s !=
+	  '"')	       if (*s != '\'')		   while (*s) *s =
+	  tolower(*s),s++; #endif }
+
+Thu Aug 10 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irhash.c: patch by Tom Snee
+
+Thu Jun 29 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: Hack for LITTLEENDIAN in serach_word
+
+Thu Jun 29 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: Sicherung vor Mailinglist
+
+Wed Jun 28 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irinv.c: fixifdef | unifdef -DFIELDS | indent
+
+Fri Jun 23 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: unifdef -DBOOLEANS -DNESTED_BOOLEANS -DFIELDS
+
+Fri Jun 23 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c ir/irsearch.c ir/irtfiles.c ir/sersrch.c
+	  ir/waisindex.c: unifdef -DBOOLEANS -DNESTED_BOOLEANS -DFIELDS |
+	  indent
+
+Wed Jun 21 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/Imakefile: Vor Umstellung auf texinfo
+
+	* doc/SF/fwsf.texi: whatever
+
+Fri Jun 16 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c: prefremove: memory leak (80 Bytes!) fixed
+
+Wed Jun 14 17:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/soundex.c: PhonixCode: Off by one bug
+
+	* ir/query_y.y: Added a hack to downcase all query words so that
+	  word-pair-search is not triggered. Anyone should remove the code
+	  completely ;-)
+
+	* ir/field_search.c: insert_fields: Allowed for upper case chars in
+	  field names
+
+	* ir/sersrch.c: compare_doc_ids: _AP wrap for K&R compilers
+
+Fri Jun  9 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/SFgate.texi: Initial revision
+
+	* doc/SF/SFgate.texi: Null version
+
+Thu Jun  8 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_l.l: Removed bad downcase hack.
+
+Thu Jun  8 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: Tom Snee: replaced bad MAX_FILE_NAME_LEN by
+	  MAX_HEADLINE_LEN when reading headlines in
+	  read_headline_table_entry.
+
+Tue Jun  6 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ir.c: Removed the magic help for short queries. Catalog is
+	  still returned for	     * empty queries	     * queries
+	  starting with '?' or '*'
+
+Sun Jun  4 19:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: finished auxiliary file section
+
+Sun Jun  4 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: bis headline list
+
+Sat Jun  3 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: Anhaenge fuer die grammatiken
+
+Sat Jun  3 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: waisindex eingebaut. Format-Beschreibung
+	  angefangen.
+
+Sat Jun  3 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: Installation soweit drin.
+
+Fri Jun  2 11:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/futil.c: Typo
+
+Wed May 31 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/wais-ui.c: Fix from kru@upc.muc.de (Frithjof Kruggel): -s
+	  option in waisq, waissearch
+
+Wed May 31 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: configure
+
+Wed May 31 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/fwsf.texi: Initial revision
+
+Tue May 23 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/Imakefile: Clenaup
+
+	* FIELD-EXAMPLE/Imakefile FIELD-EXAMPLE/Makefile.in: Changed
+	  proximity syntax (Tom Snee)
+
+	* ir/query_y.y: Direkt interpretation of soundex and phonix
+	  operators. Makes the code in irsearch obsolete.
+
+	* ir/query_l.l: Changed proximity syntax by Tom Snee
+
+	* ir/irsearch.c: Removed teh code for soundex and phonix searches.
+	  Interpretation of prefix operators now is in query_y.y.
+
+	* doc/SF/freeWAIS-sf.tex: Comments on proximity (Tom Snee)
+
+	* ir/irinv.c: Fix by Tom Snee
+
+	* ir/boolean_op.c: fix by Tom Snee
+
+Tue May 23 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/Imakefile: Initial revision
+
+	* doc/SF/freeWAIS-sf.tex: proximity vor entfernung der Copyright
+	  notice
+
+Mon May  8 08:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/udping.c: typo
+
+Sun May  7 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/udping.c: Added port information to udp packet
+
+	* ir/boolean_op.c ir/boolean_op.h ir/irfiles.h ir/irhash.c
+	  ir/irsearch.c ir/irtfiles.c ir/sersrch.c ir/sighash.c: More fixes
+	  by Tom Snee. Literal serach now works again!
+
+Sun May  7 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/hash.h ir/irfiles.c ir/irhash.c ir/query_y.y ir/sersrch.c:
+	  Sicherung vor neuen patches von tsnee
+
+Wed May  3 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/waissearch.c: getenv("USER") fix
+
+Sun Apr 30 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: Compilierbar - produziert aber coredump
+
+Sun Apr 30 15:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: Soweit ok.
+
+	* ir/irhash.c: Sicheung vor unifdef PROXIMITY
+
+	* ir/sersrch.c: Vor unifdef PROXIMITY
+
+Thu Apr 27 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/boolean_op.c ir/boolean_op.h ir/hash.h ir/irfiles.c
+	  ir/irfiles.h ir/irhash.c ir/irinv.c ir/irsearch.c ir/irtfiles.c
+	  ir/query_l.l ir/query_y.y ir/sersrch.c ui/waisq.c: PROXIMITY
+	  patch by Tom Snee <tsnee@merengue.oit.unc.edu>
+
+Tue Apr 25 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_y.y: Some changes in preparation for proximity patch
+
+Mon Apr 17 13:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c: fix in pref_remove
+
+	* ir/irinv.c: fixes by Tom Snee
+
+	* ir/irhash.c: removed bad free in flush_word_occurance_buffers
+
+	* ir/irhash.c: Fixes by Tom Snee
+
+	* ir/irtfiles.c: Marek Andricik: It seems to me that in file
+	  ir/irtfiles.c at lines 1830 and 1842 there are typos. If
+	  expression (mesg = -1)...
+
+Mon Apr 17 13:00:00 1995 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c ir/hash.h ir/irfiles.c ir/irfiles.h ir/irhash.h
+	  ir/irinv.c ir/irinv.h ir/irsearch.c ir/irtfiles.c ir/sersrch.c
+	  ir/stoplist.c ir/stoplist.h ir/waisindex.c ir/weight.c
+	  ir/weight.h: Release 1.1.2
+
+Tue Apr  4 08:00:00 1995 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irhash.c: UStole lock: ulrich
+
+Wed Mar 15 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile ir/Makefile.in: moved soundex to libwais
+
+Mon Mar 13 12:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/waisq.c: fixed: waisq was assuming that the normal interactive
+	  env. variables were present (HOME, etc) and dereferencing them
+	  w/o checking if the were NULL
+
+Fri Mar 10 14:00:00 1995 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/futil.c: in probe_file: moved the check for filename == NULL
+	  up a few lines, to before the strcmp()s.
+
+	* ir/synonym.c: in lookup_Synonym: return(rec->root) to
+	  return(syn_Table->root), because rec hasn't been set.
+	  
+	  in syn_ReadFile: Avoid a segmentation violation, if (datum ==
+	  NULL) break;
+
+	* ir/ir.c: in handleFTPSearch: search_status isn't initialized. I
+	  have set it true.
+
+	* ir/field_index.c: in init_index_fields: The '==' formerly was '='
+	  (assignment)
+
+	* ir/field_y.y: in put_tags_in_gdb: the declaration for this had
+	  begin_tag_pos listed twice.
+	  
+	  declaration layout separately.
+
+Tue Feb 21 14:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisserver.c: From: Alberto Accomazzi
+	  <alberto@cfa0.harvard.edu>
+	  
+	  here's a patch to allow waisserver to fork off and become a
+	  session leader.  This becomes important on some systems when you
+	  want to start the server at boot time.  For example, on my HP,
+	  after executing /etc/rc the system kills all child processes
+	  generated by the script, so without this option I wouldn't be
+	  able to start up the server.
+	  
+	  The fix relies on a small portion of code that I stole from the
+	  NCSA httpd source.  It seems to work fine on suns (4.1.3 and
+	  solaris 2.3) and HP 9000 (HP-UX 9.01).  I left the #ifdefs in the
+	  code for detach() but as far as I can tell from the original HTTP
+	  code they there is no need to define NO_SETSID except on the NEXT
+	  and SEQUENT, and since I didn't find any ifdefs for these
+	  architectures in the rest of the code, I didn't bother with
+	  setting the flag at all.
+
+Fri Feb 17 09:00:00 1995 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c ir/field_search.c ir/query_y.y: MAX_WORD_LENGTH
+	  deleted.
+
+Fri Feb 10 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* configure.in FIELD-EXAMPLE/Makefile.in ir/Imakefile ir/cutil.c
+	  ir/ircfiles.c ir/waisindex.c lib/Imakefile regexp/regexp.c
+	  x/Xwais.raw x/myAsciiSink.c: Release 1.1.2
+
+Thu Feb  9 09:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* lib/Imakefile: added alloca
+
+	* configure.in: 1.1.1
+
+Tue Feb  7 15:00:00 1995 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irinv.c: conditions: number_of_words_1 (_2) < 0 change to	   
+		 number_of_words_1 (_2) < 1
+
+Fri Jan 13 08:00:00 1995 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y: no change
+
+Tue Jan 10 17:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/Xwais.raw x/qdisplay.c: Better layout and colors?
+
+	* ir/irfiles.h: Added filed_description
+
+	* Defaults.tmpl.in configure ir/field_token.h ir/query_token.h:
+	  Initial revision
+
+	* x/qcommands.c: Bug wich causes coredump when submitting the same
+	  query more than once No completely salvaged
+
+	* FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt: Added description
+
+	* Imakefile configure.in: Version 1.1
+
+Tue Jan 10 16:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/wais-ui.c: Fix from Jonny
+
+	* ui/document.c: Little fix for multiple submissions of the same
+	  query, which breaks xwasq. Not the last!
+
+	* ui/swais.c: Fix for convex (will be the last #is system_xyz!
+	  shudder !)
+
+	* ir/docid.c: Now writes docids unencoded, if ASCII_ID is defined.
+	  The original version can be used by defining CRYPT_IDS (this is
+	  of no use).
+
+	* doc/SF/FAQ: Sicherung vor 1.1
+
+Mon Jan  9 14:00:00 1995 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y: bug in NUMERIC token.
+
+Wed Jan  4 10:00:00 1995 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y: Fixed bug with multiple fieldnames and stemming
+
+Fri Dec 23 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/util.c: Use default borderWidth dimension; i.e. 1
+
+	* x/qdisplay.c: Change label to make layout correct
+
+Thu Dec 22 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* bin/Makefile.in: Initial revision
+
+	* Makefile.in FIELD-EXAMPLE/Makefile.in ctype/Makefile.in
+	  ir/Makefile.in lib/Makefile.in regexp/Makefile.in ui/Makefile.in
+	  x/Makefile.in: CFLAGS gets replaced by configure now.
+
+	* ir/irfiles.c: added :description to  :fields
+
+	* ir/field_l.l: Added " delimited string as DESCRIPTION
+
+Thu Dec 22 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irsearch.c: typo
+
+Thu Dec 22 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: Added :fields to source files
+
+Mon Dec 19 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ircfiles.c: Michael Schmidt one-off bug with date
+
+	* ir/field_y.y: Michael Schmidt: bug with month definition
+
+Wed Dec 14 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf-faq.1: field_l.l patch
+
+Wed Dec 14 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf-faq.1: Initial revision
+
+Wed Dec 14 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/FAQ: Sicherung vor auto-post
+
+Tue Dec 13 19:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/server-single.c: chip@chinacat.unicom.com (Chip Rosenthal)
+	  patches. Excluding the merge of libinv and libwais
+
+Tue Dec 13 18:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* lib/alloca.c: Initial revision
+
+	* ir/field_l.l: Tung! Outch! Retrned constant strings.
+
+	* ir/waisindex.c: removed the host_name ...
+
+	* Makefile.in FIELD-EXAMPLE/Makefile.in ctype/Makefile.in
+	  ir/Makefile.in ir/cdialect.h ir/futil.c ir/ir.c ir/irfiles.c
+	  ir/lock.c ir/server-single.c ir/sockets.c ir/sockets.h
+	  ir/ustubs.c ir/waisindex.c ir/waisserver.c lib/Makefile.in
+	  regexp/Makefile.in ui/Makefile.in x/Makefile.in:
+	  chip@chinacat.unicom.com (Chip Rosenthal) patches. Excluding the
+	  merge of libinv and libwais
+
+	* Imakefile: added lib/alloca.c
+
+Mon Dec 12 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/hash.c: hash_entry_numeric_compare should return int!
+
+	* ir/waisindex.c: added char host_name[255], host_address[255];
+	  which are needed in sockets.c
+
+	* ir/hash.c: typo
+
+Mon Dec 12 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: return(0);		 /* silently skip it */
+
+Tue Dec  6 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ctype/Imakefile ctype/ctest.c ctype/ctype.h ctype/mkctype.c:
+	  renamed _ctype__ to _fw_ctype__
+
+Tue Nov 29 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sockets.c: "matthew (m.) holiday" <holiday@bnr.ca>: I've been
+	  having some problems with server security, where the server was
+	  refusing connections from an authorized host.  Lo and behold,
+	  when the server accepted a connection from a client, the
+	  host_name and host_address variables were left as empty strings
+	  (and so never matched the entries in the DATA_SEC file)!  These
+	  need to be reset for each new client connection, which is what
+	  the following patch does.
+
+Mon Nov 28 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/FAQ: cern httpd
+
+Mon Nov 28 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisserver.c: typo
+
+Fri Nov 25 18:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/FAQ: Initial revision
+
+Fri Nov 25 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/faq.pl: Initial revision
+
+Thu Nov 24 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/qcommands.c: XtMalloc for string was too short
+
+Tue Nov 22 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisserver.c: "matthew (m.) holiday" <holiday@bnr.ca>: There's
+	  an fflush() call missing in file waisserver.c just before the
+	  call to rewind(in).  This was a reported issue in freeWais 0.3
+	  with respect to HPUX, that doesn't seem to have made it across to
+	  freeWais-sf.
+
+Thu Nov 17 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.l: fixed line number bug for flex
+
+Mon Nov 14 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: Patch by Archie Warnoc in c.i.w (must be made size
+	  dependent?)
+
+Mon Oct 31 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/myAsciiSink.c: runns under X11R6
+
+Fri Oct 21 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/myAsciiSinkP.h: now at least compiles under X11R6 - query is
+	  unvisible :(
+
+	* x/myAsciiSink.c: Moved the Log to the top
+
+Fri Oct 21 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/myAsciiSink.c: Now compiles under X11R6 - query font is
+	  invisible :-(
+
+Sun Oct 16 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.l: Flex Bug? Remove Tungs escape++ code!?
+
+Wed Oct 12 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/Makefile.in: A failing test not not fatal any more
+
+	* FIELD-EXAMPLE/Imakefile: Failing test is nnot fatal any more
+
+	* Imakefile: "make install" now does no more depend on "make all"
+
+	* Makefile.in: "make install" now does no more depend on "make all"
+	  Fixed typo in "make veryclean"
+
+Tue Oct 11 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/futil.c ir/server-single.c: convex
+
+Mon Oct 10 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_l.l: Added code for disabling wordpairsearch by
+	  downcasing all nonquoted words. ifdefed by NOPAIRS.
+
+	* ir/field_y.y ir/waisindex.c: replaced printf's by waislog
+
+Fri Oct  7 14:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: 1.27
+
+Thu Oct  6 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/server-single.c ir/synonym.c ir/udping.c ir/wutil.c
+	  ui/waissearch.c: Patch from Mariusz Niewczas
+
+Thu Oct  6 11:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ctype/ctype.h ctype/mkctype.c: Patch from Mariusz Niewczas
+
+Wed Oct  5 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c: Patch from "Jae W. Chang" <jae+@CMU.EDU>
+
+Wed Oct  5 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf.tex: Erste version von Stephens Aenderungen
+
+Tue Sep 27 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/waissearch.c: Steve Hsieh: 100000 -> BUFSZ
+
+Fri Sep  9 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* local/udpserv.c: Enlared buffer to have space for compiler
+	  version
+
+	* configure.in ctype/ctype.h ctype/ctype.tmpl ctype/mkctype.c
+	  ir/server-single.c ir/waisserver.c: Fixed the MAX_OCCURANCES -
+	  STOP_WORD_FLAG bug
+
+	* TODO ctype/ctype.c doc/SF/freeWAIS-sf.tex: 1.0
+
+Fri Sep  9 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/TEST: Initial revision
+
+	* acconfig.h config.c FIELD-EXAMPLE/Imakefile: Fixed the
+	  MAX_OCCURANCES - STOP_WORD_FLAG bug
+
+	* Imakefile: Added toto again, renamed README-sf to README
+
+	* README: 1.0
+
+Thu Sep  8 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/udping.c: Report cc version
+
+	* x/MyList.c x/myAsciiSink.c: Added include cdialect.h to enshur,
+	  that string.h is included before ctype.h
+
+	* ir/server-single.c ui/swais.c: make BSD happy
+
+	* ir/cutil.c: removed dead code (was ifdef'ed AUTOCONF)
+
+Thu Sep  8 11:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf.tex: Added TODO and updated SYstems list
+
+Thu Sep  8 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf.tex: Sicherung vor Aenderungen von Douglas
+	  Nebbert
+
+Wed Sep  7 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/Imakefile ui/Makefile.in: moved TELL_USER to defaults.tmpl
+
+	* Defaults.tmpl.top: moved TELL_USER to Defaults.tmpl
+
+	* ir/cdialect.h ir/docid.c ir/field_index.c ir/irfileio.c
+	  ir/irhash.c ir/irsearch.c ir/irtfiles.c ir/sighash.c ir/soundex.c
+	  ir/stoplist.c ir/ustubs.c: ctype is now included from cdialect.h
+	  after inclusion of string.h. Since ctype.h (the local version
+	  defines strcmp and friends, inclusion o of string.h after that
+	  caused probems
+
+	* ui/swais.c ui/waissearch.c: ctype is now included from cdialect.h
+	  after inclusion of string.h. ds, inclusion of string.h after that
+	  caused probems
+
+Wed Sep  7 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ustubs.c: added const str2 to memmove definitions
+
+Tue Sep  6 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: Removed #include <stdlib.h> which is now done in
+	  cdialect.h
+
+	* ir/cdialect.h: Added #include <stdlib.h> and #include <ctype.h>
+
+	* ir/cdialect.h: removed dead code (Was ifndef AUTOCONF)
+
+	* ir/udping.c: Added ifdef _DGUX__
+
+	* ir/synonym.c ir/synonym.h: Version with syn cache by Alberto
+	  Accomazzi
+
+	* ir/server-single.c: Added #include <netinet/in.h>
+
+	* ir/sersrch.c: Syn cache patch
+
+Mon Sep  5 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisserver.c: shm patch
+
+	* ir/waisserver.c: Removed buggy init_add_word call
+
+	* ir/irext.h: removed buggy init_add_word prototype
+
+Mon Sep  5 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Imakefile: Added target TAGS
+
+Fri Sep  2 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cdialect.h ir/cutil.c ir/hash.c ir/irfiles.c ir/irinv.c
+	  ir/irsearch.c ir/irtfiles.h: fixed overlapping memory copies
+
+	* ir/cdialect.h: typo
+
+	* Defaults.tmpl.top Imakefile README acconfig.h configure.in: fixed
+	  overlapping memory copies; removed ANSI_LIKE, wich does not work
+	  yet
+
+Tue Aug 23 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irlex.h: remooved from dist
+
+	* ir/irfiles.c ir/irhash.h ir/irverify.h ir/sighash.h: removed
+	  irlex.h. Code now in Defaults.tmpl
+
+	* ir/irkeywords.c: removed irlex.h
+
+Tue Aug 23 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ircfiles.c: Moved HEADLINE constants to Defaults.tmpl
+
+	* ir/irlex.h ir/irsearch.c: moved the HEADLINE constants to
+	  Defaults.tmpl
+
+	* ir/waisserver.c: Made client fork #undef'able Fixed umr bug
+
+	* Defaults.tmpl.top: Added the HEADLINE defines
+
+	* ir/Makefile.in: fixed install library code
+
+Mon Aug 22 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: Some fixes to make purify happy (a the memory not
+	  wasted) jp made the getenv code safer
+
+	* ir/field_index.c: Some fixes to make purify happy
+
+	* ir/irtfiles.c: waisindex: files on the command line my now
+	  contaion extensions ".gz"
+
+	* ir/futil.c: jp made getpwuid code safer
+
+	* ui/source.c: jp made the getenv code safer
+
+Mon Aug 22 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Makefile.in: Added code for installation of libraries
+
+	* doc/SF/freeWAIS-sf.tex: Added description of make Targets +
+	  Sample Imakefile for Index maintenance
+
+	* Install.tmpl.in: Added Variable WAISLIBDIR
+
+	* ir/Imakefile lib/Imakefile lib/Makefile.in: Added code for
+	  library installation
+
+	* configure.in: fixed -lsocket and -lnsl stuff
+
+	* Makefile.in: Removed autoconf stuff added dvi and ps files to
+	  veryclean
+
+	* Imakefile: Added LaTeX documentation to dist and veryclean
+
+Mon Aug 22 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* configure.in: Bad -lnsl -lsocket tests
+
+Mon Aug 22 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* configure.in: .94
+
+Fri Aug 19 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: Usage of -tfields now disabels -pos
+
+Tue Aug 16 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* local/udping.c local/udpserv.c local/udpserv.pl: Initial revision
+
+	* FIELD-EXAMPLE/BOOLEAN.should FIELD-EXAMPLE/COMPLEX.should
+	  FIELD-EXAMPLE/FIELD.should FIELD-EXAMPLE/GERMAN.should
+	  FIELD-EXAMPLE/LITERAL.should FIELD-EXAMPLE/PARTIAL.should
+	  FIELD-EXAMPLE/PLAIN.should: 0.92
+
+Tue Aug 16 11:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c: Added calls to free in  prefremove for memory
+	  allocated by scandir
+
+	* ir/zutil.c: adden register definition in readCompressedInteger,
+	  purify keeps unhappy :(
+
+	* ir/waisindex.c: Added call to free_keywords to make purify happy
+
+	* ir/irkeywords.c: Fixed memory leak and other errors in
+	  retreive_keywords Added free_keywords
+
+Mon Aug 15 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ir.c ir/irfiles.c: fixed unchecked usage of getenv("USER") in
+	  printf
+
+	* ui/source.c: fixed uncheckt usage of getenv("USER") in printf
+
+Sat Aug 13 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisserver.c: added call to sayiamhere
+
+	* ir/udping.c: Initial revision
+
+	* ir/Makefile.in: Added udping
+
+	* ir/Imakefile: added udping
+
+	* Imakefile: Added udping fir dist
+
+Fri Aug 12 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/zutil.c: Speeded up, but purify still complains: **** 
+	  Purify'd ./waisserver  (pid 8145, forked from ./waisserver pid
+	  8140)  **** Purify (umr): uninitialized memory read:	 * This is
+	  occurring while in:	      readCompressedInteger [line 241,
+	  zutil.c, pc=0xb9384]	 readTag      [line 319, zutil.c,
+	  pc=0xb97a8]	 readAny      [line 432, zutil.c, pc=0xb9e14]	
+	  readString   [line 533, zutil.c, pc=0xba44c]	  readInitInfo
+	  [line 118, wprot.c, pc=0x776fc]    readInitAPDU [line 234,
+	  zprot.c, pc=0x8c69c]	 * Reading 1 byte from 0xeffe5bb7 on the
+	  stack     This is local variable "byte" in function
+	  readCompressedInteger.
+	  
+	  ****	Purify'd ./waisserver  (pid 8145, forked from ./waisserver
+	  pid 8140)  **** Purify (umr): uninitialized memory read:   * This
+	  is occurring while in:       readCompressedInteger [line 242,
+	  zutil.c, pc=0xb93b4]	 readTag      [line 319, zutil.c,
+	  pc=0xb97a8]	 readAny      [line 432, zutil.c, pc=0xb9e14]	
+	  readString   [line 533, zutil.c, pc=0xba44c]	  readInitInfo
+	  [line 118, wprot.c, pc=0x776fc]    readInitAPDU [line 234,
+	  zprot.c, pc=0x8c69c]	 * Reading 1 byte from 0xeffe5bb7 on the
+	  stack     This is local variable "byte" in function
+	  readCompressedInteger.
+	  
+	  ****	Purify'd ./waisserver  (pid 8145, forked from ./waisserver
+	  pid 8140)  **** Purify (umr): uninitialized memory read:   * This
+	  is occurring while in:       readCompressedInteger [line 241,
+	  zutil.c, pc=0xb9384]	 readAny      [line 433, zutil.c,
+	  pc=0xb9e38]	 readString   [line 533, zutil.c, pc=0xba44c]	
+	  readInitInfo [line 118, wprot.c, pc=0x776fc]	  readInitAPDU
+	  [line 234, zprot.c, pc=0x8c69c]    handleInit   [line 359, ir.c,
+	  pc=0x19d60]	* Reading 1 byte from 0xeffe5c27 on the stack	 
+	  This is local variable "byte" in function readCompressedInteger.
+	  
+	  ****	Purify'd ./waisserver  (pid 8145, forked from ./waisserver
+	  pid 8140)  **** Purify (umr): uninitialized memory read:   * This
+	  is occurring while in:       readCompressedInteger [line 242,
+	  zutil.c, pc=0xb93b4]	 readAny      [line 433, zutil.c,
+	  pc=0xb9e38]	 readString   [line 533, zutil.c, pc=0xba44c]	
+	  readInitInfo [line 118, wprot.c, pc=0x776fc]	  readInitAPDU
+	  [line 234, zprot.c, pc=0x8c69c]    handleInit   [line 359, ir.c,
+	  pc=0x19d60]	* Reading 1 byte from 0xeffe5c27 on the stack	 
+	  This is local variable "byte" in function readCompressedInteger.
+
+	* ir/waisserver.c: initialize dataops in main with zeroes.
+
+	* ir/irhash.h: Changed STOP_WORD_FLAG to '((long)(1 <<
+	  (NUMBER_OF_OCCURANCES_SIZE * 8 -2)))' which should be 0x40000000
+	  and MAX_OCCURANCES to STOP_WORD_FLAG -1
+
+	* ir/wmessage.c: in writeWAISPacketHeader replaced call to strlen
+	  because it made purify unhappy
+
+Fri Aug 12 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile ir/Makefile.in: fixed code for generation of
+	  test_query: cutil.o was missing.
+
+	* ir/Imakefile ir/Makefile.in: now really
+
+Thu Aug 11 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: changed the default of the wordpair flag to
+	  "-nopairs"
+
+Thu Aug 11 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c: Replaced call system("rm ...") for removing ald
+	  indexes by scandir and unlink
+
+Wed Aug 10 11:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/BOOLEAN.should FIELD-EXAMPLE/COMPLEX.should
+	  FIELD-EXAMPLE/GERMAN.should FIELD-EXAMPLE/LITERAL.should
+	  FIELD-EXAMPLE/PARTIAL.should FIELD-EXAMPLE/PLAIN.should: #define
+	  NUMBER_OF_OCCURANCES_SIZE 4 #define STOP_WORD_FLAG ((long)(1 <<
+	  (NUMBER_OF_OCCURANCES_SIZE * 8 -2))) #define MAX_OCCURANCES
+	  (STOP_WORD_FLAG-1)
+
+Tue Aug  9 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Imakefile: added 'install: config.h' removed autoconf stuff
+
+Tue Aug  9 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Imakefile: removed ir/iubuild.c  ir/macbuild.c  ir/macver.c from
+	  dist
+
+Mon Aug  8 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile: removed -s from LFLAGS
+
+Mon Aug  8 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/BOOLEAN.should FIELD-EXAMPLE/COMPLEX.should
+	  FIELD-EXAMPLE/GERMAN.should FIELD-EXAMPLE/PARTIAL.should
+	  FIELD-EXAMPLE/PLAIN.should ir/field_index.c ir/hash.c
+	  ir/irfiles.c ir/irhash.h ir/irtfiles.c: Fixed the MAX_OCCURANCES
+	  - STOP_WORD_FLAG bug
+
+Mon Aug  8 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c ir/cutil.h ir/irkeywords.c ir/iubuild.c ir/macbuild.c
+	  ir/macver.c ir/panic.c ir/server-single.c ir/ustubs.c
+	  ir/waisindex.c ir/waisserver.c ui/globals.h ui/waissearch.c
+	  x/xwais.c x/xwais.h: Moved wais_log_file_name and waislogfile to
+	  cutil.[ch]
+
+Fri Aug  5 19:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* acconfig.h: added HAVE_GETRNGE for SGIs running IRIX 5
+
+	* ctype/mkctype.c: No mor complain about redefining _.
+
+	* configure.in: Added check for getrnge
+
+	* ir/field_index.c: #ifdef'ed getrnge
+
+	* ir/irtfiles.h: double make_compiler_happy removed
+
+Fri Aug  5 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile ir/Makefile.in: Added macros for libclient.a
+
+Fri Aug  5 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/panic.c: variables waislogfile and wais_log_file_name are
+	  defined as extern's but unused. Dumped them.
+
+Fri Aug  5 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Makefile.in: removed code for "make dist" . Imakefile will
+	  suffice. One Place better than two.
+
+	* ir/sersrch.c: No more 'MAXINT redefined' complaints.
+
+	* Imakefile: removed config.h from dist
+
+	* Imakefile: Fixed dist code
+
+Fri Aug  5 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Makefile.original: Initial revision
+
+	* ir/field_index.c ir/irfiles.c ir/irtfiles.c: Fix for
+	  total_word_count bug
+
+	* ir/Imakefile ir/Makefile.in: Fixed cmp for token*.h on bootstrap
+
+	* ui/globals.h x/xwais.h: dumped numtosave since it's unused
+
+Fri Aug  5 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/futil.c ir/hash.c ir/ir.c ir/irfiles.c ir/irhash.h
+	  ir/irkeywords.c ir/irsearch.c ir/irtfiles.c ir/irtfiles.h
+	  ir/query_l.l ir/sersrch.c ir/soundex.c ir/ui-local.c ir/ustubs.c
+	  ir/version.h ir/waisserver.c ir/zprot.c lib/Imakefile
+	  lib/alphasort.c lib/scandir.c ui/Retrieval.h ui/document.c
+	  ui/document.h ui/globals.h ui/lisp-ui.c ui/list.h ui/messages.h
+	  ui/question.c ui/question.h ui/source.c ui/source.h ui/status.h
+	  ui/util.c ui/util.h ui/wais-ui.c ui/wais-ui.h ui/wais.h
+	  ui/waisq.c x/Imakefile x/My-Makefile x/MyList.c x/MyList.h
+	  x/MyListP.h x/Retrieval.h x/cat.h x/catalog.c x/cursor.h
+	  x/display.c x/display.h x/filereq.c x/filereq.h x/list.h
+	  x/makex.sh x/myAsciiSink.c x/myAsciiSink.h x/myAsciiSinkP.h
+	  x/myAsciiSrc.h x/myAsciiSrcP.h x/qcommands.c x/qcommands.h
+	  x/qdisplay.c x/qdisplay.h x/scommands.c x/scommands.h
+	  x/scrolllist.h x/tcommands.c x/tcommands.h x/text.c x/text.h
+	  x/util.c x/util.h x/xquestion.h x/xstuff.h x/xwais.c x/xwais.h
+	  x/xwaisq.c: Release beta 04
+
+	* iubio-wais.news iubio-wais.readme sound.readme lib/Makefile.in
+	  lib/Makefile.original lib/README lib/freedir.c lib/ftw.c
+	  lib/ftw.man lib/ftwtest.c lib/pdftw.h lib/scandir.man
+	  lib/scantest.c lib/stringtoany.c lib/trunc.c regexp/ANNOUNCE
+	  regexp/Imakefile regexp/Makefile.in regexp/Makefile.orig
+	  regexp/README regexp/cdefs.h regexp/regerror.c regexp/regexp.c
+	  regexp/regexp.h regexp/regexp.man regexp/regmagic.h
+	  regexp/regsub.c regexp/tests regexp/timer.c regexp/try.c
+	  ui/Makefile.original ui/README ui/dirname ui/lucid.lisp
+	  ui/swais.c ui/uri-lucid.lisp ui/wais.el.raw x/Makefile.in
+	  x/Xwais.old x/cr: Initial revision
+
+Fri Aug  5 06:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Imakefile Install.tmpl.in Makefile.in Makefile.original README-s
+	  acconfig.h configure.in FIELD-EXAMPLE/BOOLEAN.should
+	  FIELD-EXAMPLE/COMPLEX.should FIELD-EXAMPLE/GERMAN.should
+	  FIELD-EXAMPLE/LITERAL.should FIELD-EXAMPLE/Makefile.in
+	  FIELD-EXAMPLE/PARTIAL.should FIELD-EXAMPLE/PLAIN.should
+	  FIELD-EXAMPLE/test.fmt FIELD-EXAMPLE/testg.fmt bin/Imakefile
+	  bin/Makefile.original bin/README bin/check-sources.script
+	  bin/getaddrs.script bin/index.mail.script bin/server_stats.script
+	  bin/start.myserver.script bin/stats.awk bin/swais.sh.script
+	  bin/test.waisindex bin/wais-gif-display.script
+	  bin/wais-html-display.script bin/wais-jfif-display.script
+	  bin/wais-jpeg-display.script ctype/mkctype.c ir/cdialect.h:
+	  Release beta 04
+
+	* ANNOUNCEMENT COPYRIGHT DOCUMENTS config.c install.sh
+	  mkinstalldirs FIELD-EXAMPLE/TEST.german FIELD-EXAMPLE/test.fde
+	  bin/wais-pict-display.script bin/wais-ppm-display.script
+	  bin/wais-tiff-display.script bin/waisretrieve.script
+	  bin/waissearch-modem bin/ws.script ctype/Imakefile
+	  ctype/Makefile.in ctype/ctest.c ctype/ctype.h ir/Makefile.in:
+	  Initial revision
+
+Fri Aug  5 06:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* Defaults.tmpl.top README: Release beta 04
+
+Thu Aug  4 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Makefile.in: Initial revision
+
+	* Imakefile: vor Auslagerung von Version nach configure.in
+
+Wed Aug  3 06:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: beta 04
+
+Wed Jul 27 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf.tex: sicherung for "" gewurstel
+
+Wed Jul 27 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf.tex: Added copyright notice
+
+Wed Jul 27 11:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf.tex: tabellen umgestellt
+
+Wed Jul 27 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* doc/SF/freeWAIS-sf.tex: Initial revision
+
+Tue Jul 26 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/BOOLEAN.should FIELD-EXAMPLE/COMPLEX.should
+	  FIELD-EXAMPLE/FIELD.should FIELD-EXAMPLE/GERMAN.should
+	  FIELD-EXAMPLE/LITERAL.should FIELD-EXAMPLE/NUMERIC.should
+	  FIELD-EXAMPLE/PARTIAL.should FIELD-EXAMPLE/PLAIN.should: Initial
+	  revision
+
+Fri Jul 22 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Imakefile ctype/ctype.tmpl ctype/mkctype.c: Initial revision
+
+	* ir/version.h: freeWAIS-sf now definitely splits from CNIDR
+	  version scheme
+
+	* ir/cutil.c ir/irkeywords.c ir/iubuild.c ir/macbuild.c ir/macver.c
+	  ir/panic.c ir/server-single.c ir/soundex.h ir/synonym.c
+	  ir/ustubs.c ir/waisindex.c ir/waisserver.c ui/Imakefile
+	  ui/Makefile.in ui/waissearch.c: Renamed logfile to waislogfile
+	  and log_file_name to wais_log_file_name to avoid clashes when
+	  linking with gopher and other systems
+
+Fri Jul 22 12:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/hash.c ir/irfiles.c ir/irhash.h ir/irsearch.c: left for
+	  holidays
+
+Fri Jul 22 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/soundex.h: Initial revision
+
+Fri Jul 15 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.h ir/irfileio.c ir/irfiles.c: negative numerics
+
+	* ir/version.h: 03
+
+Wed Jul 13 11:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ctype/ctype.c: strcasecmp
+
+Wed Jul 13 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: Negative numerics.
+
+	* ir/irinv.c: Negative numerics. Syntable freed to early
+
+Wed Jul 13 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.h ir/futil.c ir/irtfiles.c ir/sockets.c ir/stemmer.c
+	  ir/ustubs.c ir/version.h: beta 02
+
+Wed Jul 13 07:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c ir/hash.c ir/irfiles.c ir/irfiles.h ir/irinv.c
+	  ir/irsearch.c ir/sersrch.c ir/waisindex.c: Uli
+
+Tue Jul 12 11:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* TODO: Initial revision
+
+	* TODO: posted Version
+
+Mon Jul 11 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/synonym.c: Fixed ! entry and empt entry bug
+
+Mon Jul 11 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ctype/ctype.c: Initial revision
+
+Tue Jul  5 17:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: bug by numeric searching (>) corrected.
+
+Mon Jun 27 15:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cdialect.h: #ifdef TM_IN_SYS_TIME deleted.
+
+Mon Jun 27 14:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: message error for option -stop added.
+
+Mon Jun 27 13:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y: MAX_REGEXP added.
+
+	* ir/field_index.c: printf deleted.
+
+	* ir/field_index.c: MAX_FIELDS_NAMES = 30 added.
+
+Mon Jun 27 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cdialect.h: TIME_WITH_SYS_TIME symbol changed into
+	  TM_IN_SYS_TIME.
+
+Fri Jun 24 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: bug by stemming corrected.
+
+Thu Jun 23 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/Makefile.in: Initial revision
+
+Wed Jun 22 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irsearch.c: Do not normalize weights
+
+Tue Jun 21 14:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: bug by producing empty file.cat corrected.
+
+Mon Jun 20 15:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irhash.c: missing parameter field_id added by calling
+	  field_flush_memory_hashtable_to_disk(db, false, field_id).
+
+Thu Jun 16 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_l.l: replaced #include <string.h> by #include "cutil.h"
+
+	* ir/field_l.l: peplace #include <string.h> by #include "cutil.h"
+
+Mon Jun 13 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: replaced strdup by function provided by Kent C Brodie
+	  <kcb@post.its.mcw.edu>
+
+Sun Jun 12 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* acconfig.h: Initial revision
+
+Fri Jun 10 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: typo
+
+Fri Jun 10 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: bad typo
+
+	* ir/cutil.h: added definition for strdup, which is missing with
+	  solaris 2.3 ?
+
+	* ir/cutil.c: added definition for strdup, wich is missing with
+	  solaris 2.3 ?
+
+	* configure.in: Comments for install program check strdup
+
+Thu Jun  9 18:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/futil.c ir/irfiles.c: added ftp:
+
+Thu Jun  9 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/futil.c: probe_file returns now true for filename = "http:.*"
+
+	* ir/irfiles.c: fixed the url stuff in write_filename_table_entry
+	  to make it not prepend the path.
+
+Thu Jun  9 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: added a hack in write_filename_table_entry, to
+	  avoid testing of date for files starting withh "http:". So URL
+	  can be put in the docid!!
+
+	* ir/irtfiles.c: changed index_text_file to put the URL in the
+	  filename_id. So headline is freely customizable.
+
+Mon Jun  6 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/hash.c: get_hash updated.
+
+	* ir/irhash.c: add_word, look_up_word updated.
+
+Fri Jun  3 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ircfiles.c: bug in headlines specification corrected.
+
+Fri Jun  3 10:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irinv.c: bug in (field_)merge_index_file corrected.
+
+	* ir/irfiles.c: bug in (field_)finished_add_word_to_dictionary
+	  corrected.
+
+Thu Jun  2 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.h: DICTIONARY_TOTAL_SIZE_WORD now depends on #define
+	  ISO
+
+Tue May 31 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/weight.c: added unecessary variable in write_weight_in_ptr to
+	  make the DEC OSF compiler happy
+
+	* ir/irfiles.h: DICTIONARY_TOTAL_SIZE_WORD
+
+Tue May 31 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: dict_number_of_blocks: added 4 to make it run with
+	  2999 words ????
+
+Mon May 30 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* README-sf.html: Initial revision
+
+Mon May 30 14:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* README: beta
+
+Mon May 30 13:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/weight.h: write_weight_in_ptr updated.
+
+	* ir/weight.c: write_weight_in_ptr, read_weight_from_stream
+	  updated.
+
+Mon May 30 12:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/boolean_op.c: updated code.
+
+Fri May 27 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/Imakefile: An Makefile.in angepasst GERMAN mit
+	  testg alle anderen TEST mit test
+
+Fri May 27 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: error message for not exsting file. beta
+
+	* ir/irtfiles.c: updated index_text_file, field_index_text_file,
+	  index_directory. beta
+
+Fri May 27 10:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.h: type of index_text_file updated. beta
+
+Fri May 27 09:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irhash.c: add_word, field_add_word updated. beta
+
+	* ir/weight.c: Initial revision
+
+	* ir/boolean_op.c: boolean code updated. beta.
+
+	* ir/weight.h: beta
+
+	* ir/sersrch.c: boolean code updated. beta
+
+	* ir/boolean_op.h: save_operand_id updated. beta
+
+Thu May 26 15:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: look_up_total_word_count,
+	  field_look_up_total_word_count upadted. beta.
+
+	* ir/irinv.c: no change. beta
+
+Thu May 26 14:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: search_word updated (read_weight_from_stream).
+	  beta.
+
+Wed May 25 12:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/stoplist.c: incompatible type by allocating. stop_from_file =
+	  (char**)malloc (nstops * sizeof (charptr));
+
+Wed May 25 07:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/weight.h: Initial revision
+
+Sat May 21 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irkeywords.c: There is at least one uninitialized memory read
+	  and one memory leeak left!
+
+Sat May 21 14:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.l: fixed memory leaks due to strange strdups :-(
+
+	* ir/cutil.c: initalize memory, in fs_realloc if it is really an
+	  malloc (should be obsolete :-( )
+
+	* ir/irtfiles.c: fixes: add_word and field_add_word are called with
+	  missing	 word_position parameter
+
+	* ir/field_index.c: Fixed cleanup's (different memory leaks)
+
+	* ir/stoplist.c: removed bad (void *) casts
+
+	* ir/irinv.h: field_flush_memory_hashtable_to_disk: parameter
+	  change
+
+	* ir/field_y.y: fixes: allocated memory initialized, since tung
+	  relies on it :-(	  memory leaks due to strdup in yylex.
+
+Fri May 20 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cdialect.h ir/cutil.c ir/cutil.h ir/docid.c ir/futil.c
+	  ir/futil.h ir/hash.c ir/hash.h ir/irdirent.h ir/irfileio.c
+	  ir/irfiles.h ir/irhash.c ir/irhash.h ir/irinv.c ir/irkeywords.c
+	  ir/irretrvl.c ir/irtfiles.h ir/iubuild.c ir/lock.c ir/panic.c
+	  ir/query_y.y ir/sersrch.c ir/server-single.c ir/sighash.c
+	  ir/sigsrch.c ir/sockets.c ir/stemmer.c ir/syslog.c ir/trie.c
+	  ir/ui-local.c ir/ui.c ir/ustubs.h ir/version.h ir/waisindex.c
+	  ir/waisserver.c ir/wmessage.c ir/wprot.c ir/wutil.c ir/zprot.c
+	  ir/ztype1.c ir/zutil.c: beta
+
+Fri May 20 12:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: weights
+
+	* ir/Imakefile: added weight.[ch]
+
+	* ir/irext.h ir/irfiles.c: beta
+
+Fri May 20 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/boolean_op.c: A not B = MINIMUM(d_A, 1 - d_B).
+
+Thu May 19 12:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.h: some changes (what?)
+
+	* ir/field_index.c: new regexp.
+
+	* ir/field_search.h: #ifndef IRFILES_H added.
+
+	* ir/sersrch.c: search_word updated.
+
+	* ir/boolean_op.c: new term weighting.
+
+	* ir/ircfiles.c: fields_header_function updated.
+
+	* ir/field_y.y: some changes.
+
+	* ir/field_l.l: '\n' '\J' added.
+
+	* ir/irsearch.c: relevance feedback updated for fields.
+
+Wed May 18 17:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: new term weighting higher retrieval quality.
+
+Wed May 18 16:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irsearch.c ir/irsearch.c: patchlevel 09
+
+Wed May 11 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* Defaults.tmpl.top: Initial revision
+
+Wed May  4 13:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: new term_weighting1
+
+	* ir/sersrch.c: new term weighting 1
+
+	* ir/sersrch.c: new term_weighting.
+
+Mon May  2 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/byte_order.h: renamed BIG_ENDIAN to BIGENDIAN
+
+	* ir/waisindex.c: fixed quotation of '%' in format strings
+
+Mon May  2 13:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: -stem option.
+
+Fri Apr 29 23:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* lib/alphasort.c lib/scandir.c: Initial revision
+
+	* ir/ir.c: Fixed getwd insted of getcwd ifdef'ed alphasort for gcc
+	  2.4.3
+
+	* ir/ustubs.c: ifdef'ed memmove/remove	for gcc 2.4.3 ,
+
+	* FIELD-EXAMPLE/Imakefile FIELD-EXAMPLE/Makefile.in: Merged tests
+
+Fri Apr 29 22:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/Makefile.in: Initial revision
+
+	* FIELD-EXAMPLE/Imakefile: Sicherung vor "Vereinigung der Tests"
+
+Fri Apr 29 19:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y: make_index_fields: initialize allocated storage
+	  (Huynh relies on  it :-()
+
+Fri Apr 29 19:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_y.y: Uli: initialisierung des Speichers in 
+	  make_index_fields
+
+Thu Apr 28 16:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/sersrch.c: stemming
+
+Tue Apr 26 16:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: -stop option added. patchlevel 09.
+
+	* ir/stoplist.c: function init_stop_list() and next_stop_word()
+	  changed. patchlevel 09
+
+Wed Apr 13 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.l: fixed quoting in regexp: \A -> C-A \$ -> $
+
+Wed Apr 13 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* configure.in: Initial revision
+
+Tue Apr 12 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* README: 08
+
+Wed Apr  6 23:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile ir/boolean_op.c ir/ir.c ir/irinv.c ir/query_y.y
+	  ir/soundex.c: 08
+
+	* Install.tmpl.in ui/Imakefile ui/waissearch.c: 08, autoconf
+
+	* lib/Imakefile: TAB/BLANK
+
+Wed Apr  6 23:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c ir/field_index.h ir/field_l.l ir/field_search.c
+	  ir/field_y.y ir/irfiles.h ir/irsearch.c ir/irtfiles.c
+	  ir/sersrch.c ir/stoplist.c ir/waisindex.c: 08, autoconf, Uli
+
+	* README: stemming, Uli
+
+Wed Apr  6 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* Install.tmpl.in: Initial revision
+
+Tue Apr  5 14:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.h: stemming component added.
+
+Tue Apr  5 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_y.y: fixed #include alloca.h and made bison compatible
+
+Wed Mar 30 13:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: test
+
+	* ir/waisindex.c: no change
+
+	* ir/waisindex.c: -stop option added.
+
+Wed Mar 30 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* README: 07
+
+Mon Mar 28 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.l: fixed quoting in regexps
+
+Mon Mar 28 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ircfiles.c ir/ircfiles.h ir/waisindex.c: Integrated Essence
+
+Fri Mar 25 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* README: 07
+
+Fri Mar 25 11:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irfiles.c: fix bugs in partial search corrected. faster
+	  numeric search. Patchlevel 07.
+
+Fri Mar 25 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/AsciiSrcSearch.c x/Viewport.c x/myAsciiSrc.c x/qcommands.c: now
+	  will try to make 8-bit chars work
+
+Thu Mar 24 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.l: fixed escape code, added escapes for control
+	  characters
+
+Wed Mar 23 18:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile: added rule for libftw.a
+
+	* README: Notes on patch level 07
+
+	* ir/Imakefile: support for liblocal.a Fix lex yacc pseudo loop
+
+Wed Mar 23 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/Imakefile: better support for LOCAL_SEARCH
+
+	* x/Imakefile: better support for -DLOCAL_SEARCH
+
+	* ir/Imakefile ir/cutil.c ir/field_l.l ir/irsearch.c ir/soundex.c
+	  ir/stemmer.c ir/trie.c: fixed iso code
+
+Wed Mar 23 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ircfiles.c ir/irtfiles.c: removed the include iso.h
+
+	* ir/soundex.c: Initial revision
+
+	* ir/sersrch.c: removed include iso.h
+
+	* ir/field_search.c: Removed the include iso.h directive
+
+Wed Mar 23 13:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.h: no change.
+
+	* ir/field_search.c ir/field_search.h:
+	  open_field_streams_for_search modified. patchlevel 07.
+
+	* ir/field_index.c: new version for regexp. open_global_Database
+	  added. patchlevel 07.
+
+Wed Mar 23 12:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: calling of init_add_word modified. patchlevel 07.
+
+	* ir/irfiles.c ir/irfiles.h: openDatabase modified. patchlevel 07.
+
+	* ir/irext.h ir/irinv.c: init_add_word modified. patchlevel 07.
+
+	* ir/waisserver.c: calling of openDatabase and init_add_word
+	  modified. patchlevel 07.
+
+	* ir/irsearch.c: calling openDatabase modified. insert
+	  open_global_Database. patchlevel 07.
+
+Wed Mar 23 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_l.l: Added flex support
+
+Wed Mar 23 08:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/iso.h: Very slow!
+
+Tue Mar 22 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/Imakefile: works
+
+Mon Mar 21 17:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile: LEX Rules for poor installed make
+
+	* ir/query_y.y: fixed test_query
+
+Mon Mar 21 17:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ir.c: openDatabase modified. Patchlevel 07.
+
+	* ir/analyse_str.h ir/field.h ir/field_index.c ir/field_y.y
+	  ir/waisserver.c: patchlevel 07.
+
+	* ir/query_y.y: patchlevel 07
+
+Mon Mar 21 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c: SYSVREGEXP
+
+Mon Mar 21 16:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c ir/field_index.h: patchlevel 07
+
+Thu Mar 17 13:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile ir/field_index.c ir/irtfiles.c ir/query_y.y:
+	  patchlevel 06
+
+Thu Mar 17 13:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: index headlines. Patchlevel 06.
+
+Wed Mar 16 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.c: fixed bug in cleanHeadline
+
+Fri Mar 11 15:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/ircfiles.c: bug fix corrected. Patchlevel 05.
+
+	* ir/field_index.c: fix bug corrected. Patchlevel 05.
+
+	* ir/waisserver.c: write_src_structure modified. Patchlevel 05.
+
+	* ir/irtfiles.c: not index headlines. Patchlevel 05.
+
+Fri Mar 11 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* x/Imakefile: New installation. Compiles now with the
+	  -DLOCAL_SEARCH switch
+
+	* ui/waissearch.c: some fixes ?
+
+	* ir/Imakefile ui/Imakefile: Real Imakefile
+
+	* ir/query_y.y: fixed test_query
+
+	* FIELD-EXAMPLE/Imakefile: Added tests
+
+	* x/Xwais.raw: Changed for installation with imake
+
+	* README: Added Notes on patch level 05:
+
+Thu Mar 10 17:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* x/XwaisqHELP: descriptions for field, boolean, partial, literal
+	  search.
+
+	* ir/irfiles.c ir/irfiles.h ir/irtfiles.c ir/waisindex.c:
+	  Patchlevel 05
+
+Thu Mar 10 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* FIELD-EXAMPLE/Imakefile: Initial revision
+
+Thu Mar 10 15:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_l.l: added support for backslash escaped '/'.
+
+	* ir/query_l.l: Support for literal searches
+
+Wed Mar  9 09:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/Imakefile ui/fix-gmacs.sh: Initial revision
+
+Wed Mar  9 07:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* lib/Imakefile: Initial revision
+
+Tue Mar  8 21:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/README_FIELDS ir/analyse_str.c ir/field.h ir/field_l.l
+	  ir/field_search.h: Initial revision
+
+	* ir/analyse_str.h ir/boolean_op.c ir/boolean_op.h ir/ircfiles.h
+	  ir/irdirent.h ir/irfileio.c ir/irfileio.h ir/irkeywords.c
+	  ir/irlex.h ir/irretrvl.c ir/irretrvl.h ir/irsearch.h
+	  ir/irverify.c ir/irverify.h ir/iso.c ir/iso.h ir/iubuild.c
+	  ir/list.c ir/list.h ir/lock.c ir/lock.h ir/macbuild.c ir/macver.c
+	  ir/panic.c ir/panic.h ir/server-single.c ir/server.h ir/sighash.c
+	  ir/sighash.h ir/sigindex.h ir/sigsrch.c ir/sigsrch.h ir/sockets.c
+	  ir/sockets.h ir/stem.h ir/stemmer.c ir/stemmer.h ir/stoplist.c
+	  ir/stoplist.h ir/synonym.c ir/synonym.h ir/syslog.c ir/syslog.h
+	  ir/transprt.c ir/transprt.h ir/trie.c ir/trie.h ir/ui-local.c
+	  ir/ui.c ir/ui.h ir/ustubs.c ir/ustubs.h ir/version.h
+	  ir/waisserver.c ir/wmessage.c ir/wmessage.h ir/wprot.c ir/wprot.h
+	  ir/wutil.c ir/wutil.h ir/zprot.c ir/zprot.h ir/ztype1.c
+	  ir/ztype1.h ir/zutil.c ir/zutil.h: Patchlevel 04
+
+Tue Mar  8 20:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/Imakefile: Initial revision
+
+	* ir/README ir/byte_order.h ir/cdialect.h ir/cutil.c ir/cutil.h
+	  ir/docid.c ir/docid.h ir/field_index.c ir/field_index.h
+	  ir/futil.c ir/futil.h ir/hash.c ir/hash.h ir/ir.c ir/ir.h
+	  ir/ircfiles.c ir/irsparse.c ir/irsparse.h: Patchlevel 04
+
+Tue Mar  8 20:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irext.h ir/irfiles.c ir/irfiles.h ir/irhash.c ir/irhash.h
+	  ir/irinv.c ir/irsearch.c ir/irtfiles.c ir/irtfiles.h ir/query_l.l
+	  ir/query_y.y ir/sersrch.c ir/waisindex.c: Patchlevel 04
+
+Tue Mar  8 16:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/field_index.c ir/field_index.h ir/field_search.c
+	  ir/field_stat.h ir/field_y.y: Initial revision
+
+Tue Mar  8 12:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* README: Initial revision
+
+Sun Feb 27 15:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/query_l.l ir/query_y.y: Initial revision
+
+Fri Feb 25 10:00:00 1994 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ui/waissearch.c: Initial revision
+
+Tue Feb 15 10:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/waisindex.c: option -nfields added.
+
+Mon Feb 14 10:00:00 1994 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.h: prev_indextype in struct dataopsrec added.
+
+	* ir/irfiles.c: functions for field concept added, fix bug in
+	  parttial search corrected.
+
+	* ir/waisindex.c: option -fields field_description_file added.
+
+	* ir/irinv.h: field_flush_memory_hashtable_to_disk added.
+
+	* ir/hash.c ir/hash.h ir/irhash.c ir/irhash.h ir/irinv.c
+	  ir/irsearch.c ir/irtfiles.c ir/sersrch.c: new code for field
+	  concept added.
+
+	* ir/irfiles.h: new struct for field concept added.
+
+	* ir/ircfiles.c: layout_length added.
+
+Sun Oct 17 15:00:00 1993 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irtfiles.h: char *indextype (soundex, phonix) in struct
+	  dataopsrec added!
+
+	* ir/sersrch.c: new code added for nested boolean queries.
+
+	* ir/irtfiles.c ir/waisindex.c: soundex, phonix code added!
+
+	* ir/irsearch.c: new code added for soundex, phonix retrieval and
+	  nested boolean queries.
+
+Sat Oct 16 16:00:00 1993 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/irsearch.c ir/sersrch.c: 1. Test-Version
+
+Wed Sep 22 16:00:00 1993 Ulrich Pfeifer <pfeifer@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: Fixed word breaking for german ISO Umlaute and sz
+
+Fri Aug 27 17:00:00 1993 warnock 
+
+	* ir/version.h: Changed version number to 0.2
+
+Fri Jul 23 02:00:00 1993 warnock 
+
+	* ir/irtfiles.c: corrected arguments in call to map_over_words in
+	  finish_document
+
+	* ir/ir.c: eliminated extra argument in call to probe_file in
+	  server_security
+
+Wed Jul 21 18:00:00 1993 warnock 
+
+	* ir/sersrch.c: Added STELAR-secific patches
+
+	* ir/irsearch.c: Added STELAR-specific patches
+
+	* ir/ircfiles.h: added functions for indexing listserv archives and
+	  STELAR-specific stuff
+
+	* ir/ircfiles.c: Added new functions to handle listserv logs and
+	  STELAR-specific types
+
+	* ir/waisindex.c: Renamed from irbuild.c Added STELAR-specific
+	  patches
+
+	* ir/waisserver.c: Renamed from server.c. Added STELAR-specific
+	  patches
+
+Mon Jul 19 17:00:00 1993 warnock 
+
+	* ir/irtfiles.c ir/sersrch.c: fixed problem with multiple documents
+	  in single file, from isaacs@hpcc05.corp.hp.com
+
+Mon Jul 19 16:00:00 1993 warnock 
+
+	* x/cat.h x/catalog.c x/qcommands.c: Added catalog patches from
+	  Wayne Allen
+
+	* ir/ircfiles.c ir/ircfiles.h ir/irtfiles.c: Added document type
+	  URL from Nathan.Torkington@vuw.ac.nz
+
+Fri Jul 16 12:00:00 1993 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.h: #ifdef BOOLEANS	/* HQTT, 12.7.93 */ char
+	  *generate_newline_for_boolean _AP((char* line)); #endif
+	  
+	  deleted!
+
+	* ir/cutil.h: not change!
+
+	* ir/cutil.c: Function generate_newline_for_boolean deleted!
+
+Wed Jul 14 09:00:00 1993 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: keine "Anderung!
+
+Wed Jul 14 07:00:00 1993 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: "Anderung in der Funktion
+	  generate_newline_for_boolean: Variable umbenannt: brackets =
+	  parentheses!
+
+Tue Jul 13 19:00:00 1993 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: printf(".....") gel"oscht!
+
+Tue Jul 13 18:00:00 1993 Huynh Quoc T. Tung <huynh1@ls6.informatik.uni-dortmund.de> 
+
+	* ir/cutil.c: funktion generate_newline_for_boolean eingef"ugt!
+
+	* ir/cutil.c: Keine "Anderung!
+
+	* ir/cutil.h: char *generate_newline_for_boolean _AP((char* line));
+	  eingef"ugt!
+
+Fri Jul  2 19:00:00 1993 warnock 
+
+	* x/qcommands.c: fixed Boolean capabilities to match server from
+	  fty@bizarre.rtpnc.epa.gov
+
+	* ui/shell-ui.c ui/source.c: fix call to getdomainname from
+	  mike@tab00.larc.nasa.gov
+
+Fri Jul  2 18:00:00 1993 warnock 
+
+	* x/qcommands.c: call to PrintStatusW with correct number of args
+
+	* ir/irretrvl.c: drop-in replacement for getData and
+	  getDocumentText from francois added gopher patches again
+
+	* x/filereq.c: call to DoSave with correct number of args
+
+	* ir/sersrch.c x/myAsciiSink.c: included ctype.h
+
+	* ir/irsearch.c: replace handle_next_and_previous for multi-type
+	  from francois
+
+Fri Jul  2 17:00:00 1993 warnock 
+
+	* ir/sersrch.c: change to search_word to handle compressed files
+	  from francois
+
+	* ir/ir.c: drop-in replacement for handleElementRetrieval from
+	  francois
+
+Thu Jul  1 20:00:00 1993 warnock 
+
+	* ir/ir.c: Drop-in replacement for server_security routine
+
+Thu Jul  1 19:00:00 1993 warnock 
+
+	* ir/waisindex.c: Added prototype for function double
+
+	* ir/sockets.c ir/sockets.h: Fix for gethostname from francois and
+	  jonathan
+
+	* ir/irfiles.c: explicit declaration of gSavepart in savePartMatch
+
+	* ir/ir.h: 
+
+	* ir/ir.c: Fix from tovio@sage.ucs.uwa.edu.au when database name
+	  array was empty This is Francois' drop-in replacement for ir.c
+
+	* ir/futil.c ir/ir.c ir/irfiles.c ir/waisserver.c ui/shell-ui.c
+	  ui/source.c: gethostname -> mygethostname
+
+Thu Jul  1 18:00:00 1993 warnock 
+
+	* x/myAsciiSrc.c: Fixed declaration in MyAsciiSaveAsFile for
+	  SGI/X11R4
+
+	* x/myAsciiSrc.h: Fixed problem on SGI's under X11R4
+
+	* x/myAsciiSrcP.h: Fixed problem on SGIs under X11R4
+
+Wed Jun 23 20:00:00 1993 warnock 
+
+	* ui/Retrieval.h ui/document.c ui/document.h ui/globals.h
+	  ui/lisp-ui.c ui/list.h ui/messages.h ui/question.c ui/question.h
+	  ui/screen-ui.c ui/shell-ui.c ui/source.c ui/source.h ui/status.h
+	  ui/util.c ui/util.h ui/wais-ui.c ui/wais-ui.h ui/wais.h
+	  ui/waisq.c: Initial revision
+
+	* ui/source.c: Removed FORWARDER_SERVER pointer to Francois
+
+Wed Jun 23 19:00:00 1993 warnock 
+
+	* ir/irretrvl.c: Added Francois' fixes for gopher in getData and
+	  getDocumentText
+
+	* ir/irkeywords.c: Fix from tovio@sage.ucs.uwa.edu.au for empty
+	  keywords array
+
+Tue Jun 22 19:00:00 1993 warnock 
+
+	* ir/stem.h: Initial revision
+
+Tue Feb 16 21:00:00 1993 freewais 
+
+	* ir/sersrch.c: partial changes for improved boolean support
+
+Tue Feb 16 20:00:00 1993 freewais 
+
+	* ir/irsparse.c ir/irsparse.h: Initial revision
+
+Tue Feb 16 17:00:00 1993 freewais 
+
+	* ir/synonym.c: removed s_fclose
+
+	* x/Makefile.stub: Initial revision
+
+	* ir/irfiles.c ir/irkeywords.c ir/waisindex.c: added AT&T patches
+	  for keyword list
+
+	* x/makex.sh: added cp - Makefile.stub Makefile
+
+Tue Feb 16 15:00:00 1993 freewais 
+
+	* ir/DESIGN ir/README ir/byte_order.h ir/cdialect.h ir/cutil.h
+	  ir/docid.c ir/docid.h ir/futil.c ir/futil.h ir/hash.c ir/hash.h
+	  ir/ir.c ir/ir.h ir/ircfiles.c ir/ircfiles.h ir/irdirent.h
+	  ir/irext.h ir/irfileio.c ir/irfileio.h ir/irfiles.c ir/irfiles.h
+	  ir/irhash.c ir/irhash.h ir/irinv.c ir/irinv.h ir/irkeywords.c
+	  ir/irlex.h ir/irretrvl.c ir/irretrvl.h ir/irsearch.c
+	  ir/irsearch.h ir/irtfiles.c ir/irtfiles.h ir/irverify.c
+	  ir/irverify.h ir/iubuild.c ir/list.c ir/list.h ir/lock.c
+	  ir/lock.h ir/macbuild.c ir/macver.c ir/panic.c ir/panic.h
+	  ir/prototypes.h ir/sersrch.c ir/server-single.c ir/server.h
+	  ir/sighash.c ir/sighash.h ir/sigindex.h ir/sigsrch.c ir/sigsrch.h
+	  ir/sockets.c ir/sockets.h ir/stemmer.c ir/stemmer.h ir/stoplist.c
+	  ir/stoplist.h ir/synonym.c ir/synonym.h ir/syslog.c ir/syslog.h
+	  ir/transprt.c ir/transprt.h ir/trie.c ir/trie.h ir/ui-local.c
+	  ir/ui.c ir/ui.h ir/ustubs.c ir/ustubs.h ir/version.h
+	  ir/waisindex.c ir/waisserver.c ir/wmessage.c ir/wmessage.h
+	  ir/wprot.c ir/wprot.h ir/wutil.c ir/wutil.h ir/zprot.c ir/zprot.h
+	  ir/ztype1.c ir/ztype1.h ir/zutil.c ir/zutil.h x/AsciiSrcSearch.c
+	  x/Imakefile x/My-Makefile x/MyList.c x/MyList.h x/MyListP.h
+	  x/README x/Retrieval.h x/Viewport.c x/Xwais.raw x/XwaisHELP
+	  x/XwaisqHELP x/cat.h x/catalog.c x/cursor.h x/dirname x/display.c
+	  x/display.h x/filereq.c x/filereq.h x/fixResources.sh x/list.h
+	  x/makex.sh x/myAsciiSink.c x/myAsciiSink.h x/myAsciiSinkP.h
+	  x/myAsciiSrc.c x/myAsciiSrc.h x/myAsciiSrcP.h x/qcommands.c
+	  x/qcommands.h x/qdisplay.c x/qdisplay.h x/scommands.c
+	  x/scommands.h x/scrolllist.h x/tcommands.c x/tcommands.h x/text.c
+	  x/text.h x/util.c x/util.h x/xquestion.h x/xstuff.h x/xwais.bit
+	  x/xwais.c x/xwais.h x/xwaisq.bit x/xwaisq.c x/xwaist.bit: Initial
+	  revision
+
+	* ir/irfiles.c: changed directory of servers registration to
+	  cnidr.org
+
+	* ir/waisindex.c: added AT&T patch to write first 50 dictionary
+	  entries to src file
+
+Tue Feb 16 14:00:00 1993 freewais 
+
+	* ir/cutil.c: include stdargs.h or varargs.h based on whether
+	  compiler is ansi or non-ansi
+
+	* ir/cutil.c: Initial revision
+

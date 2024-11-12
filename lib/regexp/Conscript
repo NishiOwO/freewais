@@ -1,0 +1,42 @@
+#                              -*- Mode: Perl -*- 
+# Conscript -- 
+# ITIID           : $ITI$ $Header $__Header$
+# Author          : Ulrich Pfeifer
+# Created On      : Fri Jul 26 16:00:33 1996
+# Last Modified By: Ulrich Pfeifer
+# Last Modified On: Mon Aug  5 22:27:23 1996
+# Language        : CPerl
+# Update Count    : 44
+# Status          : Unknown, Use with caution!
+# 
+# (C) Copyright 1996, Universität Dortmund, all rights reserved.
+# 
+# $$
+# $Log: Conscript,v $
+# Revision 2.2  1997/02/04 17:14:05  pfeifer
+# Switched to CVS
+#
+# Revision 2.0.1.1  1996/12/27 16:25:18  pfeifer
+# patch69: Auxiliary cons(1) script.
+#
+# Revision 1.1  1996/08/07 05:49:53  pfeifer
+# Vor unified version
+#
+# Revision 1.2  1996/07/26 15:47:42  pfeifer
+# *** empty log message ***
+#
+# Revision 1.1  1996/07/26 15:35:21  pfeifer
+# Initial revision
+#
+# 
+
+Import qw(LINK TEST LIB MAN3);
+
+Library $LINK $LIB, qw(regexp.c regerror.c regsub.c);
+
+Program $LINK "$TEST/try", 'try.c';
+
+# The following should be easier. Maybe Install should take files
+# as first argument too?
+Command $LINK qw(regexp.3 regexp.man), "ln %< %>";
+Install $LINK $MAN3, 'regexp.3';

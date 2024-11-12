@@ -1,0 +1,50 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.18 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Tue Mar  8 13:39:44 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Tue May 13 13:17:06 1997
+;## Language        : Makefile
+;## Update Count    : 191
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+>CC
+Initialize(CFLAGS,$ccflags $optimize $mccflags $embed_cflags)
+Initialize(LDFLAGS, -L$(TOP)/lib -lwais $socketlib -lm $embed_ldopts) 
+
+YFLAGS = -d -l
+
+SRCS = \
+any_stemmer.c grundform.c syslog.c ircfiles.c irfileio.c irfiles.c        \
+irtfiles.c irkeywords.c html_entities.c stemmer.c sockets.c transprt.c    \
+wmessage.c wprot.c wutil.c zprot.c zutil.c ztype1.c soundex.c docid.c     \
+list.c lock.c udping.c ir.c irretrvl.c stoplist.c irsearch.c synonym.c    \
+trie.c field_index.c field_search.c ui.c sersrch.c irhash.c hash.c        \
+irinv.c weight.c boolean_op.c field_l.c field_y.c query_y.c query_l.c     
+
+OBJS = \
+any_stemmer.o grundform.o syslog.o ircfiles.o irfileio.o irfiles.o        \
+irtfiles.o irkeywords.o html_entities.o stemmer.o sockets.o transprt.o    \
+wmessage.o wprot.o wutil.o zprot.o zutil.o ztype1.o soundex.o docid.o     \
+list.o lock.o udping.o ir.o irretrvl.o stoplist.o irsearch.o synonym.o    \
+trie.o field_index.o field_search.o ui.o sersrch.o irhash.o hash.o        \
+irinv.o weight.o boolean_op.o field_l.o field_y.o query_y.o query_l.o     
+
+
+all:: $(OBJS)
+
+IdentifiedLexDependTarget(server,query_l,query_y,query)
+IdentifiedYaccTarget(server,query_y,query)
+IdentifiedLexDependTarget(indexer,field_l,field_y,field)
+IdentifiedYaccTarget(indexer,field_y,field)
+DependTarget()
+
+test:: test_query
+
+test_query: query_y.c
+	$(CC) -o $@ query_y.c -DTEST_QUERY $(CFLAGS) $(LDFLAGS)
+

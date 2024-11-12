@@ -1,0 +1,33 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.8 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Tue Mar  8 14:40:27 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Wed May  7 21:03:31 1997
+;## Language        : Makefile
+;## Update Count    : 184
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+
+Initialize(TESTDIR,$testdir)
+
+SUBDIRS = lib server indexer ui bin doc/original-TM-wais/manl $(TESTDIR)
+
+all::		/* So that default target is not clobber! */
+
+SetSubdirs($(SUBDIRS))
+DependDirs($(SUBDIRS))
+MakeMakeSubdirs(test)
+AddedByConfigure(install mkdep)
+
+Initialize(AWK,$awk)
+TAGS:	MANIFEST
+	etags --defines `$(AWK) '{print $$1}' MANIFEST | grep -v '_[ly].c$$' | grep -v '\.dvi$$' | grep -v '\.ps$$' `
+
+local_clean::
+	$(RM) TAGS
+

@@ -1,0 +1,72 @@
+#!/app/unido-i06/magic/perl
+#                              -*- Mode: Perl -*- 
+# Conscript -- 
+# ITIID           : $ITI$ $Header $__Header$
+# Author          : Ulrich Pfeifer
+# Created On      : Sat Dec 28 08:34:39 1996
+# Last Modified By: Ulrich Pfeifer
+# Last Modified On: Sat Feb  8 12:03:53 1997
+# Language        : N/A
+# Update Count    : 45
+# Status          : Unknown, Use with caution!
+# 
+# (C) Copyright 1996, Universität Dortmund, all rights reserved.
+# 
+# $$
+# $Log: Conscript,v $
+# Revision 2.2  1997/02/08 11:17:42  pfeifer
+# Compiled on linux
+#
+# Revision 2.1  1997/02/08 10:59:33  pfeifer
+#  added cons files
+#
+# 
+
+Import qw(LINK BIN SCRIPT LIBDIR ARCH);
+
+@TSRC = qw(display.c  scommands.c tcommands.c);
+
+@QSRC = qw(text.c qdisplay.c qcommands.c filereq.c scommands.c
+           catalog.c myAsciiSink.c myAsciiSrc.c #ui/question.c
+           #ui/wais-ui.c #ui/document.c);
+@CSRC = qw(MyList.c  util.c  Viewport.c #ui/source.c); 
+
+if (-d '/usr/local/X11R6') {
+  $XROOT   = '/usr/local/X11R6';
+  $LIBS    = ' -lXaw -lXt -lSM -lICE -lXmu -lXext -lX11';
+  @CSRC = grep $_ !~ /Viewport.c/, @CSRC;
+} elsif (-d '/usr/openwin') {
+  $XROOT   = '/usr/openwin';
+  $LIBS    = ' -lXaw -lXmu -lXt -lX11';
+} elsif (-d '/usr/X11R6') {
+  $XROOT   = '/usr/X11R6';
+  $LIBS    = ' -lXaw -lXt -lSM -lICE -lXmu -lXext -lX11';
+}
+
+if ($^O eq 'solaris') {
+  $LDFLAGS = " -R$XROOT/lib";
+}
+
+$CONS = $LINK->clone(CFLAGS  => "-Iui -Iir -I$XROOT/include " . $LINK->{CFLAGS},
+                     LDFLAGS => $LINK->{LDFLAGS} .= " -L$XROOT/lib$LDFLAGS",
+                     LIBS    => $LINK->{LIBS}    .= $LIBS,
+                    );
+($NLIBDIR = $LIBDIR) =~ s:/$ARCH::;
+Program $CONS 'xwais',  @TSRC, @CSRC, 'xwais.c';
+Program $CONS 'xwaisq', @QSRC, @CSRC, 'xwaisq.c';
+Command $CONS 'Xwais', 'Xwais.raw',
+           grep s/\n//g, qq[
+             sed
+             -e 's:BINDIR:$SCRIPT:g'
+             -e 's:INSTALLROOT/bin:$BIN:g'
+             -e 's:INSTALLROOT/lib:$LIBDIR:g'
+             -e 's:INSTALLROOT/wais-sources:$NLIBDIR/wais-sources:g'
+             -e 's:XCOMM :#:'
+             %< > %>
+            ];
+Install $CONS $BIN, qw(xwais xwaisq);
+Install $CONS "$LIBDIR/X11/app-defaults", 'Xwais';
+Install $CONS $LIBDIR, qw(XwaisHELP XwaisqHELP);
+
+
+

@@ -1,0 +1,39 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.5 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Mon Mar 21 15:19:18 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Wed May  7 20:59:15 1997
+;## Language        : Makefile
+;## Update Count    : 44
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+
+Initialize(CFLAGS, $ccflags $optimize -I. $mccflags)
+Initialize(LDFLAGS, -L$(TOP)/lib -lwais)
+
+SRCS = regexp.c regerror.c regsub.c
+OBJS = regexp.o regerror.o regsub.o
+
++MAN3DIR = $man3dir
++L = $man3ext
+
+all:: $(OBJS)
+
+DependTarget()
+
+
+#define all test
+
+NormalProgramTarget(try,try.c,try.o)
+
+InstallManPage(regexp,$(MAN3DIR))
+
+test:: try tests
+	@echo 'No news is good news...'
+	./try <tests
+

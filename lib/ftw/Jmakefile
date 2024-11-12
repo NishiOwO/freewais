@@ -1,0 +1,47 @@
+;############################ -*- Mode: Makefile -*- ###########################
+;## $Basename: Jmakefile $
+;## $Revision: 1.10 $
+;## Author          : Ulrich Pfeifer
+;## Created On      : Tue Mar  8 14:46:34 1994
+;## Last Modified By: Ulrich Pfeifer
+;## Last Modified On: Tue May 13 18:07:20 1997
+;## Language        : Makefile
+;## Update Count    : 91
+;## Status          : Unknown, Use with caution!
+;## 
+;## (C) Copyright 1997, Ulrich Pfeifer, all rights reserved.
+;## 
+;###############################################################################
+
+Initialize(CFLAGS,$ccflags $optimize -I. $mccflags)
+Initialize(LDFLAGS, -L$(TOP)/lib -lwais)
+Initialize(DPFLAGS,-I$(TOP)/lib/ir $mccflags $embed_cflags)
+
+OBJS = alphasort.o alloca.o freedir.o ftw.o scandir.o
+SRCS = alphasort.c alloca.c freedir.c ftw.c scandir.c 
+
++MAN3DIR = $man3dir
++L = $man3ext
+
+all:: $(OBJS)
+
+DependTarget()
+
+#define all test
+
+NormalProgramTarget(trunc,trunc.c,trunc.o)
+NormalProgramTarget(stringtoany,stringtoany.c,stringtoany.o)
+NormalProgramTarget(ftwtest,ftwtest.c,ftwtest.o)
+NormalProgramTarget(scantest,scantest.c,scantest.o)
+
+InstallManPage(ftw,$(MAN3DIR))
+InstallManPage(scandir,$(MAN3DIR))
+
+test:: ftwtest scantest
+	@echo ftwtest
+	./ftwtest /tmp
+	@echo scantest
+	./scantest /tmp
+
+
+

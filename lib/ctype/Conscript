@@ -1,0 +1,51 @@
+#                              -*- Mode: Perl -*- 
+# Conscript -- 
+# ITIID           : $ITI$ $Header $__Header$
+# Author          : Ulrich Pfeifer
+# Created On      : Fri Jul 26 16:00:33 1996
+# Last Modified By: Ulrich Pfeifer
+# Last Modified On: Fri Nov 22 22:59:12 1996
+# Language        : CPerl
+# Update Count    : 80
+# Status          : Unknown, Use with caution!
+# 
+# (C) Copyright 1996, Universität Dortmund, all rights reserved.
+# 
+# $$
+# $Log: Conscript,v $
+# Revision 2.2  1997/02/04 17:11:28  pfeifer
+# Switched to CVS
+#
+# Revision 2.0.1.1  1996/12/27 15:57:01  pfeifer
+# patch69: Auxiliary cons(1) script.
+#
+# Revision 1.1  1996/08/07 05:49:53  pfeifer
+# Vor unified version
+#
+# Revision 1.1  1996/07/26 15:47:42  pfeifer
+# Initial revision
+#
+# 
+
+Import qw(CONS LINK LIB TEST METACONF);
+
+Library $LINK $LIB, 'ctype.c';
+Program $CONS 'mkctype', 'mkctype.c';
+
+if ($METACONF) {
+  Command $CONS 'ctype.c', 'mkctype', 'ctype.tmpl',
+  "%1 > %>; cat %2 >> %>";
+
+  Program $LINK "$TEST/ctest", 'ctest.c';
+} else {
+  Program $CONS 'mkctype1', 'mkctype1.c';
+
+  Command $CONS 'ctype.c', 'mkctype', 'mkctype1', 'ctype.tmpl',
+  "%1 > %>; %2 >> %>; cat %3 >> %>";
+
+  Command $CONS 'ctest1.c', 'ctest.c',
+  qq[sed -e 's:include \"../config.h\":include <ctype.h>:' %< > %>];
+
+  Program $LINK "$TEST/ctest", 'ctest1.c';
+}
+
