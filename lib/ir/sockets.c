@@ -297,7 +297,7 @@ fd_connect_to_server (hname, port, fd)
     hints.ai_family = AF_INET;
     hints.ai_socktype = SOCK_DGRAM;
     hints.ai_flags = 0;
-    hints.ai_protocol = 0;
+    hints.ai_protocol = IPPROTO_TCP;
     sprintf(str, "%ld", port);
     if(getaddrinfo(hname, str, &hints, &result) != 0){
       return FALSE;
