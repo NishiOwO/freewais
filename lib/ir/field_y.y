@@ -26,7 +26,7 @@ extern FILE* yyin;
 extern int yylineno;
 extern char yytext[];
 #ifdef YYBISON
-extern int yydebug;
+int yydebug;
 #else /* not YYBISON */
 extern int yydebug;
 #endif /* not YYBISON */
@@ -497,7 +497,7 @@ fieldlist       :
 extern FILE* yyin;
 extern int yylineno;
 extern char yytext[];
-extern int yydebug;
+int yydebug;
 
 
 yyerror (s)
