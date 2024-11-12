@@ -22,7 +22,6 @@
 #include "field.h"
 
 #define MAX_REGEXP 100
-#define YYSTYPE yystype
 extern FILE* yyin;
 extern int yylineno;
 extern char yytext[];
